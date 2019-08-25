@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>天猫商城 - 购物车</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../css/init.css" rel="stylesheet"/>
+    <link href="../css/shoppingTrolley.css" rel="stylesheet"/>
+    <script type="text/javascript" src="../js/jQuery_v1.12.4_min.js"></script>
+    <script type="text/javascript" src="../js/jQuery-cookie.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/shoppingTrolley.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="../js/nav-top.js"></script>
+<script type="text/javascript" src="../js/smallSearch.js"></script>
+<div class="content" onselectstart="return false">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="check_all_icon">
+                <span></span>
+            </div>
+            <span class="check_all">全选</span>
+            <span class="product_msg">商品信息</span>
+            <span class="product_price">单价</span>
+            <span class="product_number">数量</span>
+            <span class="product_total">金额</span>
+            <span class="product_delete">操作</span>
+
+        </div>
+        <div class="panel-body items_content">
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading account">
+            <div class="account_font">
+                <span>已选商品</span>
+                <span id="select_number">0</span>
+                <span>件</span>
+                <span>￥</span>
+                <span id="all_total">0</span>
+            </div>
+            <button type="button" class="btn btn-danger" id="submit" data-toggle="tooltip" data-placement="top" title="请选择一件商品">提交订单</button>
+        </div>
+    </div>
+</div>
+
+<!-- 信息删除确认 -->
+<div class="modal fade" id="delcfmModel">
+    <div class="modal-dialog">
+        <div class="modal-content message_align">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title">提示信息</h4>
+            </div>
+            <div class="modal-body">
+                <p>您确认要删除吗？</p>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" id="url"/>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <a id="deleteItem" class="btn btn-danger" data-dismiss="modal">确定</a>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script type="text/javascript" src="../js/nav-floor.js"></script>
+</body>
+</html>

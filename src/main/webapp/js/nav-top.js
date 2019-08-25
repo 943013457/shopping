@@ -1,0 +1,17 @@
+document.writeln("<!DOCTYPE html>");
+document.writeln("<html lang=\'en\'>");
+document.writeln("<head>");
+document.writeln("    <link href=\'../css/nav-top.css\' rel=\'stylesheet\'/>");
+document.writeln("    <script type=\'text/javascript\' src=\'../js/getUser.js\'></script>");
+document.writeln("</head>");
+document.writeln("");
+document.writeln("<body>");
+document.writeln("<div class=\'nav-top\'>");
+document.writeln("    <span class=\'top-welcome\'></span>");
+document.writeln("    <span id=\'pull-right\'>");
+document.writeln("            <a class=\'top-text\' href=\'/myorder\'>我的订单</a>");
+document.writeln("            <a class=\'top-text\' href=\'/shoppingTrolley\'>购物车</a>");
+document.writeln("        </span>");
+document.writeln("</div>");
+document.writeln("</body>");
+document.writeln("</html>");

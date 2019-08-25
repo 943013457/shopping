@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品详情</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../css/init.css" rel="stylesheet"/>
+    <link href="../css/items.css" rel="stylesheet"/>
+    <script type="text/javascript" src="../js/jQuery_v1.12.4_min.js"></script>
+    <script type="text/javascript" src="../js/jQuery-cookie.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/items.js"></script>
+
+</head>
+<body>
+<script type="text/javascript" src="../js/nav-top.js"></script>
+<script type="text/javascript" src="../js/smallSearch.js"></script>
+
+<div class="title_image">
+    <img id="title_img" src="">
+</div>
+<div class="product_content">
+    <div class="small_img">
+        <div class="img-thumbnail select_img">
+            <img id="small_img_select" src="">
+        </div>
+        <div class="row">
+        </div>
+    </div>
+    <div class="product_title">
+        <p class="title"></p>
+        <p class="subtitle"></p>
+    </div>
+    <div class="product_price">
+        <div>
+            <span class="price_font">价格</span>
+            <span class="yuanjia_sign">￥</span>
+            <del class="yuanjia"></del>
+        </div>
+        <div>
+            <span class="price_font">促销价</span>
+            <span class="cuxiaojia_sign">￥</span>
+            <span class="cuxiaojia"></span>
+        </div>
+    </div>
+    <div class="sale_review">
+        <div class="sale">销量
+            <span class="sale_number"></span>
+        </div>
+        <div class="review">累计评价
+            <span class="review_number"></span>
+        </div>
+    </div>
+    <div class="buy_item">
+        <div class="buy_number">
+            <span class="buy_font">数量</span>
+            <span><input class="number_input" type="text" value="1"></span>
+            <span class="buy_row">
+                <a href="javascript:;"><span class="glyphicon glyphicon-menu-up up"></span></a>
+                <a href="javascript:;"><span class="glyphicon glyphicon-menu-down down"></span></a>
+            </span>
+            <span class="buy_font">件</span>
+            <span class="buy_font">库存</span>
+            <span class="buy_font" id="buy_stock"></span>
+            <span class="buy_font">件</span>
+        </div>
+        <div class="buy_btn">
+            <button type="button" class="btn btn-danger buy">立即购买</button>
+        </div>
+    </div>
+</div>
+
+<div class="product_detail">
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active" id="detail"><a href="javascript:;">商品详情</a></li>
+        <li role="presentation" id="review"><a href="javascript:;">累计评价<span class="review_number_nav"></span></a></li>
+    </ul>
+    <div class="panel panel-default pageDetail">
+        <div class="panel-body detail_content">
+            <h4>产品参数</h4>
+        </div>
+    </div>
+    <div class="page_image"></div>
+    <div class="page_review"></div>
+</div>
+
+
+<script type="text/javascript" src="../js/nav-floor.js"></script>
+</body>
+</html>

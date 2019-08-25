@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="shopping:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d30f27b1-caf4-4a7a-b6d4-a9c913916a01" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Resources/Mapper/OrderTableMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/Mapper/OrderTableMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Resources/Mapper/PayTableMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/Mapper/PayTableMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Resources/Mapper/TrolleyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/Mapper/TrolleyMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Resources/Spring/Spring-dao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/Spring/Spring-dao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Resources/Spring/Spring-druid.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/Spring/Spring-druid.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Resources/Spring/Spring-shiro.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/Spring/Spring-shiro.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Resources/Spring/Spring-transaction.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/Spring/Spring-transaction.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Resources/generator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/generator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Resources/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/jdbc.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Util/AlipayConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Util/AlipayConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Util/AlipayUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Util/AlipayUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Util/KeyUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Util/KeyUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Util/UrlLink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Util/UrlLink.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/AlipayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/AlipayController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/MyorderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/MyorderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/ShoppingTrolleyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/ShoppingTrolleyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mapper/PayTableMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mapper/PayTableMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mapper/TrolleyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mapper/TrolleyMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pojo/OrderTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pojo/OrderTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pojo/PayTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pojo/PayTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pojo/Trolley.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pojo/Trolley.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pojo/example/OrderTableExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pojo/example/OrderTableExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pojo/example/PayTableExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pojo/example/PayTableExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/MyTrolleyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/MyTrolleyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/OrderItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/OrderItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/OrderTableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/OrderTableService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/PayTableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/PayTableService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/ProductImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/ProductImageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/RegisterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/imp/MyTrolleyServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/imp/MyTrolleyServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/imp/OrderItemServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/imp/OrderItemServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/imp/OrderTableServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/imp/OrderTableServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/imp/PayTableServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/imp/PayTableServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/imp/ProductImageServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/imp/ProductImageServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/imp/ProductServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/imp/ProductServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/imp/RegisterServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/imp/RegisterServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/test/generatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/test/generatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/items.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/items.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/myorder.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/myorder.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/nav-top.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/nav-top.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/payState.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/payState.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/submitOrder.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/submitOrder.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/items.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/items.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/pay/alipay.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/pay/alipay.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/pay/payState.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/pay/payState.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/shoppingTrolley.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/shoppingTrolley.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/submitOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/submitOrder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/items.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/items.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/jQuery-cookie.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/jQuery-cookie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/myorder.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/myorder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/payState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/payState.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/shoppingTrolley.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/shoppingTrolley.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/submitOrder.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/submitOrder.js" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="241" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="spring-beans.schema" />
+        <option value="Interface" />
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:/Program Files/apache-maven-3.6.1" />
+        <option name="userSettingsFile" value="D:\Program Files\apache-maven-3.6.1\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1PF26I2ujvSca4jxx0S6B7x2R4W" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/image" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Facets" />
+    <property name="project.structure.proportion" value="0.1469428" />
+    <property name="project.structure.side.proportion" value="0.20231214" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="OPEN_URL_DIALOG">
+      <recent name="https://github.com/FuZhucheng/SSM.git" />
+      <recent name="https://github.com/liyifeng1994/ssm.git" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Project\IDEACode\shopping\src\main\webapp\html" />
+      <recent name="D:\Project\IDEACode\shopping\src\main\webapp" />
+      <recent name="D:\Project\IDEACode\shopping\src\main\webapp\html\pay" />
+      <recent name="D:\Project\IDEACode\shopping\src\main\webapp\image" />
+      <recent name="D:\Project\IDEACode\shopping\src\main\webapp\imge" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Project\IDEACode\shopping\src\main\webapp\image" />
+      <recent name="D:\Project\IDEACode\shopping\src\main\webapp\fonts" />
+      <recent name="D:\Project\IDEACode\shopping\src\main\Resources" />
+      <recent name="D:\Project\IDEACode\shopping\src\main\webapp\imge" />
+      <recent name="D:\Project\IDEACode\shopping\src\main\webapp\js" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.Tomcat9">
+    <configuration name="generatorTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.test.generatorTest" />
+      <module name="shopping" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JsonTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shopping" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.test" />
+      <option name="MAIN_CLASS_NAME" value="com.test.JsonTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UrlLinkTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shopping" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.test" />
+      <option name="MAIN_CLASS_NAME" value="com.test.UrlLinkTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tomcat9" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.22" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
+      <deployment>
+        <artifact name="shopping:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_shopping" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="52610" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="shopping:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.generatorTest" />
+      <item itemvalue="JUnit.UrlLinkTest.test" />
+      <item itemvalue="JUnit.JsonTest.test" />
+      <item itemvalue="Tomcat Server.Tomcat9" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.generatorTest" />
+        <item itemvalue="JUnit.JsonTest.test" />
+        <item itemvalue="JUnit.UrlLinkTest.test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d30f27b1-caf4-4a7a-b6d4-a9c913916a01" name="Default Changelist" comment="" />
+      <created>1565455346893</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1565455346893</updated>
+      <workItem from="1565455348182" duration="1980000" />
+      <workItem from="1565493994333" duration="21294000" />
+      <workItem from="1565516589226" duration="120000" />
+      <workItem from="1565521969772" duration="5198000" />
+      <workItem from="1565527337236" duration="18222000" />
+      <workItem from="1565581863423" duration="19863000" />
+      <workItem from="1565622224281" duration="68000" />
+      <workItem from="1565676069191" duration="29971000" />
+      <workItem from="1565719216629" duration="1683000" />
+      <workItem from="1565753699022" duration="48760000" />
+      <workItem from="1565834394343" duration="16562000" />
+      <workItem from="1565859815817" duration="22099000" />
+      <workItem from="1565887745133" duration="5584000" />
+      <workItem from="1565928726924" duration="43247000" />
+      <workItem from="1566008588386" duration="40912000" />
+      <workItem from="1566099422483" duration="16591000" />
+      <workItem from="1566123037636" duration="26405000" />
+      <workItem from="1566183138582" duration="20099000" />
+      <workItem from="1566209329412" duration="2155000" />
+      <workItem from="1566231627804" duration="4788000" />
+      <workItem from="1566267970685" duration="44753000" />
+      <workItem from="1566377858745" duration="256000" />
+      <workItem from="1566378157385" duration="213000" />
+      <workItem from="1566378444319" duration="29015000" />
+      <workItem from="1566445328249" duration="37363000" />
+      <workItem from="1566522814459" duration="1201000" />
+      <workItem from="1566530682844" duration="27989000" />
+      <workItem from="1566621496747" duration="44899000" />
+      <workItem from="1566707230023" duration="15939000" />
+      <workItem from="1566735431956" duration="16221000" />
+      <workItem from="1566754174130" duration="3907000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/shopping$Tomcat9.ic" NAME="Tomcat9 Coverage Results" MODIFIED="1565928876355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
