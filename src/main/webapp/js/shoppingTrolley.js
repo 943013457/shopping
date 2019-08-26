@@ -71,11 +71,7 @@ $(function () {
 
     //删除商品
     function deleteitem(pid) {
-        $.ajax({
-            url: "/deleteItem/" + pid,
-            type: "GET",
-            datatype: "text"
-        });
+        $.get("/deleteItem/" + pid);
     }
 
     //更新单件总价

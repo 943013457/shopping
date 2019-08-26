@@ -1,6 +1,7 @@
 package com.service;
 
 import com.pojo.OrderItem;
+import com.pojo.example.OrderItemExample;
 
 import java.util.List;
 
@@ -16,4 +17,6 @@ public interface OrderItemService {
     public int insertOrderItem(OrderItem orderItem);
 
     public int getOrderNumber(String orderId);
+
+    public int deleteOrderItem(OrderItemExample orderItemExample);
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -41,6 +42,7 @@ public class ShoppingTrolleyController {
     }
 
     @RequestMapping(value = "/deleteItem/{pid}", method = RequestMethod.GET)
+    @ResponseBody
     private int deleteItem(@PathVariable("pid") int pid) {
         Object name = SecurityUtils.getSubject().getPrincipal();
         if (name == null) {

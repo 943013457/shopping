@@ -63,7 +63,7 @@ body {
 }
 
 .product_item_title {
-    width: 47.5%;
+    width: 48%;
 }
 
 .product_item_price {
@@ -72,17 +72,18 @@ body {
 }
 
 .product_item_count {
-    width: 9.5%;
+    width: 10%;
     text-align: center;
 }
 
 .product_item_all_price {
+    color: #C40000;
     width: 11%;
     text-align: center;
 }
 
 .product_item_btn {
-    width: 10%;
+    width: 11%;
     text-align: center;
 }
 
@@ -110,4 +111,12 @@ body {
 
 .product_item_title>a:hover{
     color: #C40000;
+}
+
+.deleteOrder{
+    float: right;
+    margin-right: 27px !important;
+}
+.deleteOrder>a{
+    color: #999999;
 }

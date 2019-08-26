@@ -69,7 +69,7 @@ public class OrderItemServiceImp implements OrderItemService {
             //取第一张缩略图
             productImageExample.or().andProductIdEqualTo(orderItem.getProductId()).andLocationEqualTo("small");
             List<ProductImage> productImageList = productImageMapper.selectByExample(productImageExample);
-            String default_img = "image/default_item_img.jpg";
+            String default_img = "/image/default_item_img.jpg";
             jsonObject.put("image", productImageList.size() > 0 ? productImageList.get(0).getImage() : default_img);
 
             list.add(jsonObject.toJSONString());
@@ -87,5 +87,10 @@ public class OrderItemServiceImp implements OrderItemService {
         OrderItem orderItem = new OrderItem();
         orderItem = orderItemMapper.selectByPrimaryKey(orderId);
         return orderItem != null ? orderItem.getNumber() : 0;
+    }
+
+    @Override
+    public int deleteOrderItem(OrderItemExample orderItemExample) {
+        return orderItemMapper.deleteByExample(orderItemExample);
     }
 }

@@ -48,6 +48,7 @@
     margin: 0 auto;
 }
 
+
 #goods_class {
     background-color: #FF0036;
     width: 200px;
@@ -62,6 +63,7 @@
 }
 
 #goods_list {
+    position: absolute;
     opacity: 0.5;
     background-color: black;
     width: 200px;
@@ -86,7 +88,12 @@
     font-size: 14px;
 }
 
+.item>img{
+    margin: 0 auto;
+}
+
 .footer {
 
     background-color: blue;
 }
+
