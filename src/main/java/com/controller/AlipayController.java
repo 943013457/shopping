@@ -16,7 +16,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -43,20 +42,6 @@ public class AlipayController {
     @RequestMapping(value = "/payState", method = RequestMethod.GET)
     private String payState() {
         return "pay/payState";
-    }
-
-    //支付状态获取
-    @RequestMapping(value = "/getPayState", method = RequestMethod.POST)
-    @ResponseBody
-    private String getPayState(HttpServletRequest request) {
-        String ret = "";
-        Cookie[] cookies = request.getCookies();
-        for (Cookie c : cookies) {
-            if ("payStateCode".equals(c.getName())) {
-                ret = c.getValue();
-            }
-        }
-        return ret;
     }
 
     //支付请求发起

@@ -95,7 +95,6 @@ CREATE TABLE order_table (
   deliveryDate datetime,
   confirmDate datetime,
   username varchar(30),
-  state varchar(64),
   PRIMARY KEY (id),
   CONSTRAINT fk_order_user FOREIGN KEY (username) REFERENCES login (user)
 );
@@ -113,9 +112,23 @@ order_id varchar(100),
 
 --购物车
 create table trolley(
+	id int not null auto_increment,
 	user varchar(30) not null,
 	product_id int not null,
 	number int not null,
+	primary key(id),
   CONSTRAINT fk_trolley_login FOREIGN KEY (user) REFERENCES login (user),
   CONSTRAINT fk_trolley_product FOREIGN KEY (product_id) REFERENCES product (id)
 )
+
+--支付表
+create table pay_Table(
+	order_id varchar(100),
+	pay_id int not null,
+	state varchar(16),
+	primary key(order_id),
+  	CONSTRAINT fk_payTable_orderTable FOREIGN KEY (order_id) REFERENCES order_table (id)
+)
+
+
+

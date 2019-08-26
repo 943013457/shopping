@@ -8,67 +8,422 @@
   <component name="ChangeListManager">
     <list default="true" id="d30f27b1-caf4-4a7a-b6d4-a9c913916a01" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Resources/Mapper/OrderTableMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/Mapper/OrderTableMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Resources/Mapper/PayTableMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/Mapper/PayTableMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Resources/Mapper/TrolleyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/Mapper/TrolleyMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Resources/Spring/Spring-dao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/Spring/Spring-dao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Resources/Spring/Spring-druid.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/Spring/Spring-druid.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Resources/Spring/Spring-shiro.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/Spring/Spring-shiro.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Resources/Spring/Spring-transaction.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/Spring/Spring-transaction.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Resources/generator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/generator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Resources/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/jdbc.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Resources/Script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/Script.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Util/AlipayConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Util/AlipayConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Util/AlipayUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Util/AlipayUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Util/KeyUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Util/KeyUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Util/UrlLink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Util/UrlLink.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/AlipayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/AlipayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/MyorderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/MyorderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/ShoppingTrolleyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/ShoppingTrolleyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mapper/PayTableMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mapper/PayTableMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mapper/TrolleyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mapper/TrolleyMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pojo/OrderTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pojo/OrderTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pojo/PayTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pojo/PayTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pojo/Trolley.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pojo/Trolley.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pojo/example/OrderTableExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pojo/example/OrderTableExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pojo/example/PayTableExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pojo/example/PayTableExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/MyTrolleyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/MyTrolleyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/OrderItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/OrderItemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/OrderTableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/OrderTableService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/PayTableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/PayTableService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/ProductImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/ProductImageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/RegisterService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/imp/MyTrolleyServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/imp/MyTrolleyServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/imp/OrderItemServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/imp/OrderItemServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/imp/OrderTableServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/imp/OrderTableServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/imp/PayTableServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/imp/PayTableServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/imp/ProductImageServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/imp/ProductImageServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/imp/ProductServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/imp/ProductServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/imp/RegisterServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/imp/RegisterServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/test/generatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/test/generatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/items.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/items.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/myorder.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/myorder.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/nav-top.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/nav-top.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/payState.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/payState.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/submitOrder.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/submitOrder.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/items.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/items.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/pay/alipay.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/pay/alipay.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/pay/payState.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/pay/payState.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/shoppingTrolley.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/shoppingTrolley.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/submitOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/submitOrder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/items.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/items.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/jQuery-cookie.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/jQuery-cookie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/myorder.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/myorder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/payState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/payState.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/shoppingTrolley.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/shoppingTrolley.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/submitOrder.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/submitOrder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/shopping.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Mapper/CategoryMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Mapper/LoginUserMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Mapper/OrderItemMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Mapper/OrderTableMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Mapper/PayTableMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Mapper/PermissionMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Mapper/ProductImageMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Mapper/ProductMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Mapper/PropertyMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Mapper/PropertyValueMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Mapper/ReviewMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Mapper/RoleMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Mapper/RolePermissionMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Mapper/TrolleyMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Script.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Spring/Spring-dao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Spring/Spring-druid.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Spring/Spring-service.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Spring/Spring-shiro.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Spring/Spring-transaction.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Spring/SpringMVC.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Util/AddressUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Util/AlipayConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Util/AlipayUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Util/JsonLink.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Util/KeyUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Util/ToDate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Util/UrlLink.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Util/UserLoginAndRegister.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Util/UsernameUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/AlipayController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/GetUserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/IndexController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/ItemController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/LoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/MyorderController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/RegisterController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/ShoppingTrolleyController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/SubmitOrderController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapper/CategoryMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapper/LoginUserMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapper/OrderItemMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapper/OrderTableMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapper/PayTableMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapper/PermissionMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapper/ProductImageMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapper/ProductMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapper/PropertyMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapper/PropertyValueMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapper/ReviewMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapper/RoleMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapper/RolePermissionMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapper/TrolleyMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/Category.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/LoginUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/OrderItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/OrderTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/PayTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/Permission.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/ProductImage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/Property.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/PropertyValue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/Review.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/RolePermission.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/Trolley.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/CategoryExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/CategoryExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/CategoryExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/CategoryExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/LoginUserExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/LoginUserExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/LoginUserExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/LoginUserExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/OrderItemExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/OrderItemExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/OrderItemExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/OrderItemExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/OrderTableExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/OrderTableExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/OrderTableExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/OrderTableExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/PayTableExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/PayTableExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/PayTableExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/PayTableExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/PermissionExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/PermissionExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/PermissionExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/PermissionExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/ProductExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/ProductExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/ProductExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/ProductExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/ProductImageExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/ProductImageExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/ProductImageExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/ProductImageExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/PropertyExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/PropertyExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/PropertyExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/PropertyExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/PropertyValueExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/PropertyValueExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/PropertyValueExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/PropertyValueExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/ReviewExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/ReviewExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/ReviewExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/ReviewExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/RoleExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/RoleExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/RoleExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/RoleExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/RolePermissionExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/RolePermissionExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/RolePermissionExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/RolePermissionExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/TrolleyExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/TrolleyExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/TrolleyExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pojo/example/TrolleyExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/realms/LoginRealm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/LoginService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/MyTrolleyService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/OrderItemService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/OrderTableService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/PayTableService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/ProductImageService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/ProductService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/PropertyService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/RegisterService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/ReviewService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/imp/LoginServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/imp/MyTrolleyServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/imp/OrderItemServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/imp/OrderTableServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/imp/PayTableServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/imp/ProductImageServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/imp/ProductServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/imp/PropertyServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/imp/RegisterServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/imp/ReviewServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/test/DateTimeTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/test/JsonTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/test/LoginUserTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/test/UrlLinkTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/test/generatorTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/test/md5Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/test/testShiroSalt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/generator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/jdbc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/log4j.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis-config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/META-INF/shopping.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/Mapper/CategoryMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/Mapper/LoginUserMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/Mapper/OrderItemMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/Mapper/OrderTableMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/Mapper/PayTableMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/Mapper/PermissionMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/Mapper/ProductImageMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/Mapper/ProductMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/Mapper/PropertyMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/Mapper/PropertyValueMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/Mapper/ReviewMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/Mapper/RoleMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/Mapper/RolePermissionMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/Mapper/TrolleyMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/Script.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/Spring/Spring-dao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/Spring/Spring-druid.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/Spring/Spring-service.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/Spring/Spring-shiro.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/Spring/Spring-transaction.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/Spring/SpringMVC.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/Util/AddressUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/Util/AlipayConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/Util/AlipayUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/Util/JsonLink.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/Util/KeyUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/Util/ToDate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/Util/UrlLink.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/Util/UserLoginAndRegister.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/Util/UsernameUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/controller/AlipayController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/controller/GetUserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/controller/IndexController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/controller/ItemController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/controller/LoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/controller/MyorderController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/controller/RegisterController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/controller/ShoppingTrolleyController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/controller/SubmitOrderController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/mapper/CategoryMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/mapper/LoginUserMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/mapper/OrderItemMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/mapper/OrderTableMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/mapper/PayTableMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/mapper/PermissionMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/mapper/ProductImageMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/mapper/ProductMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/mapper/PropertyMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/mapper/PropertyValueMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/mapper/ReviewMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/mapper/RoleMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/mapper/RolePermissionMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/mapper/TrolleyMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/Category.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/LoginUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/OrderItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/OrderTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/PayTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/Permission.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/ProductImage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/Property.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/PropertyValue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/Review.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/RolePermission.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/Trolley.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/CategoryExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/CategoryExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/CategoryExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/CategoryExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/LoginUserExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/LoginUserExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/LoginUserExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/LoginUserExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/OrderItemExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/OrderItemExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/OrderItemExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/OrderItemExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/OrderTableExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/OrderTableExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/OrderTableExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/OrderTableExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/PayTableExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/PayTableExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/PayTableExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/PayTableExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/PermissionExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/PermissionExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/PermissionExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/PermissionExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/ProductExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/ProductExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/ProductExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/ProductExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/ProductImageExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/ProductImageExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/ProductImageExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/ProductImageExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/PropertyExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/PropertyExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/PropertyExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/PropertyExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/PropertyValueExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/PropertyValueExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/PropertyValueExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/PropertyValueExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/ReviewExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/ReviewExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/ReviewExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/ReviewExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/RoleExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/RoleExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/RoleExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/RoleExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/RolePermissionExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/RolePermissionExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/RolePermissionExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/RolePermissionExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/TrolleyExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/TrolleyExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/TrolleyExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/pojo/example/TrolleyExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/realms/LoginRealm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/service/LoginService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/service/MyTrolleyService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/service/OrderItemService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/service/OrderTableService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/service/PayTableService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/service/ProductImageService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/service/ProductService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/service/PropertyService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/service/RegisterService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/service/ReviewService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/service/imp/LoginServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/service/imp/MyTrolleyServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/service/imp/OrderItemServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/service/imp/OrderTableServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/service/imp/PayTableServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/service/imp/ProductImageServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/service/imp/ProductServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/service/imp/PropertyServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/service/imp/RegisterServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/service/imp/ReviewServiceImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/test/DateTimeTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/test/JsonTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/test/LoginUserTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/test/UrlLinkTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/test/generatorTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/test/md5Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/com/test/testShiroSalt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/generator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/jdbc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/log4j.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/classes/mybatis-config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/alipay-sdk-java-4.3.0.ALL.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/bcprov-jdk15on-1.62.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/c3p0-0.9.5.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/commons-beanutils-1.9.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/commons-collections-3.2.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/commons-fileupload-1.3.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/commons-io-2.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/commons-logging-1.1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/druid-1.1.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/ehcache-core-2.6.11.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/fastjson-1.2.31.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/hamcrest-core-1.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/jackson-annotations-2.9.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/jackson-core-2.9.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/jackson-databind-2.9.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/javax.servlet-api-4.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/junit-4.12.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/log4j-1.2.17.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/mchange-commons-java-0.2.11.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/mybatis-3.4.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/mybatis-generator-core-1.3.7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/mybatis-spring-1.3.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/mysql-connector-java-8.0.16.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/protobuf-java-3.6.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/shiro-cache-1.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/shiro-config-core-1.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/shiro-config-ogdl-1.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/shiro-core-1.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/shiro-crypto-cipher-1.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/shiro-crypto-core-1.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/shiro-crypto-hash-1.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/shiro-ehcache-1.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/shiro-event-1.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/shiro-lang-1.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/shiro-spring-1.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/shiro-web-1.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/slf4j-api-1.7.25.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/slf4j-log4j12-1.7.25.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/spring-aop-5.1.5.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/spring-beans-5.1.5.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/spring-context-5.1.5.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/spring-core-5.1.5.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/spring-expression-5.1.5.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/spring-jcl-5.1.5.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/spring-jdbc-5.1.5.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/spring-test-5.1.5.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/spring-tx-5.1.5.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/spring-web-5.1.5.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/lib/spring-webmvc-5.1.5.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/css/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/css/init.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/css/items.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/css/login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/css/myorder.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/css/nav-floor.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/css/nav-top.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/css/payState.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/css/register.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/css/shoppingTrolley.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/css/smallSearch.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/css/submitOrder.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/html/error1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/html/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/html/items.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/html/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/html/myorder.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/html/pay/alipay.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/html/pay/payState.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/html/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/html/shoppingTrolley.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/html/submitOrder.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/image/HomeIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/image/TmallIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/image/default_item_img.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/image/false_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/image/ture_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/js/getUser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/js/include.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/js/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/js/items.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/js/jQuery-cookie.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/js/jQuery_v1.12.4_min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/js/login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/js/myorder.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/js/nav-floor.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/js/nav-top.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/js/payState.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/js/register.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/js/shoppingTrolley.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/js/smallSearch.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/shopping/js/submitOrder.js" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -145,19 +500,12 @@
     <property name="project.structure.proportion" value="0.1469428" />
     <property name="project.structure.side.proportion" value="0.20231214" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="OPEN_URL_DIALOG">
       <recent name="https://github.com/FuZhucheng/SSM.git" />
       <recent name="https://github.com/liyifeng1994/ssm.git" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Project\IDEACode\shopping\src\main\webapp\html" />
-      <recent name="D:\Project\IDEACode\shopping\src\main\webapp" />
-      <recent name="D:\Project\IDEACode\shopping\src\main\webapp\html\pay" />
-      <recent name="D:\Project\IDEACode\shopping\src\main\webapp\image" />
-      <recent name="D:\Project\IDEACode\shopping\src\main\webapp\imge" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Project\IDEACode\shopping\src\main\webapp\image" />
@@ -165,6 +513,13 @@
       <recent name="D:\Project\IDEACode\shopping\src\main\Resources" />
       <recent name="D:\Project\IDEACode\shopping\src\main\webapp\imge" />
       <recent name="D:\Project\IDEACode\shopping\src\main\webapp\js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Project\IDEACode\shopping\src\main\Resources" />
+      <recent name="D:\Project\IDEACode\shopping\src\main\webapp\html" />
+      <recent name="D:\Project\IDEACode\shopping\src\main\webapp" />
+      <recent name="D:\Project\IDEACode\shopping\src\main\webapp\html\pay" />
+      <recent name="D:\Project\IDEACode\shopping\src\main\webapp\image" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -353,6 +708,8 @@
       <workItem from="1566707230023" duration="15939000" />
       <workItem from="1566735431956" duration="16221000" />
       <workItem from="1566754174130" duration="3907000" />
+      <workItem from="1566758128367" duration="601000" />
+      <workItem from="1566786455795" duration="8085000" />
     </task>
     <servers />
   </component>
