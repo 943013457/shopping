@@ -87,7 +87,7 @@ $(function () {
     }
 
     $(".tab-content").on("click", ".btn_dfk", function () {
-        var orderId = $(this).parentsUntil(".item_content").siblings("#orderId_input").attr("value");
+        var orderId = $(this).parentsUntil(".item_content").siblings(".orderId_input").attr("value");
         window.location.href = "/pay/alipay/" + orderId;
     })
 

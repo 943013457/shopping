@@ -6,7 +6,7 @@ document.writeln("</head>");
 document.writeln("<body>");
 document.writeln("<div class=\'content-top\'>");
 document.writeln("    <div class=\'home_icon\'>");
-document.writeln("        <a><img class=\'icon\' src=\'/image/HomeIcon.png\'></a>");
+document.writeln("        <a href='/index'><img class=\'icon\' src=\'/image/HomeIcon.png\'></a>");
 document.writeln("    </div>");
 document.writeln("    <div class=\'seach_box\'>");
 document.writeln("        <form action=\'search\' method=\'post\'>");

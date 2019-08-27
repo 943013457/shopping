@@ -57,7 +57,11 @@ public class AlipayController {
                 List<String> payTableNullList = new ArrayList<>();
                 //校验支付号是否统一
                 for (String order : orderList) {
-                    //判断订单是否已创建
+                    //判断是否创建商品订单号
+                    if (orderTableService.isEmptyId(order)) {
+                        return;
+                    }
+                    //判断支付订单是否已创建
                     if (payTableService.isPayTableAndNotPay(order)) {
                         String db_uuid = payTableService.getPayId(order);
                         if (!uuid.isEmpty()) {

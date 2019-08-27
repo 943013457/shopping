@@ -39,4 +39,10 @@ public class OrderTableServiceImp implements OrderTableService {
         orderTable.setPaydate(date);
         return orderTableMapper.updateByPrimaryKeySelective(orderTable);
     }
+
+    @Override
+    public boolean isEmptyId(String id) {
+        OrderTable orderTable = orderTableMapper.selectByPrimaryKey(id);
+        return orderTable == null;
+    }
 }

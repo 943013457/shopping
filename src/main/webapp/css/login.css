@@ -1,6 +1,7 @@
 
 .top {
     height: 88px;
+    padding: 20px 0;
 }
 
 .top_icon {
@@ -8,10 +9,15 @@
     width:70%;
 }
 
+.top_icon>a>img{
+    width: 300px;
+    height: 40px;
+}
+
 .header {
     position: relative;
     min-height: 800px;
-    background-color:brown;
+    background-color: #811000;
 }
 
 .login {
@@ -23,6 +29,13 @@
     height: 270px;
     padding: 35px 15px 0px;
     border-radius: 15px;
+    z-index:1;
+}
+
+.background>img{
+    position: absolute;
+    left:550px;
+    top: 80px;
 }
 
 #loginHeadFont {

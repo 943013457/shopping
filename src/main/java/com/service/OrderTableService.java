@@ -17,4 +17,6 @@ public interface OrderTableService {
     public float getOrderPrice(String id);
 
     public int setOrderPayTime(String id, Date date) ;
+
+    public boolean isEmptyId(String id);
 }
