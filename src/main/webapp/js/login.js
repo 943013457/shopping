@@ -7,38 +7,29 @@ $(function () {
             ShowErrorMessage("用户名/密码不能为空");
             return false;
         }
-        var JsonData = JSON.stringify({"user": username, "password": password});
-        $.ajax({
-            url: "selectUserPwd",
-            type: "POST",
-            data: JsonData,
-            datatype: "json",
-            contentType: "application/json;charset=UTF-8",
-            success: function (result) {
-                switch (result) {
-                    case "ok":
-                        //返回上一页并刷新
-                        var ref = document.referrer;
-                        if (ref != "") {
-                            self.location = document.referrer;
-                        } else {
-                            self.location = "index";
-                        }
-                        break;
-                    case "banned" :
-                        ShowErrorMessage("账号已被封禁");
-                        break;
-                    case "error" :
-                        ShowErrorMessage("用户名/密码错误");
-                        break;
-                    case "unknown" :
-                        ShowErrorMessage("未知错误");
-                        break;
-                    case "UserNameNull":
+        var json = {"user": username, "password": password};
+        FastTools.ajax("/selectUserPwd", "POST", JSON.stringify(json), function (flag, data) {
+            if (flag) {
+                //返回上一页并刷新
+                var ref = document.referrer;
+                if (ref != "") {
+                    self.location = document.referrer;
+                } else {
+                    self.location = "index";
+                }
+            } else {
+                switch (data.msg) {
+                    case "-101":
                         ShowErrorMessage("用户名不能为空");
                         break;
-                    case "PasswordNull":
+                    case "-102":
                         ShowErrorMessage("密码不能为空");
+                        break;
+                    case "-103":
+                        ShowErrorMessage("账号已被封禁");
+                        break;
+                    case "-104":
+                        ShowErrorMessage("用户名/密码错误");
                         break;
                 }
             }

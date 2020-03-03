@@ -2,7 +2,9 @@ package com.mapper;
 
 import com.pojo.ProductImage;
 import com.pojo.example.ProductImageExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface ProductImageMapper {

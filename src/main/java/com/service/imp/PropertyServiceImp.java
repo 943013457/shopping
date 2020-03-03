@@ -21,7 +21,7 @@ public class PropertyServiceImp implements PropertyService {
     private PropertyMapper propertyMapper;
 
     @Override
-    public String getPropertyJson(int id) {
+    public JSONObject getPropertyJson(int id) {
         //获取商品参数
         JSONObject propertyJson = new JSONObject();
         List<Property> propertyList = propertyMapper.selectProperty(id);
@@ -30,6 +30,6 @@ public class PropertyServiceImp implements PropertyService {
             Property p = iterator.next();
             propertyJson.put(p.getName(), p.getValue());
         }
-        return propertyJson.toJSONString();
+        return propertyJson;
     }
 }

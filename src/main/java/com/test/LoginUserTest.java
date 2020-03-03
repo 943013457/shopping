@@ -58,7 +58,7 @@ public class LoginUserTest {
             Property p = iterator.next();
             jsonObject.put(p.getName(), p.getValue());
         }
-        List<String> l=  new ArrayList<>();
+        List<String> l = new ArrayList<>();
         l.add(JSON.toJSONString(product));
         l.add(jsonObject.toJSONString());
         l.add(JSON.toJSONString(product));

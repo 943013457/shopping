@@ -1,23 +1,18 @@
 $(function () {
-    var cookie_json = $.cookie('submitOrderJson');
-    var pids = JSON.parse(cookie_json);
+    var cookie_json = $.cookie('submitOrderJson') || "";
     init();
     $(".submit_btn").click(submit);
 
     function init() {
-        if (undefined !== cookie_json) {
-            $.ajax({
-                url: "/getOrderJson",
-                type: "POST",
-                data: cookie_json,
-                datatype: "json",
-                contentType: "application/json;charset=UTF-8",
-                success: function (retJson) {
+        if ("" !== cookie_json) {
+            FastTools.ajax("/getOrderJson", "POST", cookie_json, function (flag, data) {
+                if (flag) {
+                    var retJson = JSON.parse(data.msg);
                     var all_total = 0;
                     for (var i in retJson) {
                         var json = retJson[i];
                         var imgSrc = json['imgUrl'];
-                        var pid = pids[i]['pid'];
+                        var pid = json['pid'];
                         var name = json['name'];
                         var price = json['price'];
                         var number = json['number'];
@@ -30,7 +25,7 @@ $(function () {
                             "<div class='productItemImg'>" +
                             "<img class='itemImg' src=" + imgSrc + "></div>" +
                             "<div class='productInfo'>" +
-                            "<a class='itemTitle' href='/items/" + pid + "'>" + name + "</a></div>" +
+                            "<a class='itemTitle' id='" + pid + "' href='/items/" + pid + "'>" + name + "</a></div>" +
                             "<div class='productPrice'>" +
                             "<span class='itemPrice'>￥" + price + "</span></div>" +
                             "<div class='productNumber'>" +
@@ -48,7 +43,7 @@ $(function () {
     }
 
     function submit() {
-        if (undefined !== cookie_json) {
+        if ("" !== cookie_json) {
             var jsons = [];
             var address = $(".address_text").val();
             var receiver = $(".consignee_text").val();
@@ -56,7 +51,7 @@ $(function () {
 
             var items = $(".productItems").find(".item_body");
             for (var i = 0; i < items.length; i++) {
-                var productId = pids[i]['pid'];
+                var productId = $(items[i]).find(".itemTitle").attr("id")
                 var number = $(items[i]).find(".itemNumber").text();
                 var price = $(items[i]).find(".itemTotal").text().replace("￥", "");
                 var msg = $(items[i]).find(".remark_text").val();
@@ -70,21 +65,11 @@ $(function () {
                     "number": number
                 })
             }
-            $.ajax({
-                url: "/createOrder",
-                type: "POST",
-                data: JSON.stringify(jsons),
-                datatype: "json",
-                contentType: "application/json;charset=UTF-8",
-                success: function (ret) {
-                    if ("-1" == ret) {
-                        alert("请登录");
-                        window.location.href = "/login";
-                    } else if ("-2" == ret || "-3" == ret || "" == ret) {
-                        alert("提交订单失败 " + ret);
-                    } else {
-                        window.location.href = "/pay/alipay/" + ret;
-                    }
+            FastTools.ajax("/createOrder", "POST", JSON.stringify(jsons), function (flag, data) {
+                if (flag) {
+                    window.location.href = "/pay/alipay/" + data.msg;
+                } else {
+                    toastr.success("订单生成失败,error:" + data.msg);
                 }
             })
         }

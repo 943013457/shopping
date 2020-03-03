@@ -1,5 +1,6 @@
 package com.service;
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,9 +11,9 @@ import java.util.List;
  * @Other
  */
 public interface ProductService {
-    public String getProductJson(int id);
+    public JSONObject getProductJson(int id);
 
     public boolean hasProduct(int id);
 
-    public String getNameAndPrice(int id);
+    public JSONObject getNameAndPrice(int id);
 }

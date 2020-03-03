@@ -14,7 +14,6 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-
     <!--*****************************************SpringMVC配置*****************************************-->
     <servlet>
         <servlet-name>Dispatcher</servlet-name>
@@ -105,6 +104,15 @@
     </servlet-mapping>
     <!-- 连接池 启用 Web 监控统计功能    end-->
 
+    <!-- *****************************************ip记录***************************************** -->
+<!--    <filter>-->
+<!--        <filter-name>ipFilter</filter-name>-->
+<!--        <filter-class>com.filter.ipFilter</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>ipFilter</filter-name>-->
+<!--        <url-pattern>/*</url-pattern>-->
+<!--    </filter-mapping>-->
 
     <!--*****************************************主页*****************************************-->
     <welcome-file-list>

@@ -1,6 +1,6 @@
 package com.realms;
 
-import com.Util.UserLoginAndRegister;
+import com.Util.UserUtil;
 import com.service.LoginService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -31,7 +31,7 @@ public class LoginRealm extends AuthorizingRealm {
         String username = authenticationToken.getPrincipal().toString();
         String password = new String((char[]) authenticationToken.getCredentials());
         //获取Md5
-        String encrypt_pwd = UserLoginAndRegister.getPasswordCiph(password, service.SelectUserSalt(username));
+        String encrypt_pwd = UserUtil.getPasswordCiph(password, service.SelectUserSalt(username));
         String db_password = service.SelectUserPassword(username);
         boolean state = service.SelectUserState(username);
         //TODO 抛出异常信息

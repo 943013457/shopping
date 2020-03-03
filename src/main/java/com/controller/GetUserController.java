@@ -1,12 +1,13 @@
 package com.controller;
 
-import org.apache.shiro.SecurityUtils;
+import com.Util.JsonLink;
+import com.Util.UserUtil;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * @Creator Ming
@@ -16,13 +17,12 @@ import java.io.IOException;
 @Controller
 public class GetUserController {
 
-    @RequestMapping(value = {"/getUser"}, method = RequestMethod.GET)
-    private void getUser(HttpServletResponse response) throws IOException {
-        Object name = SecurityUtils.getSubject().getPrincipal();
-        if (name == null) {
-            return;
-        }
-        response.setContentType("text/html;charset=UTF-8");
-        response.getWriter().write(name.toString());
+    @RequestMapping(value = {"/getUser"}, method = RequestMethod.GET, produces = "application/json;charset=utf-8")
+    @ResponseBody
+    private String getUser() {
+        String name = UserUtil.getUserName();
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("name", name != null ? name : "");
+        return JsonLink.Success(jsonObject.toJSONString());
     }
 }

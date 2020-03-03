@@ -40,26 +40,19 @@ $(function () {
 
     $(".buy").click(function () {
         //使用cookie传递参数,这里要使用数组不然不能解析
-        var itemJson = [{"pid": pid,"number":$(".number_input").attr("value")}];
-        $.cookie('submitOrderJson',JSON.stringify(itemJson),{path:'/'});
+        var itemJson = [{"pid": pid, "number": $(".number_input").attr("value")}];
+        $.cookie('submitOrderJson', JSON.stringify(itemJson), {path: '/'});
 
         window.location.href = "/submitOrder";
     })
 
     $(".buy_btn").on("click", ".addcart", function () {
-        var json = JSON.stringify({"productID": pid, "number": $(".number_input").attr("value")});
-        $.ajax({
-            url: "/addTrolley",
-            type: "POST",
-            data: json,
-            datatype: "json",
-            contentType: "application/json;charset=UTF-8",
-            success: function (ret) {
-                if (1 == ret) {
-                    $(".addcart").remove();
-                    $(".buy_btn").append(
-                        "<button type=\"button\" class=\"btn disabled addedcart\">已加入购物车</button>");
-                }
+        var data = {"productID": pid, "number": $(".number_input").attr("value")};
+        FastTools.ajax("/addTrolley", "POST", JSON.stringify(data), function (flag, data) {
+            if (flag && JSON.parse(data.msg)) {
+                $(".addcart").remove();
+                $(".buy_btn").append(
+                    "<button type=\"button\" class=\"btn disabled addedcart\">已加入购物车</button>");
             }
         });
     });
@@ -97,32 +90,23 @@ $(function () {
     }));
 
     function getIsAddTrolley(pid) {
-        $.ajax({
-            url: "/getIsAddTrolley",
-            type: "get",
-            data: "pid=" + pid,
-            datatype: "text",
-            success: function (data) {
-                if ("true" === data) {
+        FastTools.ajax("/getIsAddTrolley/" + pid, "GET", "", function (flag, data) {
+            if (flag) {
+                if (JSON.parse(data.msg)) {
                     $(".buy_btn").append(
                         "<button type=\"button\" class=\"btn disabled addedcart\">已加入购物车</button>");
-                } else if ("false" === data) {
+                } else {
                     $(".buy_btn").append(
                         "<button type=\"button\" class=\"btn btn-info addcart\">加入购物车</button>");
                 }
             }
-        });
+        })
     }
 
     function getProductJson(pid) {
-        $.ajax({
-            url: "/getProductJson",
-            type: "get",
-            data: "pid=" + pid,
-            datatype: "text",
-            success: function (data) {
-                var json = $.parseJSON(data);
-
+        FastTools.ajax("/getProductJson/" + pid, "GET", "", function (flag, data) {
+            if (flag) {
+                var json = JSON.parse(data.msg);
                 $(".title").text(json.name);
                 $(".subtitle").text(json.subtitle);
                 $(".yuanjia").text(json.originalprice);
@@ -132,18 +116,13 @@ $(function () {
                 $(".review_number_nav").text(json.review);
                 $("#buy_stock").text(json.stock);
             }
-        });
+        })
     }
 
     function getImageJson(pid) {
-        $.ajax({
-            url: "/getImageJson",
-            type: "get",
-            data: "pid=" + pid,
-            datatype: "text",
-            success: function (data) {
-                var json = $.parseJSON(data);
-
+        FastTools.ajax("/getImageJson/" + pid, "GET", "", function (flag, data) {
+            if (flag) {
+                var json = JSON.parse(data.msg);
                 $("#title_img").attr("src", json['top']);
 
                 var small = json['small'];
@@ -161,7 +140,6 @@ $(function () {
                             "</div>")
                     }
                 }
-
                 var content = json['content'];
                 if (content.length > 0) {
                     var c = content.split(",");
@@ -169,19 +147,14 @@ $(function () {
                         $(".page_image").append("<img src=\"" + c[i] + "\"/>");
                     }
                 }
-
             }
-        });
+        })
     }
 
     function getPropertyJson(pid) {
-        $.ajax({
-            url: "/getPropertyJson",
-            type: "get",
-            data: "pid=" + pid,
-            datatype: "text",
-            success: function (data) {
-                var json = $.parseJSON(data);
+        FastTools.ajax("/getPropertyJson/" + pid, "GET", "", function (flag, data) {
+            if (flag) {
+                var json = JSON.parse(data.msg);
                 for (var j in json) {
                     $(".detail_content>h4").after("<span class=\"detail_font\">" +
                         j +
@@ -190,30 +163,27 @@ $(function () {
                         "</span>");
                 }
             }
-        });
+        })
     }
 
     function getReviewJson(pid) {
-        $.ajax({
-            url: "/getReview",
-            type: "get",
-            data: "pid=" + pid,
-            datatype: "text",
-            success: function (data) {
-                var jsons = $.parseJSON(data);
-                for (var j in jsons) {
+        FastTools.ajax("/getReviewJson/" + pid, "GET", "", function (flag, data) {
+            if (flag) {
+                var json = JSON.parse(data.msg);
+                for (var j in json) {
+                    var obj = JSON.parse(json[j]);
                     $(".page_review").append("<div class=\"review_item\">" +
                         "<div class=\"review_content\">" +
-                        jsons[j]['content'] +
+                        obj['content'] +
                         "</div>" + "<div class=\"review_username\">" +
-                        jsons[j]['username'] +
+                        obj['username'] +
                         "<span class=\"anonymity_font\">(匿名)</span></div>" +
                         "<div class=\"review_time\">" +
-                        jsons[j]['createDate'] +
+                        obj['createDate'] +
                         "</div>");
                 }
             }
-        });
+        })
     }
 
 })

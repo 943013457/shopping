@@ -16,7 +16,5 @@ public interface OrderItemService {
 
     public int insertOrderItem(OrderItem orderItem);
 
-    public int getOrderNumber(String orderId);
-
-    public int deleteOrderItem(OrderItemExample orderItemExample);
+    public boolean deleteOrderItem(String orderId,String name);
 }

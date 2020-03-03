@@ -58,11 +58,16 @@
     margin: 0 auto;
 }
 
-.carousel-indicators .active{
+#inner_scroll {
+    height: 520px;
+}
+
+.carousel-indicators .active {
     width: 30px;
     background-color: #ffffff;
 }
-.carousel-indicators li{
+
+.carousel-indicators li {
     width: 30px;
     background-color: #999999;
 }
@@ -203,7 +208,7 @@
 }
 
 .selected {
-        background-color: #FFFFFF;
+    background-color: #FFFFFF;
 }
 
 #goods_cutoff {

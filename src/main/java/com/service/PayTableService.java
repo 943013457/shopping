@@ -20,6 +20,6 @@ public interface PayTableService {
 
     public String getPayState(String orderId);
 
-    public int setPayState(String payId,String state);
+    public int setPayState(String payId, String state);
 
 }

@@ -1,7 +1,8 @@
 package com.controller;
 
-import com.Util.AddressUtil;
-import com.Util.UserLoginAndRegister;
+import com.Util.JsonLink;
+import com.Util.StateCode;
+import com.Util.UserUtil;
 import com.pojo.LoginUser;
 import com.service.RegisterService;
 import org.apache.shiro.SecurityUtils;
@@ -29,38 +30,41 @@ public class RegisterController {
         return "register";
     }
 
-    @RequestMapping(value = "/registerUser", method = RequestMethod.POST)
+    @RequestMapping(value = "/registerUser", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
     @ResponseBody
-    private boolean registerUser(@RequestBody LoginUser user, HttpServletRequest request) {
-        if (user.getUser().isEmpty() || user.getPassword().isEmpty()) {
-            return false;
+    private String registerUser(@RequestBody LoginUser user, HttpServletRequest request) {
+        if (user.getUser().isEmpty()) {
+            return JsonLink.Error(StateCode.ERR_NOT_USERNAME);
+        }
+        if (user.getPassword().isEmpty()) {
+            return JsonLink.Error(StateCode.ERR_NOT_PASSWORD);
         }
         //获取注册IP
-        user.setRegisterIp(AddressUtil.getIP(request));
+        user.setRegisterIp(UserUtil.getIP(request));
         //注册时间
         user.setRegistertime(new Date());
         //账号状态
         user.setState(true);
         //获取盐
-        user.setSalt(UserLoginAndRegister.getRandomSalt());
+        user.setSalt(UserUtil.getRandomSalt());
         //保存原密码
         String password = user.getPassword();
         //加密
-        user.setPassword(UserLoginAndRegister.getPasswordCiph(user.getPassword(), user.getSalt()));
+        user.setPassword(UserUtil.getPasswordCiph(user.getPassword(), user.getSalt()));
         //注册成功自动登录
         if (!registerService.InsertUser(user)) {
-            return false;
+            return JsonLink.Error(StateCode.ERR_NOT_REGISTER);
         }
         UsernamePasswordToken token = new UsernamePasswordToken(user.getUser(), password);
         Subject subject = SecurityUtils.getSubject();
         subject.login(token);
-        return true;
+        return JsonLink.Error(true);
     }
 
     //查询用户名是否存在
-    @RequestMapping(value = "/selectUser", method = RequestMethod.GET)
+    @RequestMapping(value = "/selectUser/{username}", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
     @ResponseBody
-    private boolean selectUser(String username) {
-        return registerService.selectUser(username);
+    private String selectUser(@PathVariable(name = "username") String username) {
+        return registerService.selectUser(username) ? JsonLink.Success(true) : JsonLink.Error(false);
     }
 }

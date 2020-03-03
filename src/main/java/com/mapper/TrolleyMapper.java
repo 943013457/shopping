@@ -2,7 +2,9 @@ package com.mapper;
 
 import com.pojo.Trolley;
 import com.pojo.example.TrolleyExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface TrolleyMapper {

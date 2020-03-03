@@ -50,6 +50,7 @@ public class AlipayController {
         try {
             String orderList[] = orderString.split("&");
             if (orderList.length > 0) {
+                //订单支付ID
                 String uuid = "";
                 float price = 0;
 
@@ -72,7 +73,7 @@ public class AlipayController {
                         } else {
                             uuid = payTableService.getPayId(order);
                         }
-                        price += orderTableService.getOrderPrice(order) * orderItemService.getOrderNumber(order);
+                        price += orderTableService.getOrderPrice(order);
                     } else {
                         payTableNullList.add(order);
                     }
@@ -87,7 +88,7 @@ public class AlipayController {
                     payTable.setPayId(uuid);
                     payTable.setState("PAYMENT");
                     payTableService.createPayTable(payTable);
-                    price += orderTableService.getOrderPrice(order) * orderItemService.getOrderNumber(order);
+                    price += orderTableService.getOrderPrice(order);
                 }
 
                 if (0 != price) {

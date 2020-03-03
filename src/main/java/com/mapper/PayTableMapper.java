@@ -2,7 +2,9 @@ package com.mapper;
 
 import com.pojo.PayTable;
 import com.pojo.example.PayTableExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface PayTableMapper {

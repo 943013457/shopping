@@ -1,108 +1,5 @@
 $(function () {
-    $.ajax({
-        url: "/getTrolley",
-        type: "get",
-        datatype: "text",
-        success: function (data) {
-            var jsons = $.parseJSON(data);
-            for (var index in jsons) {
-                showItems(jsons[index]);
-            }
-        }
-    });
-
-    function showItems(json) {
-        var img = json['img'];
-        var id = json['id'];
-        var name = json['name'];
-        var originalprice = json['originalprice'];
-        var promoteprice = json['promoteprice'];
-        var number = json['number'];
-
-        var text = " <div class='panel panel-default'>" +
-            "<div class='panel-body'>" +
-            "<div class='check_icon'>" +
-            "<span></span>" +
-            "</div>" +
-            "<div class='item_img'>" +
-            "<img src=" + img + ">" +
-            "</div>" +
-            "<div class='item_name'>" +
-            "<a href=/items/" + id + ">" + name + "</a>" +
-            "</div>" +
-            "<div class='item_price'>" +
-            "<span>￥</span>" +
-            "<del class='old_price'>" + originalprice + "</del><br/>" +
-            "<span>￥</span>" +
-            "<span class='now_price'>" + promoteprice + "</span>" +
-            "</div>" +
-            "<div class='item_number'>" +
-            "<a class='item_icon_sub' href='javascript:;'>-</a>" +
-            "<input class='item_text' type='text' value=" + number + ">" +
-            "<a class='item_icon_add' href='javascript:;'>+</a>" +
-            "</div>" +
-            "<div class='item_total'>" +
-            "<span>￥</span>" +
-            "<span id='total'>" + parseFloat(promoteprice) * parseInt(number) + "</span>" +
-            "</div>" +
-            "<div class='item_delete'>" +
-            "<a href='javascript:;'>删除</a>" +
-            "<input id='productId' type='hidden' value=" + id + "></div>" +
-            "</div>" +
-            "</div>"
-
-        $(".items_content").append(text);
-    }
-
-    function toggle() {
-        var items = $(".items_content").find(".check_icon");
-        for (var i = 0; i < items.length; i++) {
-            if ($(items[i]).children("span").hasClass("glyphicon")) {
-                $("#submit").tooltip('destroy');
-                return;
-            }
-        }
-        $("#submit").tooltip();
-    }
-
-    //触发提示工具
-    $("#submit").tooltip();
-
-
-    //删除商品
-    function deleteitem(pid) {
-        $.get("/deleteItem/" + pid);
-    }
-
-    //更新单件总价
-    function updatetotal(item) {
-        var parent = $(item).parentsUntil(".panel-body");
-        var price = parseFloat($(parent).siblings(".item_price").children(".now_price").text());
-        var number = parseInt($(parent).children(".item_text").attr("value"));
-        var total = price * number;
-
-        $(parent).siblings(".item_total").children("#total").text(total);
-    }
-
-    //计算选中的价格
-    function alltotal() {
-        var items = $(".items_content").find(".check_icon");
-        var total = 0;
-        var count = 0;
-
-        for (var i = 0; i < items.length; i++) {
-            var checkbox = $(items[i]).children("span");
-            if ($(checkbox).hasClass("glyphicon") &&
-                $(checkbox).hasClass("glyphicon-ok")) {
-                count++;
-                total += parseFloat($(items[i]).siblings(".item_total").children("#total").text());
-            }
-        }
-        $("#select_number").text(count);
-        $("#all_total").text(total);
-    }
-
-
+    init();
     $(".check_all_icon").click(function () {
         var allcheck = $(this).children("span");
         var itemcheck = $(".check_icon>span");
@@ -179,10 +76,11 @@ $(function () {
 
     $("#deleteItem").click(function () {
         var item = $("#url").data("item");
-        $(item).parentsUntil(".panel").hide("slow", function () {
-            var pid = $(item).children("#productId").val();
-            $(item).parentsUntil(".items_content").remove();
-            deleteitem(pid);
+        var pid = $(item).children("#productId").val();
+        deleteitem(pid, function () {
+            $(item).parentsUntil(".panel").hide("slow", function () {
+                $(item).parentsUntil(".items_content").remove();
+            });
         });
     })
 
@@ -206,6 +104,111 @@ $(function () {
         $.cookie('submitOrderJson', JSON.stringify(itemsJson), {expires: 1, path: '/'});
         window.location.href = "/submitOrder";
     })
-
-
 })
+
+function init() {
+    FastTools.ajax("/getTrolley", "GET", "", function (flag, data) {
+        if(flag){
+            var json = JSON.parse(data.msg);
+            for (var index in json) {
+                showItems(json[index]);
+            }
+        }
+    })
+    //触发提示工具
+    $("#submit").tooltip();
+}
+
+//删除商品
+function deleteitem(pid, callback) {
+    FastTools.ajax("/deleteItem/" + pid, "DELETE", "", function (flag, data) {
+        if (flag && JSON.parse(data.msg)) {
+            callback();
+            toastr.success('操作成功');
+        } else {
+            toastr.error('删除失败');
+        }
+    });
+}
+
+//更新单件总价
+function updatetotal(item) {
+    var parent = $(item).parentsUntil(".panel-body");
+    var price = parseFloat($(parent).siblings(".item_price").children(".now_price").text());
+    var number = parseInt($(parent).children(".item_text").attr("value"));
+    var total = price * number;
+
+    $(parent).siblings(".item_total").children("#total").text(total);
+}
+
+//计算选中的价格
+function alltotal() {
+    var items = $(".items_content").find(".check_icon");
+    var total = 0;
+    var count = 0;
+
+    for (var i = 0; i < items.length; i++) {
+        var checkbox = $(items[i]).children("span");
+        if ($(checkbox).hasClass("glyphicon") &&
+            $(checkbox).hasClass("glyphicon-ok")) {
+            count++;
+            total += parseFloat($(items[i]).siblings(".item_total").children("#total").text());
+        }
+    }
+    $("#select_number").text(count);
+    $("#all_total").text(total);
+}
+
+function showItems(json) {
+    var img = json['img'];
+    var id = json['id'];
+    var name = json['name'];
+    var originalprice = json['originalprice'];
+    var promoteprice = json['promoteprice'];
+    var number = json['number'];
+
+    var text = " <div class='panel panel-default'>" +
+        "<div class='panel-body'>" +
+        "<div class='check_icon'>" +
+        "<span></span>" +
+        "</div>" +
+        "<div class='item_img'>" +
+        "<img src=" + img + ">" +
+        "</div>" +
+        "<div class='item_name'>" +
+        "<a href=/items/" + id + ">" + name + "</a>" +
+        "</div>" +
+        "<div class='item_price'>" +
+        "<span>￥</span>" +
+        "<del class='old_price'>" + originalprice + "</del><br/>" +
+        "<span>￥</span>" +
+        "<span class='now_price'>" + promoteprice + "</span>" +
+        "</div>" +
+        "<div class='item_number'>" +
+        "<a class='item_icon_sub' href='javascript:;'>-</a>" +
+        "<input class='item_text' type='text' value=" + number + ">" +
+        "<a class='item_icon_add' href='javascript:;'>+</a>" +
+        "</div>" +
+        "<div class='item_total'>" +
+        "<span>￥</span>" +
+        "<span id='total'>" + parseFloat(promoteprice) * parseInt(number) + "</span>" +
+        "</div>" +
+        "<div class='item_delete'>" +
+        "<a href='javascript:;'>删除</a>" +
+        "<input id='productId' type='hidden' value=" + id + "></div>" +
+        "</div>" +
+        "</div>"
+
+    $(".items_content").append(text);
+}
+
+function toggle() {
+    var items = $(".items_content").find(".check_icon");
+    for (var i = 0; i < items.length; i++) {
+        if ($(items[i]).children("span").hasClass("glyphicon")) {
+            $("#submit").tooltip('destroy');
+            return;
+        }
+    }
+    $("#submit").tooltip();
+}

@@ -11,7 +11,7 @@ import java.util.Map;
  * @Other
  */
 public class AlipayUtil {
-    public static Map<String,String> getParams(HttpServletRequest request){
+    public static Map<String, String> getParams(HttpServletRequest request) {
         Map<String, String[]> map = request.getParameterMap();
         Map<String, String> params = new HashMap<>();
 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.OrderTableAndItemMapper">
+    <resultMap id="BaseResultMap" type="com.pojo.OrderTableAndItem">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="receiver" jdbcType="VARCHAR" property="receiver"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="userMessage" jdbcType="VARCHAR" property="usermessage"/>
+        <result column="price" jdbcType="REAL" property="price"/>
+        <result column="createDate" jdbcType="TIMESTAMP" property="createdate"/>
+        <result column="product_id" jdbcType="INTEGER" property="productId"/>
+        <result column="number" jdbcType="INTEGER" property="number"/>
+    </resultMap>
+
+    <insert id="insertTable" parameterType="com.pojo.OrderTableAndItem">
+        insert into order_table (id, address, receiver,
+        phone,userMessage, price,
+        createDate, username)
+        values (#{id}, #{address}, #{receiver},
+        #{phone},#{usermessage}, #{price},
+        #{createdate}, #{username});
+    </insert>
+    <insert id="insertItem" parameterType="com.pojo.OrderTableAndItem">
+        insert into order_item (order_id, username, product_id,number)
+        values (#{id}, #{username}, #{productId},
+        #{number})
+    </insert>
+</mapper>

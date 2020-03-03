@@ -1,20 +1,12 @@
 package com.controller;
 
-import com.Util.JsonLink;
-import com.Util.KeyUtil;
-import com.Util.UrlLink;
+import com.Util.*;
 import com.alibaba.fastjson.JSONObject;
-import com.pojo.OrderItem;
-import com.pojo.OrderTable;
+import com.pojo.OrderTableAndItem;
 import com.service.*;
-import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
@@ -30,11 +22,9 @@ public class SubmitOrderController {
     @Autowired
     private ProductImageService productImageService;
     @Autowired
-    private OrderTableService orderTableService;
-    @Autowired
     private MyTrolleyService myTrolleyService;
     @Autowired
-    private OrderItemService orderItemService;
+    private OrderTableAndItemService orderTableAndItemService;
 
     @RequestMapping(value = "/submitOrder")
     private String submitOrder() {
@@ -43,76 +33,66 @@ public class SubmitOrderController {
 
     @RequestMapping(value = "/getOrderJson", produces = "application/json;charset=utf-8", method = RequestMethod.POST)
     @ResponseBody
-    private String getOrderJson(@RequestBody List<JSONObject> list) {
+    private String getOrderJson(@RequestBody List<Map<String,String>> list) {
         List<String> retList = new ArrayList<>();
-        Iterator<JSONObject> iterator = list.iterator();
+        Iterator<Map<String,String>> iterator = list.iterator();
         while (iterator.hasNext()) {
-            JSONObject jsonObject = iterator.next();
+            Map map = iterator.next();
             //统一字符串
-            int pid = Integer.parseInt(jsonObject.get("pid").toString());
+            int pid = Integer.parseInt(map.get("pid").toString());
 
             List<String> jsonList = new ArrayList<>();
-            jsonList.add(productService.getNameAndPrice(pid));
-            jsonList.add(productImageService.getFirstImgJson(pid));
-            jsonList.add("{\"number\":" + jsonObject.get("number").toString() + "}");
+            jsonList.add(productService.getNameAndPrice(pid).toJSONString());
+            jsonList.add(productImageService.getFirstImgJson(pid).toJSONString());
+            jsonList.add("{\"number\":" + map.get("number").toString() + "}");
+            jsonList.add("{\"pid\":" + pid + "}");
 
             retList.add(JsonLink.putAll(jsonList));
         }
-
-        return retList.toString();
+        return JsonLink.Success(retList.toString());
     }
 
-    @RequestMapping(value = "/createOrder", method = RequestMethod.POST)
+    @RequestMapping(value = "/createOrder", produces = "application/json;charset=utf-8", method = RequestMethod.POST)
     @ResponseBody
-    private String createOrder(@RequestBody List<JSONObject> list, RedirectAttributes attr) {
-        Object name = SecurityUtils.getSubject().getPrincipal();
-        if (name == null) {
-            //TODO 跳转到错误页
-            return "-1";
+    private String createOrder(@RequestBody List<Map<String,String>> list) {
+        String userName = UserUtil.getUserName();
+        if(userName == null){
+            return JsonLink.Error(StateCode.ERR_NOT_LOGIN);
         }
-        //删除购物车对应商品（如果有） 生成商品订单  生成用户订单
+        //删除购物车对应商品（如果有） 生成商品订单/生成用户订单 减去库存
         List<String> uuid_list = new ArrayList<>();
-
-        for (Iterator<JSONObject> iterator = list.iterator();iterator.hasNext();) {
-            JSONObject jsonObject = iterator.next();
-            int productId = Integer.parseInt(jsonObject.get("productId").toString());
+        Iterator<Map<String,String>> iterator = list.iterator();
+        while (iterator.hasNext()){
+            Map<String,String> map = iterator.next();
+            int productId = Integer.parseInt(map.get("productId"));
             String uuid = KeyUtil.generateUniqueKey();
-            String address = jsonObject.get("address").toString();
-            String receiver = jsonObject.get("receiver").toString();
-            String phone = jsonObject.get("phone").toString();
-            String userMessage = jsonObject.get("userMessage").toString();
-            float price = Float.parseFloat(jsonObject.get("price").toString());
-            int number = Integer.parseInt(jsonObject.get("number").toString());
+            String address = map.get("address");
+            String receiver = map.get("receiver");
+            String phone = map.get("phone");
+            String userMessage = map.get("userMessage");
+            float price = Float.parseFloat(map.get("price"));
+            int number = Integer.parseInt(map.get("number"));
 
-            myTrolleyService.deleteItem(name.toString(), productId);
+            myTrolleyService.deleteItem(userName, productId);
             //生成订单
-            OrderTable orderTable = new OrderTable();
-            orderTable.setId(uuid);
-            orderTable.setAddress(address);
-            orderTable.setReceiver(receiver);
-            orderTable.setPhone(phone);
-            orderTable.setUsermessage(userMessage);
-            orderTable.setPrice(price);
-            orderTable.setCreatedate(new Date());
-            orderTable.setUsername(name.toString());
-            //生成我的订单
-            OrderItem orderItem = new OrderItem();
-            orderItem.setOrderId(uuid);
-            orderItem.setUsername(name.toString());
-            orderItem.setProductId(productId);
-            orderItem.setNumber(number);
+            OrderTableAndItem orderTableAndItem = new OrderTableAndItem();
+            orderTableAndItem.setId(uuid);
+            orderTableAndItem.setAddress(address);
+            orderTableAndItem.setReceiver(receiver);
+            orderTableAndItem.setPhone(phone);
+            orderTableAndItem.setUsermessage(userMessage);
+            orderTableAndItem.setPrice(price);
+            orderTableAndItem.setCreatedate(new Date());
+            orderTableAndItem.setUsername(userName);
+            orderTableAndItem.setProductId(productId);
+            orderTableAndItem.setNumber(number);
 
-            if (1 != orderTableService.insertOrder(orderTable)) {
-                //TODO 跳转到错误页
-                return "-2";
-            }
-            if (1 != orderItemService.insertOrderItem(orderItem)) {
-                //TODO 跳转到错误页
-                return "-3";
+            if(!orderTableAndItemService.insertOrder(orderTableAndItem)){
+                return JsonLink.Error(StateCode.ERR_NOT_ORDER);
             }
             uuid_list.add(uuid);
         }
         UrlLink.setSeparator("&");
-        return UrlLink.putAll(uuid_list);
+        return JsonLink.Success(UrlLink.putAll(uuid_list));
     }
 }

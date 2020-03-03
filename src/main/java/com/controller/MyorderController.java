@@ -1,21 +1,15 @@
 package com.controller;
 
-import com.pojo.OrderItem;
-import com.pojo.example.OrderItemExample;
+import com.Util.JsonLink;
+import com.Util.StateCode;
+import com.Util.UserUtil;
 import com.service.OrderItemService;
-import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * @Creator Ming
@@ -28,33 +22,34 @@ public class MyorderController {
     private OrderItemService orderItemService;
 
     @RequestMapping(value = {"/myorder"}, method = RequestMethod.GET)
-    private String myorder(Model model) {
+    private String myorder(HttpServletResponse response) {
         //防止浏览器缓存
-        model.addAttribute("ran", UUID.randomUUID().toString().replace("-", "").toUpperCase());
-        return "redirect:/html/myorder.html";
+        response.setDateHeader("Expires", 0);
+        response.setHeader("Cache-Control", "no-store");
+        response.setHeader("Pragma", "no-cache");
+        return "myorder";
     }
 
-    @RequestMapping(value = "/getMyorder", method = RequestMethod.GET)
-    private void getMyorder(HttpServletResponse response) throws IOException {
-        Object name = SecurityUtils.getSubject().getPrincipal();
-        if (name == null) {
-            return;
-        }
-        List<String> JsonList = orderItemService.getOrderItemJson(name.toString());
-
-        response.setContentType("text/html;charset=UTF-8");
-        response.getWriter().write(JsonList.toString());
-    }
-
-    @RequestMapping(value = "deleteOrder/{orderId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/getMyorder", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
     @ResponseBody
-    private int deleteOrder(@PathVariable("orderId") String orderId) {
-        Object name = SecurityUtils.getSubject().getPrincipal();
-        if (name == null) {
-            return 0;
+    private String getMyorder() {
+        String userName = UserUtil.getUserName();
+        if(userName == null){
+            return JsonLink.Error(StateCode.ERR_NOT_LOGIN);
         }
-        OrderItemExample orderItemExample = new OrderItemExample();
-        orderItemExample.or().andOrderIdEqualTo(orderId).andUsernameEqualTo(name.toString());
-        return orderItemService.deleteOrderItem(orderItemExample);
+        List<String> JsonList = orderItemService.getOrderItemJson(userName);
+        String json = JsonList.toString();
+        return json != null ? JsonLink.Success(json) : JsonLink.Error(json);
+    }
+
+    @RequestMapping(value = "/deleteOrder/{order_id}", method = RequestMethod.DELETE, produces = "application/json;charset=utf-8")
+    @ResponseBody
+    private String deleteOrder(@PathVariable(name = "order_id") String order_id) {
+        String userName = UserUtil.getUserName();
+        if (userName == null) {
+            return JsonLink.Error(StateCode.ERR_NOT_LOGIN);
+        }
+        return orderItemService.deleteOrderItem(order_id, userName) ?
+                JsonLink.Success(true) : JsonLink.Error(false);
     }
 }

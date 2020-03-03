@@ -2,7 +2,9 @@ package com.mapper;
 
 import com.pojo.PropertyValue;
 import com.pojo.example.PropertyValueExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface PropertyValueMapper {

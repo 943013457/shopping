@@ -10,31 +10,16 @@ $(function () {
             alert("请输入正确数据");
             return;
         }
-        var JsonData = JSON.stringify({
-            "user": username,
-            "password": password,
-            "email": email,
-            "phone": phone
-        });
-        $.ajax({
-            url: "/registerUser",
-            type: "POST",
-            data: JsonData,
-            datatype: "json",
-            contentType: "application/json;charset=UTF-8",
-            success: function (data) {
-                if (data) {
+        FastTools.ajax("/registerUser", "POST",
+            {"user": username, "password": password, "email": email, "phone": phone},
+            function (flag, data) {
+                if (flag && JSON.parse(data.msg)) {
                     //注册成功后跳转
-                    self.location=document.referrer;
+                    self.location = document.referrer;
+                } else {
+                    toastr.success('注册失败，error:' + data.msg);
                 }
-                else{
-                    alert("注册失败");
-                }
-            },
-            error:function () {
-                alert("服务器连接失败");
-            }
-        });
+            })
     });
 
     //下一步
@@ -42,25 +27,18 @@ $(function () {
         username = false;
         if (!$(this).hasClass("disabled")) {
             $(".username_msg").text("检查用户名...");
-            $.ajax({
-                url: "/selectUser",
-                type: "GET",
-                data: {"username": $("#username").val().replace(" ", "")},
-                datatype: "text",
-                success: function (data) {
-                    if (data) {
-                        $(".pagebox").animate({left: '-500px'});
-                        $(".username_msg").text("");
-                        $(".bar").animate({width: "48%"});
-                        $(".nav_2").css("background-color", "#c40000");
-
-                        username = $("#username").val().replace(" ", "");
-                    } else {
-                        $(".username_msg").text("用户名重复");
-                    }
+            var username = $("#username").val().replace(" ", "");
+            FastTools.ajax("/selectUser" + username, "GET", "", function (flag, data) {
+                if (flag && JSON.parse(data.msg)) {
+                    $(".pagebox").animate({left: '-500px'});
+                    $(".username_msg").text("");
+                    $(".bar").animate({width: "48%"});
+                    $(".nav_2").css("background-color", "#c40000");
+                    username = $("#username").val().replace(" ", "");
+                } else {
+                    $(".username_msg").text("用户名重复");
                 }
             })
-
         }
     });
 

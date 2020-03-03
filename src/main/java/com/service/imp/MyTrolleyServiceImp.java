@@ -1,5 +1,6 @@
 package com.service.imp;
 
+import com.Util.StateCode;
 import com.alibaba.fastjson.JSONObject;
 import com.mapper.ProductImageMapper;
 import com.mapper.ProductMapper;
@@ -68,35 +69,31 @@ public class MyTrolleyServiceImp implements MyTrolleyService {
     }
 
     @Override
-    public int deleteItem(String username, int productId) {
+    public boolean deleteItem(String username, int productId) {
         TrolleyExample trolleyExample = new TrolleyExample();
         trolleyExample.or().andUserEqualTo(username).andProductIdEqualTo(productId);
-        return trolleyMapper.deleteByExample(trolleyExample);
+        return trolleyMapper.deleteByExample(trolleyExample) > 0;
     }
 
     @Override
-    public int insertItem(String username, int productID, int number) {
-        Trolley trolley = new Trolley();
-        trolley.setNumber(number);
+    public boolean insertItem(String username, int productID, int number) {
         //添加前确认是否已存在
         TrolleyExample example = new TrolleyExample();
         example.or().andUserEqualTo(username).andProductIdEqualTo(productID);
-        if (1 == trolleyMapper.updateByExampleSelective(trolley, example)) {
-            return 1;
+        if (trolleyMapper.countByExample(example) > 0) {
+            return true;
         }
-
+        Trolley trolley = new Trolley();
+        trolley.setNumber(number);
         trolley.setUser(username);
         trolley.setProductId(productID);
-        return trolleyMapper.insertSelective(trolley);
+        return trolleyMapper.insertSelective(trolley) > 0;
     }
 
     @Override
     public boolean isAddTrolley(String username, int productID) {
         TrolleyExample trolleyExample = new TrolleyExample();
         trolleyExample.or().andUserEqualTo(username).andProductIdEqualTo(productID);
-        if (trolleyMapper.countByExample(trolleyExample) <= 0) {
-            return false;
-        }
-        return true;
+        return trolleyMapper.countByExample(trolleyExample) > 0;
     }
 }

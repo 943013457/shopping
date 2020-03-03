@@ -5,8 +5,8 @@ $(function () {
     function checkPay() {
         var ret = $.cookie('payStateCode');
         var payId_price = $.cookie('payID_price');
-        if(null == ret || "" == ret || undefined == ret){
-            ret="-1"
+        if (null == ret || "" == ret || undefined == ret) {
+            ret = "-1"
         }
         if (null == payId_price || "" == payId_price || undefined == payId_price) {
             ret = "-2";
@@ -36,11 +36,11 @@ $(function () {
         }
     }
 
-    $(".state_inmain").on("click",".order_btn",function () {
+    $(".state_inmain").on("click", ".order_btn", function () {
         window.location.href = "/myorder";
     })
 
-    $(".state_inmain").on("click",".buy_btn",function () {
+    $(".state_inmain").on("click", ".buy_btn", function () {
         window.location.href = "/index";
     })
 

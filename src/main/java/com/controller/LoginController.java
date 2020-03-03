@@ -1,5 +1,7 @@
 package com.controller;
 
+import com.Util.JsonLink;
+import com.Util.StateCode;
 import com.pojo.LoginUser;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -9,6 +11,8 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import javax.swing.plaf.nimbus.State;
 
 
 /**
@@ -24,31 +28,31 @@ public class LoginController {
         return "login";
     }
 
-    @RequestMapping(value = "/selectUserPwd", method = RequestMethod.POST)
+    @RequestMapping(value = "/selectUserPwd", produces = "application/json;charset=utf-8", method = RequestMethod.POST)
     @ResponseBody
-    private String selectUserPwd(@RequestBody LoginUser user) {
-        String username = user.getUser();
-        String password = user.getPassword();
+    private String selectUserPwd(@RequestBody LoginUser loginUser) {
+        String username = loginUser.getUser();
+        String password = loginUser.getPassword();
         if (username.isEmpty()) {
-            return "UserNameNull";
+            return JsonLink.Error(StateCode.ERR_NOT_USERNAME);
         }
         if (password.isEmpty()) {
-            return "PasswordNull";
+            return JsonLink.Error(StateCode.ERR_NOT_PASSWORD);
         }
-        UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+        UsernamePasswordToken token = new UsernamePasswordToken(password, password);
         Subject subject = SecurityUtils.getSubject();
         try {
             subject.login(token);
         } catch (AuthenticationException e) {
             //账号被封禁
-            if(e instanceof DisabledAccountException){
-                return "banned";
+            if (e instanceof DisabledAccountException) {
+                return JsonLink.Error(StateCode.ERR_NOT_BANNED);
             }
             //验证用户/密码错误
-            else if(e instanceof CredentialsException){
-                return "error";
+            else if (e instanceof CredentialsException) {
+                return JsonLink.Error(StateCode.ERR_NOT_VALIDATION);
             }
         }
-        return "ok";
+        return JsonLink.Success("登录成功");
     }
 }

@@ -25,7 +25,7 @@ public class ProductImageServiceImp implements ProductImageService {
     private ProductImageMapper productImageMapper;
 
     @Override
-    public String getUrlJson(int id) {
+    public JSONObject getUrlJson(int id) {
         ProductImageExample productImageExample = new ProductImageExample();
         productImageExample.or().andProductIdEqualTo(id);
         List<ProductImage> productImageList = productImageMapper.selectByExample(productImageExample);
@@ -56,19 +56,19 @@ public class ProductImageServiceImp implements ProductImageService {
         jsonObject.put("small", smallList.size() > 0 ? UrlLink.putAll(smallList) : default_img);
         jsonObject.put("content", contentList.size() > 0 ? UrlLink.putAll(contentList) : default_img);
 
-        return jsonObject.toString();
+        return jsonObject;
     }
 
     @Override
-    public String getFirstImgJson(int id) {
+    public JSONObject getFirstImgJson(int id) {
         ProductImageExample example = new ProductImageExample();
         example.or().andProductIdEqualTo(id).andLocationEqualTo("small");
         List<ProductImage> list = productImageMapper.selectByExample(example);
 
         JSONObject jsonObject = new JSONObject();
         String default_img = "/image/default_item_img.jpg";
-        jsonObject.put("imgUrl",list.size() > 0 ? list.get(0).getImage() : default_img);
+        jsonObject.put("imgUrl", list.size() > 0 ? list.get(0).getImage() : default_img);
 
-        return jsonObject.toString();
+        return jsonObject;
     }
 }

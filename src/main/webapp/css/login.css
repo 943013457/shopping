@@ -6,10 +6,10 @@
 
 .top_icon {
     margin: 0 auto;
-    width:70%;
+    width: 70%;
 }
 
-.top_icon>a>img{
+.top_icon > a > img {
     width: 300px;
     height: 40px;
 }
@@ -29,18 +29,18 @@
     height: 270px;
     padding: 35px 15px 0px;
     border-radius: 15px;
-    z-index:1;
+    z-index: 1;
 }
 
-.background>img{
+.background > img {
     position: absolute;
-    left:550px;
+    left: 550px;
     top: 80px;
 }
 
 #loginHeadFont {
     font-size: 16px;
-    font-family:Arial;
+    font-family: Arial;
     font-weight: bold;
     letter-spacing: 5px;
 }
@@ -54,23 +54,23 @@
     background-color: #fef2f2;
 }
 
-#error_icon{
+#error_icon {
     margin-top: 6px;
     margin-left: 15px;
 }
 
-#error_text{
+#error_text {
     font-size: 10px;
     color: #6C6C6C;
     margin-left: 10px;
 }
 
-.loginFromAction{
+.loginFromAction {
     text-align: center;
 }
 
 .UserIdIcon,
-.UserPwdIcon{
+.UserPwdIcon {
     display: inline-block;
     width: 15px;
     height: 15px;

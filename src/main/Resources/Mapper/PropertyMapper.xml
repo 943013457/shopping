@@ -71,8 +71,8 @@
         </where>
     </sql>
     <sql id="Base_Column_List">
-    id, category_id, name
-  </sql>
+        id, category_id, name
+    </sql>
     <select id="selectByExample" parameterType="com.pojo.example.PropertyExample" resultMap="BaseResultMap">
         select
         <if test="distinct">
@@ -94,12 +94,13 @@
         where id = #{id,jdbcType=INTEGER}
     </select>
     <select id="selectProperty" parameterType="java.lang.Integer" resultMap="PropertyResultMap">
-        select name,value from property left join property_value on property.id=property_value.property_id and product_id= #{id,jdbcType=INTEGER}
-  </select>
+        select name,value from property left join property_value on property.id=property_value.property_id and
+        product_id= #{id,jdbcType=INTEGER}
+    </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from property
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
+        delete from property
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
     <delete id="deleteByExample" parameterType="com.pojo.example.PropertyExample">
         delete from property
         <if test="_parameter != null">
@@ -107,11 +108,11 @@
         </if>
     </delete>
     <insert id="insert" parameterType="com.pojo.Property">
-    insert into property (id, category_id, name
-      )
-    values (#{id,jdbcType=INTEGER}, #{categoryId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}
-      )
-  </insert>
+        insert into property (id, category_id, name
+        )
+        values (#{id,jdbcType=INTEGER}, #{categoryId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}
+        )
+    </insert>
     <insert id="insertSelective" parameterType="com.pojo.Property">
         insert into property
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -182,9 +183,9 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.pojo.Property">
-    update property
-    set category_id = #{categoryId,jdbcType=INTEGER},
-      name = #{name,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update property
+        set category_id = #{categoryId,jdbcType=INTEGER},
+        name = #{name,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

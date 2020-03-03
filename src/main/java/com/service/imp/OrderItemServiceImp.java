@@ -83,14 +83,20 @@ public class OrderItemServiceImp implements OrderItemService {
     }
 
     @Override
-    public int getOrderNumber(String orderId) {
-        OrderItem orderItem = new OrderItem();
-        orderItem = orderItemMapper.selectByPrimaryKey(orderId);
-        return orderItem != null ? orderItem.getNumber() : 0;
-    }
-
-    @Override
-    public int deleteOrderItem(OrderItemExample orderItemExample) {
-        return orderItemMapper.deleteByExample(orderItemExample);
+    public boolean deleteOrderItem(String orderId, String name) {
+        OrderItem orderItem = orderItemMapper.selectByPrimaryKey(orderId);
+        if(orderItem !=  null){
+            int productId = orderItem.getProductId();
+            Product product = productMapper.selectByPrimaryKey(productId);
+            //库存+
+            int stock = product.getStock();
+            Product newProduct = new Product();
+            newProduct.setId(productId);
+            newProduct.setStock(stock + orderItem.getNumber());
+            productMapper.updateByPrimaryKeySelective(newProduct);
+        }
+        OrderItemExample orderItemExample = new OrderItemExample();
+        orderItemExample.or().andOrderIdEqualTo(orderId).andUsernameEqualTo(name);
+        return orderItemMapper.deleteByExample(orderItemExample) > 0;
     }
 }

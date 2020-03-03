@@ -46,7 +46,7 @@
             <list>
                 <ref bean="wall-filter"/>
                 <ref bean="stat-filter"/>
-<!--                <ref bean="log-filter"/>-->
+                <!--                <ref bean="log-filter"/>-->
             </list>
         </property>
     </bean>
@@ -59,10 +59,10 @@
         <property name="logSlowSql" value="true"/>
     </bean>
 
-<!--    <bean id="log-filter" class="com.alibaba.druid.filter.logging.Log4jFilter">-->
-<!--        <property name="dataSourceLogEnabled" value="true"/>-->
-<!--        <property name="statementExecutableSqlLogEnable" value="true"/>-->
-<!--    </bean>-->
+    <!--    <bean id="log-filter" class="com.alibaba.druid.filter.logging.Log4jFilter">-->
+    <!--        <property name="dataSourceLogEnabled" value="true"/>-->
+    <!--        <property name="statementExecutableSqlLogEnable" value="true"/>-->
+    <!--    </bean>-->
 
     <!-- 防御SQL攻击 -->
     <bean id="wall-filter" class="com.alibaba.druid.wall.WallFilter">

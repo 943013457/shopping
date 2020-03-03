@@ -14,15 +14,15 @@ body {
     margin: 0 auto;
 }
 
-.progressbar{
+.progressbar {
     margin: 0 auto;
     width: 40%;
 }
 
-.bar{
+.bar {
     width: 23%;
     height: 2px;
-    background-color:#d9534f;
+    background-color: #d9534f;
 }
 
 .nav_t {
@@ -54,7 +54,7 @@ body {
     border-radius: 20px;
 }
 
-.nav_1{
+.nav_1 {
     background-color: #c40000;
 }
 
@@ -67,7 +67,7 @@ body {
     overflow: hidden;
 }
 
-.pagebox{
+.pagebox {
     position: absolute;
     left: 0px;
     width: 1500px;
@@ -92,11 +92,11 @@ body {
 
 .next_btn_1,
 .next_btn_2,
-.ok_btn{
+.ok_btn {
     width: 160px;
 }
 
-.next_btn_1{
+.next_btn_1 {
     margin-top: 65px;
 }
 
@@ -104,28 +104,31 @@ body {
     margin: 20px;
 }
 
-.username_msg{
+.username_msg {
     position: absolute;
     top: 32px;
     left: 410px;
 }
 
-.password_msg_1{
+.password_msg_1 {
     position: absolute;
     top: 32px;
     left: 910px;
 }
-.password_msg_2{
+
+.password_msg_2 {
     position: absolute;
     top: 97px;
     left: 910px;
 }
-.email_msg{
+
+.email_msg {
     position: absolute;
     top: 32px;
     left: 1410px;
 }
-.phone_msg{
+
+.phone_msg {
     position: absolute;
     top: 97px;
     left: 1410px;
@@ -135,7 +138,7 @@ body {
 .password_msg_1,
 .password_msg_2,
 .email_msg,
-.phone_msg{
+.phone_msg {
     font-family: Arial;
     font-size: 15px;
     color: #c40000;

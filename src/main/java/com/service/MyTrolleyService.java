@@ -10,9 +10,9 @@ import java.util.List;
 public interface MyTrolleyService {
     public List<String> getTrolleyJson(String username);
 
-    public int deleteItem(String username, int productId);
+    public boolean deleteItem(String username, int productId);
 
-    public int insertItem(String username, int productID, int number);
+    public boolean insertItem(String username, int productID, int number);
 
-    public boolean isAddTrolley(String username,int productID);
+    public boolean isAddTrolley(String username, int productID);
 }

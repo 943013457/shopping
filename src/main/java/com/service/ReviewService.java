@@ -1,12 +1,16 @@
 package com.service;
 
+import com.alibaba.fastjson.JSONObject;
+
+import java.util.List;
+
 /**
  * @Creator Ming
  * @Time 2019/8/16
  * @Other
  */
 public interface ReviewService {
-    public String getReviewCountJson(int id);
+    public JSONObject getReviewCountJson(int id);
 
-    public String getReviewJson(int id);
+    public List<String> getReviewJson(int id);
 }

@@ -20,7 +20,7 @@ public class ProductServiceImp implements ProductService {
     private ProductMapper productMapper;
 
     @Override
-    public String getProductJson(int id) {
+    public JSONObject getProductJson(int id) {
         //获取商品信息
         Product product = productMapper.selectByPrimaryKey(id);
         if (product == null) {
@@ -35,19 +35,16 @@ public class ProductServiceImp implements ProductService {
         jsonObject.put("sales", product.getSales());
         jsonObject.put("stock", product.getStock());
 
-        return jsonObject.toString();
+        return jsonObject;
     }
 
     @Override
     public boolean hasProduct(int id) {
-        if (null == productMapper.selectByPrimaryKey(id)) {
-            return false;
-        }
-        return true;
+        return productMapper.selectByPrimaryKey(id) != null;
     }
 
     @Override
-    public String getNameAndPrice(int id) {
+    public JSONObject getNameAndPrice(int id) {
         //获取商品信息
         Product product = productMapper.selectByPrimaryKey(id);
 
@@ -55,7 +52,7 @@ public class ProductServiceImp implements ProductService {
         jsonObject.put("name", product.getName());
         jsonObject.put("price", product.getPromoteprice());
 
-        return jsonObject.toString();
+        return jsonObject;
     }
 
 }

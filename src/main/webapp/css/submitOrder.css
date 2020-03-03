@@ -1,26 +1,26 @@
 .top-icon,
-.content{
+.content {
     width: 1024px;
     margin: 30px auto;
 }
 
-.top-icon>img{
+.top-icon > img {
     width: 100px;
     height: 50px;
 }
 
-.content{
+.content {
     min-height: 1024px;
 }
 
-.content_title>p{
+.content_title > p {
     font-family: Arial;
     font-size: 16px;
     font-weight: bold;
     margin: 30px 0;
 }
 
-.title{
+.title {
     text-align: right;
     font-size: 12px;
     color: #999999;
@@ -30,7 +30,7 @@
 
 .title_price,
 .title_number,
-.title_total{
+.title_total {
     text-align: center;
     display: inline-block;
     width: 100px;
@@ -39,117 +39,121 @@
 
 .address_font,
 .consignee_font,
-.phone_font{
+.phone_font {
     font-family: Arial;
     font-size: 14px;
 }
 
 
-.required{
+.required {
     color: #C40000;
     font-size: 16px;
 }
 
 .address,
 .consignee,
-.phone{
+.phone {
     margin: 0 auto;
     width: 900px;
 }
 
-.address_text{
+.address_text {
     resize: none;
 }
 
 .address_text,
 .consignee_text,
-.phone_text{
+.phone_text {
     width: 500px;
     margin-bottom: 30px;
 }
 
-.productItemImg>img{
+.productItemImg > img {
     width: 50px;
     height: 50px;
 }
 
-.panel-body{
+.panel-body {
     padding-left: 0;
     padding-right: 0;
 }
 
 .productItemImg,
-.productPrice ,
+.productPrice,
 .productNumber,
-.productTotal{
+.productTotal {
     display: inline-block;
     text-align: center;
 }
 
-.productInfo{
+.productInfo {
     display: inline-block;
 }
 
-.productItemImg{
+.productItemImg {
     width: 80px;
 }
-.productInfo{
+
+.productInfo {
     width: 630px;
 }
-.productPrice{
+
+.productPrice {
     width: 110px;
 }
-.productNumber{
-    width: 100px;
-}
-.productTotal{
+
+.productNumber {
     width: 100px;
 }
 
-.itemTitle{
+.productTotal {
+    width: 100px;
+}
+
+.itemTitle {
     color: #999999;
     font-size: 12px;
 }
 
-.itemTitle:hover{
+.itemTitle:hover {
     color: #C40000;
 }
 
 .itemPrice,
-.itemNumber{
+.itemNumber {
     font-size: 12px;
     font-weight: bold;
 }
 
-.itemTotal{
+.itemTotal {
     font-size: 12px;
     font-weight: bold;
     color: #C40000;
 }
 
-.remark{
+.remark {
     margin-bottom: 20px;
     background-color: #F2F6FF !important;
 }
 
-.total{
+.total {
     margin: 30px 20px;
 }
 
 .total,
-.submit{
+.submit {
     text-align: right;
     font-size: 16px;
     font-weight: bold;
 }
 
 .total_sign,
-.total_number{
+.total_number {
     color: #C40000;
     font-size: 20px;
 }
 
-.submit_btn{
+.submit_btn {
     width: 180px;
     height: 40px;
 }

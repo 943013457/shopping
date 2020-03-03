@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>天猫商城 - 我的订单</title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../css/init.css" rel="stylesheet"/>
-    <link href="../css/myorder.css" rel="stylesheet"/>
-    <script type="text/javascript" src="../js/jQuery_v1.12.4_min.js"></script>
-    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../js/myorder.js"></script>
+    <link href="/css/ref/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/ref/toastr.min.css" rel="stylesheet"/>
+    <link href="/css/tool/init.css" rel="stylesheet"/>
+    <link href="/css/myorder.css" rel="stylesheet"/>
+    <script type="text/javascript" src="/js/ref/jQuery_v1.12.4_min.js"></script>
+    <script type="text/javascript" src="/js/ref/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/ref/toastr.min.js"></script>
+    <script type="text/javascript" src="/js/tool/init.js"></script>
+    <script type="text/javascript" src="/js/myorder.js"></script>
 
 </head>
 <body>
-<script type="text/javascript" src="../js/nav-top.js"></script>
-<script type="text/javascript" src="../js/smallSearch.js"></script>
+<div id="nav-top"></div>
+<div id="content-top"></div>
 
 <div class="content-main">
     <ul id="myTab" class="nav nav-tabs">
@@ -36,7 +39,7 @@
     <div class="order_label">
         <table class="table table-striped">
             <thead>
-            <th id="label_bb" class="order_font">宝贝</th>
+            <th id="label_bb" class="order_font">商品名</th>
             <th id="label_dj" class="order_font">单价</th>
             <th id="label_sl" class="order_font">数量</th>
             <th id="label_sfk" class="order_font">实付款</th>
@@ -63,8 +66,8 @@
     </div>
 </div>
 
-<!-- 信息删除确认 -->
-<div class="modal fade" id="delcfmModel">
+<!-- 订单删除确认 -->
+<div class="modal fade" id="deleteModel">
     <div class="modal-dialog">
         <div class="modal-content message_align">
             <div class="modal-header">
@@ -76,13 +79,33 @@
                 <p>您确认要删除吗？</p>
             </div>
             <div class="modal-footer">
-                <input type="hidden" id="order_id"/>
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                 <a id="deleteItem" class="btn btn-danger" data-dismiss="modal">确定</a>
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<script type="text/javascript" src="../js/nav-floor.js"></script>
+        </div>
+    </div>
+</div>
+
+<!-- 收货确认 -->
+<div class="modal fade" id="affirmModel">
+    <div class="modal-dialog">
+        <div class="modal-content message_align">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title">提示信息</h4>
+            </div>
+            <div class="modal-body">
+                <p>未收到商品收货将钱货两空，您确认要确认收货吗？</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <a id="affirmGoods" class="btn btn-danger" data-dismiss="modal">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="order_id"/>
+<div id="bottom_content"></div>
 </body>
 </html>

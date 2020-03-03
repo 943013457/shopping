@@ -12,7 +12,7 @@ import java.util.Date;
  */
 public class DateTimeTest {
     @Test
-    public void test(){
+    public void test() {
         //设置日期格式
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println(df.format(new Date()));

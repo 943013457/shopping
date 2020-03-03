@@ -1,7 +1,7 @@
 package com.service.imp;
 
 import com.Util.ToDate;
-import com.Util.UsernameUtil;
+import com.Util.UserUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.mapper.ReviewMapper;
 import com.pojo.Review;
@@ -25,18 +25,18 @@ public class ReviewServiceImp implements ReviewService {
     private ReviewMapper reviewMapper;
 
     @Override
-    public String getReviewCountJson(int id) {
+    public JSONObject getReviewCountJson(int id) {
         //获取评论数
         ReviewExample reviewExample = new ReviewExample();
         reviewExample.or().andProductIdEqualTo(id);
         long reviewCount = reviewMapper.countByExample(reviewExample);
         JSONObject reviewJson = new JSONObject();
         reviewJson.put("review", reviewCount);
-        return reviewJson.toString();
+        return reviewJson;
     }
 
     @Override
-    public String getReviewJson(int id) {
+    public List<String> getReviewJson(int id) {
         //获取评论
         ReviewExample reviewExample = new ReviewExample();
         reviewExample.or().andProductIdEqualTo(id);
@@ -52,10 +52,10 @@ public class ReviewServiceImp implements ReviewService {
 
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("content", review.getContent());
-            jsonObject.put("username", UsernameUtil.ToAnonymity(review.getUsername()));
+            jsonObject.put("username", UserUtil.ToAnonymity(review.getUsername()));
             jsonObject.put("createDate", ToDate.getTime(review.getCreatedate()));
             list.add(jsonObject.toString());
         }
-        return list.toString();
+        return list;
     }
 }

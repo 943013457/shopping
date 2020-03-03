@@ -41,4 +41,4 @@ public class PropertyValue {
         this.value = value == null ? null : value.trim();
     }
 
- }
+}

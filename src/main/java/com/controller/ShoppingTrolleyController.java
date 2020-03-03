@@ -1,16 +1,14 @@
 package com.controller;
 
+import com.Util.JsonLink;
+import com.Util.StateCode;
+import com.Util.UserUtil;
 import com.service.MyTrolleyService;
-import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -24,30 +22,33 @@ public class ShoppingTrolleyController {
     private MyTrolleyService myTrolleyService;
 
     @RequestMapping(value = {"/shoppingTrolley"})
-    private String shoppingTrolley() {
+    private String shoppingTrolley(HttpServletResponse response) {
+        //防止浏览器缓存
+        response.setDateHeader("Expires", 0);
+        response.setHeader("Cache-Control", "no-store");
+        response.setHeader("Pragma", "no-cache");
         return "shoppingTrolley";
     }
 
-    @RequestMapping(value = "/getTrolley", method = RequestMethod.GET)
-    private void getTrolley(HttpServletResponse response) throws IOException {
-        Object name = SecurityUtils.getSubject().getPrincipal();
-        if (name == null) {
-            return;
+    @RequestMapping(value = "/getTrolley", produces = "application/json;charset=utf-8" ,method = RequestMethod.GET)
+    @ResponseBody
+    private String getTrolley() {
+        String userName = UserUtil.getUserName();
+        if (userName == null) {
+            return JsonLink.Error(StateCode.ERR_NOT_LOGIN);
         }
-
-        List<String> JsonList = myTrolleyService.getTrolleyJson(name.toString());
-
-        response.setContentType("text/html;charset=UTF-8");
-        response.getWriter().write(JsonList.toString());
+        List<String> JsonList = myTrolleyService.getTrolleyJson(userName);
+        String json = JsonList.toString();
+        return json != null ? JsonLink.Success(json) : JsonLink.Error("获取数据失败");
     }
 
-    @RequestMapping(value = "/deleteItem/{pid}", method = RequestMethod.GET)
+    @RequestMapping(value = "/deleteItem/{id}",produces = "application/json;charset=utf-8", method = RequestMethod.DELETE)
     @ResponseBody
-    private int deleteItem(@PathVariable("pid") int pid) {
-        Object name = SecurityUtils.getSubject().getPrincipal();
-        if (name == null) {
-            return -1;
+    private String deleteItem(@PathVariable(name = "id") int id) {
+        String userName = UserUtil.getUserName();
+        if (userName == null) {
+            return JsonLink.Error(StateCode.ERR_NOT_LOGIN);
         }
-        return myTrolleyService.deleteItem(name.toString(), pid);
+        return myTrolleyService.deleteItem(userName, id) ? JsonLink.Success(true) : JsonLink.Error(false);
     }
 }
