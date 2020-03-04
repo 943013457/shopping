@@ -12,7 +12,6 @@ import java.util.Date;
 
 public interface OrderTableService {
 
-    public int insertOrder(OrderTable orderTable);
 
     public float getOrderPrice(String id);
 

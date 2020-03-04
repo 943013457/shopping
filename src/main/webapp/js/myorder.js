@@ -1,4 +1,9 @@
 function getList() {
+    $("#all").html("");
+    $("#fk").html("");
+    $("#fh").html("");
+    $("#sh").html("");
+    $("#pj").html("");
     FastTools.ajax("/getMyorder", "GET", "", function (flag, data) {
         if (flag) {
             var json = JSON.parse(data.msg);
@@ -11,7 +16,6 @@ function getList() {
 
 //订单
 function showItems(json) {
-
     var id = json['OrderId'];
     var CreateDate = json['CreateDate'];
     var image = json['image'];
@@ -50,7 +54,7 @@ function showItems(json) {
             break;
         case "FINISH":
             StateTitle = "订单完成";
-            btn_class = "btn btn-default";
+            btn_class = "btn btn-primary";
             delete_btn = "<span class='deleteOrder'><a href='javascript:;'>删除</a></span>";
             break;
     }
@@ -75,7 +79,7 @@ function showItems(json) {
         "<div class='product_item_btn'>" +
         "<button type=button class='" + btn_class + "'>" + StateTitle +
         "</button></div></div>" +
-        "<input class='orderId_input' type='hidden' value=" + id + "/></div>";
+        "<input class='orderId_input' type='hidden' value='" + id + "'/></div>";
 
     $("#all").append(text);
     if ("" !== classify || null != classify) {
@@ -103,6 +107,10 @@ $(function () {
 
     $("#all").on("click", ".btn_dpj", function () {
         //待评价
+        var id = $(this).parentsUntil(".item_content").siblings(".orderId_input").attr("value");
+        $("#order_id").data("id", id);
+        $("#message-text").val("");
+        $("#reviewModel").modal();
     })
 
     $("#all").on("click", ".deleteOrder", function () {
@@ -110,6 +118,15 @@ $(function () {
         var id = $(this).parentsUntil(".item_content").siblings(".orderId_input").attr("value");
         $("#order_id").data("id", id);
         $("#deleteModel").modal();
+    })
+
+    //确认收货
+    $("#affirmGoods").click(function () {
+        var order_id = {order_id: $("#order_id").data("id")};
+        FastTools.ajax("/affirmGoods", "POST", JSON.stringify(order_id), function (flag) {
+            flag ? toastr.success('收货成功') : toastr.error('操作失败,请稍后再试');
+            getList();
+        })
     })
     //删除订单
     $("#deleteItem").click(function () {
@@ -125,11 +142,25 @@ $(function () {
                         })
                         toastr.success('操作成功');
                     } else {
-                        toastr.success('删除失败');
+                        toastr.error('删除失败,请稍后再试');
                     }
                 })
                 break;
             }
         }
+    })
+    //提交评价
+    $("#review").click(function () {
+        var order_id = $("#order_id").data("id");
+        var review = $("#message-text").val();
+        var json = {orderId: order_id, reviewText: review};
+        FastTools.ajax("/submitReview", "POST", JSON.stringify(json), function (flag, data) {
+            if (flag && JSON.parse(data.msg)) {
+                toastr.success('评价成功');
+                getList();
+            } else {
+                toastr.error('操作失败,请稍后再试 ' + data.msg);
+            }
+        })
     })
 })

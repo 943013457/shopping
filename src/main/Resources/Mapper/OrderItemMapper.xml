@@ -195,4 +195,9 @@
         number = #{number,jdbcType=INTEGER}
         where order_id = #{orderId,jdbcType=VARCHAR}
     </update>
+    <update id="updateBySales" parameterType="java.lang.String">
+        update product
+        set sales=sales+(select number from order_item where order_id = #{orderId,jdbcType=VARCHAR})
+        where id=(select product_id from order_item where order_id = #{orderId,jdbcType=VARCHAR})
+    </update>
 </mapper>

@@ -1,6 +1,10 @@
 package com.service.imp;
 
+import com.Util.JsonLink;
+import com.Util.StateCode;
+import com.mapper.OrderItemMapper;
 import com.mapper.PayTableMapper;
+import com.pojo.OrderItem;
 import com.pojo.PayTable;
 import com.pojo.example.PayTableExample;
 import com.service.PayTableService;
@@ -21,6 +25,8 @@ import java.util.List;
 public class PayTableServiceImp implements PayTableService {
     @Autowired
     private PayTableMapper payTableMapper;
+    @Autowired
+    private OrderItemMapper orderItemMapper;
 
     @Override
     public int createPayTable(PayTable payTable) {
@@ -62,5 +68,25 @@ public class PayTableServiceImp implements PayTableService {
         payTableExample.or().andPayIdEqualTo(payId);
         return payTableMapper.updateByExampleSelective(payTable, payTableExample);
     }
+
+    @Override
+    public boolean setAffirmState(String orderId) {
+        //确认收货,增加销量
+        orderItemMapper.updateBySales(orderId);//增加销量
+        PayTable payTable = new PayTable();
+        payTable.setOrderId(orderId);
+        payTable.setState("REVIEW");
+        return payTableMapper.updateByPrimaryKeySelective(payTable) > 0;
+    }
+
+    @Override
+    public boolean setFinishState(String orderId) {
+        //完成订单
+        PayTable payTable = new PayTable();
+        payTable.setOrderId(orderId);
+        payTable.setState("FINISH");
+        return payTableMapper.updateByPrimaryKeySelective(payTable) > 0;
+    }
+
 
 }

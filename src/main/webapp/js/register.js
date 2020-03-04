@@ -17,7 +17,7 @@ $(function () {
                     //注册成功后跳转
                     self.location = document.referrer;
                 } else {
-                    toastr.success('注册失败，error:' + data.msg);
+                    toastr.error('注册失败，error:' + data.msg);
                 }
             })
     });

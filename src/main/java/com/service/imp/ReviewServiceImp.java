@@ -10,7 +10,9 @@ import com.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -57,5 +59,15 @@ public class ReviewServiceImp implements ReviewService {
             list.add(jsonObject.toString());
         }
         return list;
+    }
+
+    @Override
+    public boolean addReview(String userName,int productId, String reviewText) {
+        Review review = new Review();
+        review.setUsername(userName);
+        review.setProductId(productId);
+        review.setContent(reviewText);
+        review.setCreatedate(new Date());
+        return reviewMapper.insertSelective(review) > 0;
     }
 }

@@ -126,7 +126,7 @@ function deleteitem(pid, callback) {
             callback();
             toastr.success('操作成功');
         } else {
-            toastr.error('删除失败');
+            toastr.error('删除失败,请稍后再试');
         }
     });
 }

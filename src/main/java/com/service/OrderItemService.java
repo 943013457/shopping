@@ -14,7 +14,7 @@ import java.util.List;
 public interface OrderItemService {
     public List<String> getOrderItemJson(String username);
 
-    public int insertOrderItem(OrderItem orderItem);
-
     public boolean deleteOrderItem(String orderId,String name);
+
+    public int getProductId(String orderId);
 }

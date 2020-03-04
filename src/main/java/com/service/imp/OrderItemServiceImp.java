@@ -1,5 +1,6 @@
 package com.service.imp;
 
+import com.Util.StateCode;
 import com.Util.ToDate;
 import com.alibaba.fastjson.JSONObject;
 import com.mapper.*;
@@ -77,10 +78,6 @@ public class OrderItemServiceImp implements OrderItemService {
         return list;
     }
 
-    @Override
-    public int insertOrderItem(OrderItem orderItem) {
-        return orderItemMapper.insert(orderItem);
-    }
 
     @Override
     public boolean deleteOrderItem(String orderId, String name) {
@@ -98,5 +95,11 @@ public class OrderItemServiceImp implements OrderItemService {
         OrderItemExample orderItemExample = new OrderItemExample();
         orderItemExample.or().andOrderIdEqualTo(orderId).andUsernameEqualTo(name);
         return orderItemMapper.deleteByExample(orderItemExample) > 0;
+    }
+
+    @Override
+    public int getProductId(String orderId) {
+        OrderItem orderItem = orderItemMapper.selectByPrimaryKey(orderId);
+        return orderItem.getProductId();
     }
 }

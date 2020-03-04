@@ -69,7 +69,7 @@ $(function () {
                 if (flag) {
                     window.location.href = "/pay/alipay/" + data.msg;
                 } else {
-                    toastr.success("订单生成失败,error:" + data.msg);
+                    toastr.error("订单生成失败,error:" + data.msg);
                 }
             })
         }

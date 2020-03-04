@@ -22,4 +22,7 @@ public interface PayTableService {
 
     public int setPayState(String payId, String state);
 
+    public boolean setAffirmState(String orderId);
+
+    public boolean setFinishState(String orderId);
 }

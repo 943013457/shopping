@@ -13,4 +13,6 @@ public interface ReviewService {
     public JSONObject getReviewCountJson(int id);
 
     public List<String> getReviewJson(int id);
+
+    public boolean addReview(String userName,int productId, String reviewText);
 }

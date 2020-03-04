@@ -21,11 +21,6 @@ public class OrderTableServiceImp implements OrderTableService {
     private OrderTableMapper orderTableMapper;
 
     @Override
-    public int insertOrder(OrderTable orderTable) {
-        return orderTableMapper.insertSelective(orderTable);
-    }
-
-    @Override
     public float getOrderPrice(String id) {
         OrderTable orderTable = orderTableMapper.selectByPrimaryKey(id);
         return orderTable != null ? orderTable.getPrice() : 0;

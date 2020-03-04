@@ -2,13 +2,13 @@ package com.controller;
 
 import com.Util.AlipayConfig;
 import com.Util.AlipayUtil;
+import com.Util.StateCode;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.internal.util.AlipaySignature;
 import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.pojo.PayTable;
-import com.service.OrderItemService;
 import com.service.OrderTableService;
 import com.service.PayTableService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +35,6 @@ public class AlipayController {
     private PayTableService payTableService;
     @Autowired
     private OrderTableService orderTableService;
-    @Autowired
-    private OrderItemService orderItemService;
 
     //支付状态页
     @RequestMapping(value = "/payState", method = RequestMethod.GET)
@@ -128,13 +126,7 @@ public class AlipayController {
     //同步回调
     @RequestMapping(value = "returnUrl", method = RequestMethod.GET)
     private String returnUrl(HttpServletRequest request, HttpServletResponse response) {
-        //  状态码
-        //  PARAM_FAIL          参数名为空
-        //  PARAM_FAIL_IN       参数值为空
-        //  VERIFY_FAIL         参数对比错误
-        //  SIGN_VERIFIED_FAIL  验签错误
-        //  SUCCESS             校验成功
-        String payStateCode = "";
+        int payStateCode = 0;
 
         Map<String, String> params = AlipayUtil.getParams(request);
         try {
@@ -146,7 +138,7 @@ public class AlipayController {
                     if ("payID_price".equals(cookie.getName())) {
                         String value = cookie.getValue();
                         if (value.isEmpty()) {
-                            payStateCode = "PARAM_FAIL_IN";
+                            payStateCode = StateCode.ERR_PAY_PARAM_FAIL_IN;
                             break;
                         }
                         String[] str = value.split("&");
@@ -154,24 +146,24 @@ public class AlipayController {
                         float price = Float.parseFloat(str[1]);
                         if (uuid.equals(request.getParameter("out_trade_no"))
                                 && price == Float.parseFloat(request.getParameter("total_amount"))) {
-                            payStateCode = "SUCCESS";
+                            payStateCode = StateCode.PAY_SUCCESS;
                         } else {
-                            payStateCode = "VERIFY_FAIL";
+                            payStateCode = StateCode.ERR_PAY_VERIFY_FAIL;
                         }
                     }
                 }
                 //无法到指定cookie
-                if (payStateCode.isEmpty()) {
-                    payStateCode = "PARAM_FAIL";
+                if (payStateCode == 0) {
+                    payStateCode = StateCode.ERR_PAY_PARAM_FAIL;
                 }
             } else {
-                payStateCode = "SIGN_VERIFIED_FAIL";
+                payStateCode = StateCode.ERR_PAY_SIGN_VERIFIED_FAIL;
             }
         } catch (AlipayApiException e) {
-            payStateCode = "SIGN_VERIFIED_FAIL";
+            payStateCode = StateCode.ERR_PAY_SIGN_VERIFIED_FAIL;
         } finally {
 
-            Cookie cookie = new Cookie("payStateCode", payStateCode);
+            Cookie cookie = new Cookie("payStateCode", String.valueOf(payStateCode));
             cookie.setPath("/");
             cookie.setMaxAge(60 * 5);
             response.addCookie(cookie);
@@ -202,7 +194,7 @@ public class AlipayController {
                         String orderId = payTable.getOrderId();
                         String state = payTable.getState();
                         if ("PAYMENT".equals(state) || state.isEmpty()) {
-                            payTableService.setPayState(payId, "SEND");
+                            payTableService.setPayState(payId, "SEND");//设置待发货
                         }
                         orderTableService.setOrderPayTime(orderId, payTime);
                     }

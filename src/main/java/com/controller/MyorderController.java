@@ -4,12 +4,15 @@ import com.Util.JsonLink;
 import com.Util.StateCode;
 import com.Util.UserUtil;
 import com.service.OrderItemService;
+import com.service.PayTableService;
+import com.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Creator Ming
@@ -20,6 +23,10 @@ import java.util.List;
 public class MyorderController {
     @Autowired
     private OrderItemService orderItemService;
+    @Autowired
+    private PayTableService payTableService;
+    @Autowired
+    private ReviewService reviewService;
 
     @RequestMapping(value = {"/myorder"}, method = RequestMethod.GET)
     private String myorder(HttpServletResponse response) {
@@ -34,7 +41,7 @@ public class MyorderController {
     @ResponseBody
     private String getMyorder() {
         String userName = UserUtil.getUserName();
-        if(userName == null){
+        if (userName == null) {
             return JsonLink.Error(StateCode.ERR_NOT_LOGIN);
         }
         List<String> JsonList = orderItemService.getOrderItemJson(userName);
@@ -52,4 +59,33 @@ public class MyorderController {
         return orderItemService.deleteOrderItem(order_id, userName) ?
                 JsonLink.Success(true) : JsonLink.Error(false);
     }
+
+    @RequestMapping(value = "/affirmGoods", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
+    @ResponseBody
+    private String affirmGoods(@RequestBody Map<String, String> map) {
+        String userName = UserUtil.getUserName();
+        if (userName == null) {
+            return JsonLink.Error(StateCode.ERR_NOT_LOGIN);
+        }
+        return payTableService.setAffirmState(map.get("order_id")) ? JsonLink.Success(true) : JsonLink.Error(false);
+    }
+
+    @RequestMapping(value = "/submitReview", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
+    @ResponseBody
+    private String submitReview(@RequestBody Map<String, String> map) {
+        String userName = UserUtil.getUserName();
+        if (userName == null) {
+            return JsonLink.Error(StateCode.ERR_NOT_LOGIN);
+        }
+        String orderId = map.get("orderId");
+        int productId = orderItemService.getProductId(orderId);
+        if (productId == 0) {
+            return JsonLink.Error(StateCode.ERR_NOT_ORDER_ID);
+        }
+        if(!payTableService.setFinishState(orderId)){
+            return JsonLink.Error(StateCode.ERR_NOT_STATE);
+        }
+        return reviewService.addReview(userName, productId, map.get("reviewText")) ? JsonLink.Success(true) : JsonLink.Error(false);
+    }
+
 }

@@ -5,16 +5,10 @@ $(function () {
     function checkPay() {
         var ret = $.cookie('payStateCode');
         var payId_price = $.cookie('payID_price');
-        if (null == ret || "" == ret || undefined == ret) {
-            ret = "-1"
-        }
-        if (null == payId_price || "" == payId_price || undefined == payId_price) {
-            ret = "-2";
-        }
         var str = payId_price.split("&");
         var payId = str[0];
         var price = str[1];
-        if ("SUCCESS" === ret) {
+        if ("100" == ret) {
             $(".state_inmain").append("<div class=\"alert alert-success\" role=\"alert\">" +
                 "<img class=\"pay_img\" src=\"/image/ture_icon.png\">" +
                 "<span class=\"pay_font\">支付成功</span></div>" +
