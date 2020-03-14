@@ -2,9 +2,7 @@ package com.mapper;
 
 import com.pojo.LoginUser;
 import com.pojo.example.LoginUserExample;
-
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 
 public interface LoginUserMapper {

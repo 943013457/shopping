@@ -4,6 +4,15 @@
     <resultMap id="BaseResultMap" type="com.pojo.Category">
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="is_index" jdbcType="INTEGER" property="isIndex"/>
+        <result column="show_product" jdbcType="VARCHAR" property="showProduct"/>
+    </resultMap>
+    <resultMap id="ProductResultMap" type="com.pojo.Product">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="promotePrice" jdbcType="REAL" property="promoteprice"/>
+        <result column="image" jdbcType="VARCHAR" property="image"/>
+        <result column="category_name" jdbcType="VARCHAR" property="categoryName"/>
     </resultMap>
     <sql id="Example_Where_Clause">
         <where>
@@ -66,8 +75,8 @@
         </where>
     </sql>
     <sql id="Base_Column_List">
-        id, name
-    </sql>
+    id, name, is_index, show_product
+  </sql>
     <select id="selectByExample" parameterType="com.pojo.example.CategoryExample" resultMap="BaseResultMap">
         select
         <if test="distinct">
@@ -89,9 +98,9 @@
         where id = #{id,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-        delete from category
-        where id = #{id,jdbcType=INTEGER}
-    </delete>
+    delete from category
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
     <delete id="deleteByExample" parameterType="com.pojo.example.CategoryExample">
         delete from category
         <if test="_parameter != null">
@@ -99,9 +108,11 @@
         </if>
     </delete>
     <insert id="insert" parameterType="com.pojo.Category">
-        insert into category (id, name)
-        values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
-    </insert>
+    insert into category (id, name, is_index, 
+      show_product)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{isIndex,jdbcType=INTEGER}, 
+      #{showProduct,jdbcType=VARCHAR})
+  </insert>
     <insert id="insertSelective" parameterType="com.pojo.Category">
         insert into category
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -111,6 +122,12 @@
             <if test="name != null">
                 name,
             </if>
+            <if test="isIndex != null">
+                is_index,
+            </if>
+            <if test="showProduct != null">
+                show_product,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -118,6 +135,12 @@
             </if>
             <if test="name != null">
                 #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="isIndex != null">
+                #{isIndex,jdbcType=INTEGER},
+            </if>
+            <if test="showProduct != null">
+                #{showProduct,jdbcType=VARCHAR},
             </if>
         </trim>
     </insert>
@@ -136,6 +159,12 @@
             <if test="record.name != null">
                 name = #{record.name,jdbcType=VARCHAR},
             </if>
+            <if test="record.isIndex != null">
+                is_index = #{record.isIndex,jdbcType=INTEGER},
+            </if>
+            <if test="record.showProduct != null">
+                show_product = #{record.showProduct,jdbcType=VARCHAR},
+            </if>
         </set>
         <if test="_parameter != null">
             <include refid="Update_By_Example_Where_Clause"/>
@@ -144,7 +173,9 @@
     <update id="updateByExample" parameterType="map">
         update category
         set id = #{record.id,jdbcType=INTEGER},
-        name = #{record.name,jdbcType=VARCHAR}
+        name = #{record.name,jdbcType=VARCHAR},
+        is_index = #{record.isIndex,jdbcType=INTEGER},
+        show_product = #{record.showProduct,jdbcType=VARCHAR}
         <if test="_parameter != null">
             <include refid="Update_By_Example_Where_Clause"/>
         </if>
@@ -155,12 +186,33 @@
             <if test="name != null">
                 name = #{name,jdbcType=VARCHAR},
             </if>
+            <if test="isIndex != null">
+                is_index = #{isIndex,jdbcType=INTEGER},
+            </if>
+            <if test="showProduct != null">
+                show_product = #{showProduct,jdbcType=VARCHAR},
+            </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.pojo.Category">
-        update category
-        set name = #{name,jdbcType=VARCHAR}
-        where id = #{id,jdbcType=INTEGER}
-    </update>
+    update category
+    set name = #{name,jdbcType=VARCHAR},
+      is_index = #{isIndex,jdbcType=INTEGER},
+      show_product = #{showProduct,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <select id="getIndexProduct" parameterType="com.pojo.example.CategoryExample" resultMap="ProductResultMap">
+        <!-- 获取首页推荐商品 -->
+        select
+        b.id,b.name,b.promotePrice,(select image from product_image where product_id=b.id
+        LIMIT 0,1) image,a.name as category_name
+        from category a left join product b on a.id=b.category_id and FIND_IN_SET(b.id,a.show_product)
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
 </mapper>

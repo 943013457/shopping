@@ -127,7 +127,6 @@ public class AlipayController {
     @RequestMapping(value = "returnUrl", method = RequestMethod.GET)
     private String returnUrl(HttpServletRequest request, HttpServletResponse response) {
         int payStateCode = 0;
-
         Map<String, String> params = AlipayUtil.getParams(request);
         try {
             //验签
@@ -162,7 +161,6 @@ public class AlipayController {
         } catch (AlipayApiException e) {
             payStateCode = StateCode.ERR_PAY_SIGN_VERIFIED_FAIL;
         } finally {
-
             Cookie cookie = new Cookie("payStateCode", String.valueOf(payStateCode));
             cookie.setPath("/");
             cookie.setMaxAge(60 * 5);

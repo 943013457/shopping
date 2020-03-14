@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索商品</title>
+    <link href="/css/ref/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/ref/toastr.min.css" rel="stylesheet"/>
+    <link href="/css/tool/init.css" rel="stylesheet"/>
+    <link href="/css/search.css" rel="stylesheet"/>
+    <script type="text/javascript" src="/js/ref/jQuery_v1.12.4_min.js"></script>
+    <script type="text/javascript" src="/js/ref/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/ref/toastr.min.js"></script>
+    <script type="text/javascript" src="/js/tool/init.js"></script>
+    <script type="text/javascript" src="/js/search.js"></script>
+
+    <div id="nav-top"></div>
+
+    <div class="header">
+        <div class="head_content">
+            <div class="home_item">
+                <a id="home_href" href="/index">
+                    <img id="home_icon" src="/image/HomeIcon.png"/>
+                </a>
+            </div>
+            <div class="header-search">
+                <input id="search-text" type="text" placeholder="搜索商品">
+                <button id="search-btn">搜索</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="content">
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-default active">
+                <input name="productSort" type="radio" value="" checked>综合
+            </label>
+            <label class="btn btn-default">
+                <input name="productSort" type="radio" value="createTime">新品
+            </label>
+            <label class="btn btn-default">
+                <input name="productSort" type="radio" value="sales">销量
+            </label>
+            <label class="btn btn-default">
+                <input name="productSort" type="radio" value="promotePrice">价格
+            </label>
+        </div>
+    </div>
+
+    <div id="productList">
+        <div id="backImage"></div>
+    </div>
+    <div id="productPage"></div>
+
+    <div id="bottom_content"></div>
+</head>
+<body>
+
+</body>
+</html>

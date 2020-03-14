@@ -1,5 +1,7 @@
 package com.pojo;
 
+import java.util.Date;
+
 public class OrderItem {
     private String orderId;
 
@@ -8,6 +10,16 @@ public class OrderItem {
     private Integer productId;
 
     private Integer number;
+
+    private Date createdate;
+
+    private Float price;
+
+    private String state;
+
+    private String name;
+
+    private String image;
 
     public String getOrderId() {
         return orderId;
@@ -39,5 +51,45 @@ public class OrderItem {
 
     public void setNumber(Integer number) {
         this.number = number;
+    }
+
+    public Date getCreatedate() {
+        return createdate;
+    }
+
+    public void setCreatedate(Date createdate) {
+        this.createdate = createdate;
+    }
+
+    public Float getPrice() {
+        return price;
+    }
+
+    public void setPrice(Float price) {
+        this.price = price;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

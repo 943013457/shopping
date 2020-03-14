@@ -7,7 +7,7 @@ $(function () {
 
     $(".ok_btn").click(function () {
         if (!$.trim(username) || !$.trim(password) || !$.trim(email) || !$.trim(phone)) {
-            alert("请输入正确数据");
+            toastr.error("请输入正确数据");
             return;
         }
         FastTools.ajax("/registerUser", "POST",
@@ -28,7 +28,7 @@ $(function () {
         if (!$(this).hasClass("disabled")) {
             $(".username_msg").text("检查用户名...");
             var username = $("#username").val().replace(" ", "");
-            FastTools.ajax("/selectUser" + username, "GET", "", function (flag, data) {
+            FastTools.ajax("/selectUser/" + username, "GET", "", function (flag, data) {
                 if (flag && JSON.parse(data.msg)) {
                     $(".pagebox").animate({left: '-500px'});
                     $(".username_msg").text("");

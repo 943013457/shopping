@@ -233,6 +233,136 @@ public class CategoryExample {
             addCriterion("name not between", value1, value2, "name");
             return (Criteria) this;
         }
+
+        public Criteria andIsIndexIsNull() {
+            addCriterion("is_index is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsIndexIsNotNull() {
+            addCriterion("is_index is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsIndexEqualTo(Integer value) {
+            addCriterion("is_index =", value, "isIndex");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsIndexNotEqualTo(Integer value) {
+            addCriterion("is_index <>", value, "isIndex");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsIndexGreaterThan(Integer value) {
+            addCriterion("is_index >", value, "isIndex");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsIndexGreaterThanOrEqualTo(Integer value) {
+            addCriterion("is_index >=", value, "isIndex");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsIndexLessThan(Integer value) {
+            addCriterion("is_index <", value, "isIndex");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsIndexLessThanOrEqualTo(Integer value) {
+            addCriterion("is_index <=", value, "isIndex");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsIndexIn(List<Integer> values) {
+            addCriterion("is_index in", values, "isIndex");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsIndexNotIn(List<Integer> values) {
+            addCriterion("is_index not in", values, "isIndex");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsIndexBetween(Integer value1, Integer value2) {
+            addCriterion("is_index between", value1, value2, "isIndex");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsIndexNotBetween(Integer value1, Integer value2) {
+            addCriterion("is_index not between", value1, value2, "isIndex");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowProductIsNull() {
+            addCriterion("show_product is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowProductIsNotNull() {
+            addCriterion("show_product is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowProductEqualTo(String value) {
+            addCriterion("show_product =", value, "showProduct");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowProductNotEqualTo(String value) {
+            addCriterion("show_product <>", value, "showProduct");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowProductGreaterThan(String value) {
+            addCriterion("show_product >", value, "showProduct");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowProductGreaterThanOrEqualTo(String value) {
+            addCriterion("show_product >=", value, "showProduct");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowProductLessThan(String value) {
+            addCriterion("show_product <", value, "showProduct");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowProductLessThanOrEqualTo(String value) {
+            addCriterion("show_product <=", value, "showProduct");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowProductLike(String value) {
+            addCriterion("show_product like", value, "showProduct");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowProductNotLike(String value) {
+            addCriterion("show_product not like", value, "showProduct");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowProductIn(List<String> values) {
+            addCriterion("show_product in", values, "showProduct");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowProductNotIn(List<String> values) {
+            addCriterion("show_product not in", values, "showProduct");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowProductBetween(String value1, String value2) {
+            addCriterion("show_product between", value1, value2, "showProduct");
+            return (Criteria) this;
+        }
+
+        public Criteria andShowProductNotBetween(String value1, String value2) {
+            addCriterion("show_product not between", value1, value2, "showProduct");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

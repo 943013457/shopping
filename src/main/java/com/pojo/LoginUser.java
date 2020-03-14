@@ -11,13 +11,13 @@ public class LoginUser {
 
     private String registerIp;
 
-    private String phone;
-
     private String email;
 
     private Boolean state;
 
     private String salt;
+
+    private String paypassword;
 
     public String getUser() {
         return user;
@@ -51,14 +51,6 @@ public class LoginUser {
         this.registerIp = registerIp == null ? null : registerIp.trim();
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
-    }
-
     public String getEmail() {
         return email;
     }
@@ -81,5 +73,13 @@ public class LoginUser {
 
     public void setSalt(String salt) {
         this.salt = salt == null ? null : salt.trim();
+    }
+
+    public String getPaypassword() {
+        return paypassword;
+    }
+
+    public void setPaypassword(String paypassword) {
+        this.paypassword = paypassword == null ? null : paypassword.trim();
     }
 }

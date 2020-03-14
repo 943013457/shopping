@@ -29,4 +29,6 @@ public interface ProductImageMapper {
     int updateByPrimaryKeySelective(ProductImage record);
 
     int updateByPrimaryKey(ProductImage record);
+
+    int batchInsert(List<ProductImage> productImageList);
 }

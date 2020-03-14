@@ -68,7 +68,11 @@
         </where>
     </sql>
     <sql id="Base_Column_List">
-        id, user, product_id, number
+        id, user, product_id, number,
+        (select image from product_image where product_id=trolley.product_id and location='small' limit 0,1)image,
+        (select name from product where id=trolley.product_id)name,
+        (select originalprice from product where id=trolley.product_id)originalprice,
+        (select promoteprice from product where id=trolley.product_id)promoteprice
     </sql>
     <select id="selectByExample" parameterType="com.pojo.example.TrolleyExample" resultMap="BaseResultMap">
         select

@@ -1,17 +1,13 @@
 package com.pojo;
 
-import java.util.List;
-
 public class Property {
     private Integer id;
 
-    private Integer categoryId;
+    private Integer productId;
 
-    private String name;
+    private String parmKey;
 
-    private PropertyValue propertyValue;
-
-    private String value;
+    private String parmValue;
 
     public Integer getId() {
         return id;
@@ -21,36 +17,27 @@ public class Property {
         this.id = id;
     }
 
-    public Integer getCategoryId() {
-        return categoryId;
+    public Integer getProductId() {
+        return productId;
     }
 
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
+    public void setProductId(Integer productId) {
+        this.productId = productId;
     }
 
-    public String getName() {
-        return name;
+    public String getParmKey() {
+        return parmKey;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setParmKey(String parmKey) {
+        this.parmKey = parmKey == null ? null : parmKey.trim();
     }
 
-    public PropertyValue getPropertyValue() {
-        return propertyValue;
+    public String getParmValue() {
+        return parmValue;
     }
 
-    public void setPropertyValue(PropertyValue propertyValue) {
-        this.propertyValue = propertyValue;
+    public void setParmValue(String parmValue) {
+        this.parmValue = parmValue == null ? null : parmValue.trim();
     }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
 }

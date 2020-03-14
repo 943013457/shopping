@@ -2,9 +2,7 @@ package com.mapper;
 
 import com.pojo.Property;
 import com.pojo.example.PropertyExample;
-
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 
 public interface PropertyMapper {
@@ -22,8 +20,6 @@ public interface PropertyMapper {
 
     Property selectByPrimaryKey(Integer id);
 
-    List<Property> selectProperty(Integer id);
-
     int updateByExampleSelective(@Param("record") Property record, @Param("example") PropertyExample example);
 
     int updateByExample(@Param("record") Property record, @Param("example") PropertyExample example);
@@ -31,4 +27,6 @@ public interface PropertyMapper {
     int updateByPrimaryKeySelective(Property record);
 
     int updateByPrimaryKey(Property record);
+
+    int batchInsert(List<Property> propertyList);
 }

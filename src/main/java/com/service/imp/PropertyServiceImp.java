@@ -3,6 +3,7 @@ package com.service.imp;
 import com.alibaba.fastjson.JSONObject;
 import com.mapper.PropertyMapper;
 import com.pojo.Property;
+import com.pojo.example.PropertyExample;
 import com.service.PropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,11 +25,13 @@ public class PropertyServiceImp implements PropertyService {
     public JSONObject getPropertyJson(int id) {
         //获取商品参数
         JSONObject propertyJson = new JSONObject();
-        List<Property> propertyList = propertyMapper.selectProperty(id);
+        PropertyExample propertyExample = new PropertyExample();
+        propertyExample.or().andProductIdEqualTo(id);
+        List<Property> propertyList = propertyMapper.selectByExample(propertyExample);
         Iterator<Property> iterator = propertyList.iterator();
         while (iterator.hasNext()) {
             Property p = iterator.next();
-            propertyJson.put(p.getName(), p.getValue());
+            propertyJson.put(p.getParmKey(), p.getParmValue());
         }
         return propertyJson;
     }

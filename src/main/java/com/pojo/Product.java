@@ -21,6 +21,12 @@ public class Product {
 
     private Date createtime;
 
+    private String image;
+
+    private int review;
+
+    private String categoryName;
+
     public Integer getId() {
         return id;
     }
@@ -91,5 +97,29 @@ public class Product {
 
     public void setCreatetime(Date createtime) {
         this.createtime = createtime;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public int getReview() {
+        return review;
+    }
+
+    public void setReview(int review) {
+        this.review = review;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 }

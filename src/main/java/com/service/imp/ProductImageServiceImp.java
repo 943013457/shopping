@@ -1,7 +1,6 @@
 package com.service.imp;
 
 import com.Util.UrlLink;
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.mapper.ProductImageMapper;
 import com.pojo.ProductImage;

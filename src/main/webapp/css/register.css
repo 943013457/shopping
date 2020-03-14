@@ -7,6 +7,10 @@ body {
     height: 100%;
 }
 
+.content {
+    margin-top: 60px;
+}
+
 .register_nav {
     height: 40px;
     width: 60%;

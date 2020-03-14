@@ -14,7 +14,7 @@
     <bean id="pooledDataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
         <!-- 数据库基本信息配置 -->
         <property name="url"
-                  value="jdbc:mysql://${mysql.host}:${mysql.port}/${mysql.dbname}?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull"/>
+                  value="jdbc:mysql://${mysql.host}:${mysql.port}/${mysql.dbname}?useUnicode=true;characterEncoding=UTF-8;zeroDateTimeBehavior=convertToNull"/>
         <property name="username" value="${mysql.username}"/>
         <property name="password" value="${mysql.password}"/>
         <property name="driverClassName" value="${driverClassName}"/>

@@ -30,10 +30,6 @@ import java.util.List;
 public class MyTrolleyServiceImp implements MyTrolleyService {
     @Autowired
     private TrolleyMapper trolleyMapper;
-    @Autowired
-    private ProductMapper productMapper;
-    @Autowired
-    private ProductImageMapper productImageMapper;
 
     @Override
     public List<String> getTrolleyJson(String username) {
@@ -51,20 +47,15 @@ public class MyTrolleyServiceImp implements MyTrolleyService {
             jsonObject.put("id", trolley.getProductId());
             jsonObject.put("number", trolley.getNumber());
 
-            ProductImageExample productImageExample = new ProductImageExample();
-            productImageExample.or().andProductIdEqualTo(trolley.getProductId()).andLocationEqualTo("small");
-            List<ProductImage> productImageList = productImageMapper.selectByExample(productImageExample);
-            String default_img = "image/default_item_img.jpg";
-            jsonObject.put("img", productImageList.size() > 0 ? productImageList.get(0).getImage() : default_img);
+            String img = trolley.getImage();
+            jsonObject.put("img", img != null ? img : "/image/default_item_img.jpg");
 
-            Product product = productMapper.selectByPrimaryKey(trolley.getProductId());
-            jsonObject.put("name", product.getName());
-            jsonObject.put("originalprice", product.getOriginalprice());
-            jsonObject.put("promoteprice", product.getPromoteprice());
+            jsonObject.put("name", trolley.getName());
+            jsonObject.put("originalprice", trolley.getOriginalprice());
+            jsonObject.put("promoteprice", trolley.getPromoteprice());
 
             list.add(jsonObject.toString());
         }
-
         return list;
     }
 

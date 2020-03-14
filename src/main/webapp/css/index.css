@@ -229,5 +229,61 @@
     background-color: blue;
 }
 
+.tuijian{
+    background-color: #E8E8E8;
+}
 
+.tuijian_top{
+    width: 1230px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
 
+.tuijian_font{
+    padding-left: 10px;
+    border-left: #333 solid 5px ;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.tuijian_content{
+    margin: 15px 0;
+}
+
+.tuijina_item{
+    width: 230px;
+    padding: 15px 10px;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #fff;
+}
+
+.tuijian_img{
+    width: 185px;
+    height: 185px;
+}
+
+.tuijian_name{
+    width: 185px;
+    height: 40px;
+    margin: 8px auto;
+    line-height: 20px;
+    overflow: hidden;
+}
+
+.tuijian_price{
+    margin: 0 auto;
+    font-size: 18px;
+    color: #FF0036;
+}
+
+.col-xs-3{
+    width: 20%;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.tuijina_item:hover{
+    border: 1px solid #FF0036;
+    opacity: 0.6;
+}

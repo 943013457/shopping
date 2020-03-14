@@ -27,13 +27,7 @@ public class OrderItemServiceImp implements OrderItemService {
     @Autowired
     private OrderItemMapper orderItemMapper;
     @Autowired
-    private OrderTableMapper orderTableMapper;
-    @Autowired
     private ProductMapper productMapper;
-    @Autowired
-    private ProductImageMapper productImageMapper;
-    @Autowired
-    private PayTableMapper payTableMapper;
 
     //下单时间，订单号，商品名，图片，价格，数量，实付款,订单状态
     @Override
@@ -52,26 +46,16 @@ public class OrderItemServiceImp implements OrderItemService {
             jsonObject.put("OrderId", orderItem.getOrderId());
             jsonObject.put("Number", orderItem.getNumber());
             jsonObject.put("ProductId", orderItem.getProductId());
-
             //创建时间，价格
-            OrderTable orderTable = orderTableMapper.selectByPrimaryKey(orderItem.getOrderId());
-            jsonObject.put("CreateDate", ToDate.getTime(orderTable.getCreatedate()));
-            jsonObject.put("Price", orderTable.getPrice());
-
+            jsonObject.put("CreateDate", ToDate.getTime(orderItem.getCreatedate()));
+            jsonObject.put("Price", orderItem.getPrice());
             //商品状态
-            PayTable payTable = payTableMapper.selectByPrimaryKey(orderItem.getOrderId());
-            jsonObject.put("State", payTable != null ? payTable.getState() : null);
-
+            jsonObject.put("State", orderItem.getState());
             //商品名字
-            Product product = productMapper.selectByPrimaryKey(orderItem.getProductId());
-            jsonObject.put("name", product.getName());
-
-            ProductImageExample productImageExample = new ProductImageExample();
+            jsonObject.put("name", orderItem.getName());
             //取第一张缩略图
-            productImageExample.or().andProductIdEqualTo(orderItem.getProductId()).andLocationEqualTo("small");
-            List<ProductImage> productImageList = productImageMapper.selectByExample(productImageExample);
-            String default_img = "/image/default_item_img.jpg";
-            jsonObject.put("image", productImageList.size() > 0 ? productImageList.get(0).getImage() : default_img);
+            String img = orderItem.getImage();
+            jsonObject.put("image", img != null ? img : "/image/default_item_img.jpg");
 
             list.add(jsonObject.toJSONString());
         }
@@ -82,7 +66,7 @@ public class OrderItemServiceImp implements OrderItemService {
     @Override
     public boolean deleteOrderItem(String orderId, String name) {
         OrderItem orderItem = orderItemMapper.selectByPrimaryKey(orderId);
-        if(orderItem !=  null){
+        if (orderItem != null) {
             int productId = orderItem.getProductId();
             Product product = productMapper.selectByPrimaryKey(productId);
             //库存+

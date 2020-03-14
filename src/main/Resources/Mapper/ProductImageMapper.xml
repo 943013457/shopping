@@ -195,4 +195,11 @@
         location = #{location,jdbcType=VARCHAR}
         where id = #{id,jdbcType=INTEGER}
     </update>
+    <insert id="batchInsert" parameterType="java.util.List">
+        insert into product_image (id, product_id, image,
+        location)values
+        <foreach collection="list" item="item" separator =",">
+             (#{item.id},#{item.productId},#{item.image},#{item.location})
+        </foreach>
+    </insert>
 </mapper>

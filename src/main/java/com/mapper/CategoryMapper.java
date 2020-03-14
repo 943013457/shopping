@@ -2,9 +2,9 @@ package com.mapper;
 
 import com.pojo.Category;
 import com.pojo.example.CategoryExample;
-
 import java.util.List;
 
+import com.pojo.Product;
 import org.apache.ibatis.annotations.Param;
 
 public interface CategoryMapper {
@@ -29,4 +29,6 @@ public interface CategoryMapper {
     int updateByPrimaryKeySelective(Category record);
 
     int updateByPrimaryKey(Category record);
+
+    List<Product> getIndexProduct(CategoryExample example);
 }

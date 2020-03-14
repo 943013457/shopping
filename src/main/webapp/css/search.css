@@ -1,0 +1,130 @@
+.head_content, #content, #productList {
+    padding-bottom: 30px;
+    margin: 0 auto;
+    width: 1270px;
+    overflow: hidden;
+}
+
+#productList {
+    min-height: 630px;
+}
+
+#productPage {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#pageText{
+    font-size: 18px;
+    color: #999;
+}
+
+#backImage {
+    display: none;
+    width: 200px;
+    height: 200px;
+    margin: 200px auto;
+    background: url("/image/product_null.png") no-repeat;
+    background-size: 200px 200px;
+}
+
+.home_item {
+    float: left;
+    margin-right: 120px;
+}
+
+#home_icon {
+    width: 240px;
+    height: 130px;
+    overflow: hidden;
+}
+
+.header-search {
+    height: 100px;
+    padding-top: 35px;
+}
+
+#search-text {
+    float: left;
+    border: #FF0036 solid 2px;
+    width: 40%;
+    max-width: 500px;
+    height: 35px;
+}
+
+#search-btn {
+    float: left;
+    width: 130px;
+    height: 35px;
+    border: none;
+    background-color: #FF0036;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.product_item {
+    text-align: center;
+    width: 220px;
+    height: 320px;
+    overflow: hidden;
+    border: 3px solid #FFFFFF;
+    padding: 3px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.product_item:hover {
+    border: 3px solid red;
+}
+
+.product_img {
+    height: 200px;
+    width: 200px;
+}
+
+.product_price {
+    text-align: left;
+    color: red;
+    font-size: 25px;
+}
+
+.product_name {
+    white-space: nowrap;
+    text-overflow: clip;
+    text-align: left;
+    overflow: hidden;
+}
+
+.product_name > a {
+    color: black;
+}
+
+.product_name > a:hover {
+    color: red;
+}
+
+.product_font {
+    padding: 0px 10px;
+    color: #999;
+}
+
+.product_soles {
+    color: #b57c5b;
+    border-right: 1px solid #eee;
+    padding-right: 10px;
+}
+
+.product_review {
+    color: #38b;
+}
+
+.product_bottom {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 5px 0;
+    text-align: left;
+}
+
+.product_flag {
+    font-size: 15px;
+}

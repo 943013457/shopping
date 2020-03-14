@@ -75,6 +75,11 @@
     <sql id="Base_Column_List">
         id, name, subTitle, originalPrice, promotePrice, stock, sales, category_id, createTime
     </sql>
+    <sql id="Search_Column_List">
+        id, name, subTitle, originalPrice, promotePrice, stock, sales, category_id, createTime,
+        (select image from product_image where product_id=product.id and location='small' limit 0,1)image,
+        (select count(1) from review where product_id=product.id)review
+    </sql>
     <select id="selectByExample" parameterType="com.pojo.example.ProductExample" resultMap="BaseResultMap">
         select
         <if test="distinct">
@@ -105,7 +110,7 @@
             <include refid="Example_Where_Clause"/>
         </if>
     </delete>
-    <insert id="insert" parameterType="com.pojo.Product">
+    <insert id="insert" parameterType="com.pojo.Product" keyProperty="id" useGeneratedKeys="true">
         insert into product (id, name, subTitle,
         originalPrice, promotePrice, stock,
         sales, category_id, createTime
@@ -145,6 +150,7 @@
             <if test="createtime != null">
                 createTime,
             </if>
+
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -274,4 +280,15 @@
         createTime = #{createtime,jdbcType=TIMESTAMP}
         where id = #{id,jdbcType=INTEGER}
     </update>
+    <select id="searchList" parameterType="com.pojo.example.ProductExample" resultMap="BaseResultMap">
+        select
+        <include refid="Search_Column_List"/>
+        from product
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
 </mapper>

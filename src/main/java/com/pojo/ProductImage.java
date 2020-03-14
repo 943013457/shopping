@@ -40,4 +40,5 @@ public class ProductImage {
     public void setLocation(String location) {
         this.location = location == null ? null : location.trim();
     }
+
 }
