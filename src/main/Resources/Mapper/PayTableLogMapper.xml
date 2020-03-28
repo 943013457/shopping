@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.PayTableLogMapper">
+    <resultMap id="BaseResultMap" type="com.pojo.PayTableLog">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="changeTime" jdbcType="TIMESTAMP" property="changetime"/>
+        <result column="payId" jdbcType="VARCHAR" property="payid"/>
+        <result column="orderId" jdbcType="VARCHAR" property="orderid"/>
+        <result column="beforeState" jdbcType="VARCHAR" property="beforestate"/>
+        <result column="laterState" jdbcType="VARCHAR" property="laterstate"/>
+        <result column="price" jdbcType="DECIMAL" property="price"/>
+        <result column="mark" jdbcType="VARCHAR" property="mark"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+    id, changeTime, payId, orderId, beforeState, laterState, price, mark
+  </sql>
+    <select id="selectByExample" parameterType="com.pojo.PayTableLogExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from pay_table_log
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from pay_table_log
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from pay_table_log
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <delete id="deleteByExample" parameterType="com.pojo.PayTableLogExample">
+        delete from pay_table_log
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.pojo.PayTableLog">
+    insert into pay_table_log (id, changeTime, payId, 
+      orderId, beforeState, laterState, 
+      price, mark)
+    values (#{id,jdbcType=INTEGER}, #{changetime,jdbcType=TIMESTAMP}, #{payid,jdbcType=VARCHAR}, 
+      #{orderid,jdbcType=VARCHAR}, #{beforestate,jdbcType=VARCHAR}, #{laterstate,jdbcType=VARCHAR}, 
+      #{price,jdbcType=DECIMAL}, #{mark,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.pojo.PayTableLog">
+        insert into pay_table_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="changetime != null">
+                changeTime,
+            </if>
+            <if test="payid != null">
+                payId,
+            </if>
+            <if test="orderid != null">
+                orderId,
+            </if>
+            <if test="beforestate != null">
+                beforeState,
+            </if>
+            <if test="laterstate != null">
+                laterState,
+            </if>
+            <if test="price != null">
+                price,
+            </if>
+            <if test="mark != null">
+                mark,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="changetime != null">
+                #{changetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="payid != null">
+                #{payid,jdbcType=VARCHAR},
+            </if>
+            <if test="orderid != null">
+                #{orderid,jdbcType=VARCHAR},
+            </if>
+            <if test="beforestate != null">
+                #{beforestate,jdbcType=VARCHAR},
+            </if>
+            <if test="laterstate != null">
+                #{laterstate,jdbcType=VARCHAR},
+            </if>
+            <if test="price != null">
+                #{price,jdbcType=DECIMAL},
+            </if>
+            <if test="mark != null">
+                #{mark,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.pojo.PayTableLogExample" resultType="java.lang.Long">
+        select count(*) from pay_table_log
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update pay_table_log
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=INTEGER},
+            </if>
+            <if test="record.changetime != null">
+                changeTime = #{record.changetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.payid != null">
+                payId = #{record.payid,jdbcType=VARCHAR},
+            </if>
+            <if test="record.orderid != null">
+                orderId = #{record.orderid,jdbcType=VARCHAR},
+            </if>
+            <if test="record.beforestate != null">
+                beforeState = #{record.beforestate,jdbcType=VARCHAR},
+            </if>
+            <if test="record.laterstate != null">
+                laterState = #{record.laterstate,jdbcType=VARCHAR},
+            </if>
+            <if test="record.price != null">
+                price = #{record.price,jdbcType=DECIMAL},
+            </if>
+            <if test="record.mark != null">
+                mark = #{record.mark,jdbcType=VARCHAR},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update pay_table_log
+        set id = #{record.id,jdbcType=INTEGER},
+        changeTime = #{record.changetime,jdbcType=TIMESTAMP},
+        payId = #{record.payid,jdbcType=VARCHAR},
+        orderId = #{record.orderid,jdbcType=VARCHAR},
+        beforeState = #{record.beforestate,jdbcType=VARCHAR},
+        laterState = #{record.laterstate,jdbcType=VARCHAR},
+        price = #{record.price,jdbcType=DECIMAL},
+        mark = #{record.mark,jdbcType=VARCHAR}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.pojo.PayTableLog">
+        update pay_table_log
+        <set>
+            <if test="changetime != null">
+                changeTime = #{changetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="payid != null">
+                payId = #{payid,jdbcType=VARCHAR},
+            </if>
+            <if test="orderid != null">
+                orderId = #{orderid,jdbcType=VARCHAR},
+            </if>
+            <if test="beforestate != null">
+                beforeState = #{beforestate,jdbcType=VARCHAR},
+            </if>
+            <if test="laterstate != null">
+                laterState = #{laterstate,jdbcType=VARCHAR},
+            </if>
+            <if test="price != null">
+                price = #{price,jdbcType=DECIMAL},
+            </if>
+            <if test="mark != null">
+                mark = #{mark,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.pojo.PayTableLog">
+    update pay_table_log
+    set changeTime = #{changetime,jdbcType=TIMESTAMP},
+      payId = #{payid,jdbcType=VARCHAR},
+      orderId = #{orderid,jdbcType=VARCHAR},
+      beforeState = #{beforestate,jdbcType=VARCHAR},
+      laterState = #{laterstate,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      mark = #{mark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <select id="selectByPayInfo" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select * from pay_table_log a
+    where
+    NOT EXISTS (select 1 from pay_table_log b where a.payId=b.payId and a.changeTime&lt;b.changeTime)
+    and datediff(changeTime,now())>=#{time,jdbcType=INTEGER} order by a.changeTime desc
+  </select>
+    <select id="countByUnFinish" resultType="java.lang.Integer">
+        select count(1) from pay_table_log a
+        where
+        NOT EXISTS (select 1 from pay_table_log b where a.payId=b.payId and a.changeTime&lt;b.changeTime)
+        and (laterState='PAYMENT' or laterState='SEND' or laterState='AFFIRM')
+    </select>
+    <select id="countByFinish" resultType="java.lang.Integer">
+        select count(1) from pay_table_log a
+        where
+        NOT EXISTS (select 1 from pay_table_log b where a.payId=b.payId and a.changeTime&lt;b.changeTime)
+        and (laterState='REVIEW' or laterState='FINISH')
+    </select>
+</mapper>

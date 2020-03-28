@@ -1,7 +1,8 @@
 package com.service.imp;
 
-import com.Util.ToDate;
+import com.Util.DateUtil;
 import com.Util.UserUtil;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.mapper.ReviewMapper;
 import com.pojo.Review;
@@ -10,7 +11,6 @@ import com.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -55,14 +55,14 @@ public class ReviewServiceImp implements ReviewService {
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("content", review.getContent());
             jsonObject.put("username", UserUtil.ToAnonymity(review.getUsername()));
-            jsonObject.put("createDate", ToDate.getTime(review.getCreatedate()));
+            jsonObject.put("createDate", DateUtil.getTime(review.getCreatedate()));
             list.add(jsonObject.toString());
         }
         return list;
     }
 
     @Override
-    public boolean addReview(String userName,int productId, String reviewText) {
+    public boolean addReview(String userName, int productId, String reviewText) {
         Review review = new Review();
         review.setUsername(userName);
         review.setProductId(productId);
@@ -70,4 +70,27 @@ public class ReviewServiceImp implements ReviewService {
         review.setCreatedate(new Date());
         return reviewMapper.insertSelective(review) > 0;
     }
+
+    @Override
+    public JSONObject getProductReviewList(ReviewExample reviewExample, int page, int limit) {
+        int Count = (int) reviewMapper.countByExample(reviewExample);
+        reviewExample.setOrderByClause("null limit " + (page - 1) * limit + "," + limit);
+        JSONArray jsonArray = new JSONArray();
+        List<Review> reviewList = reviewMapper.selectByExample(reviewExample);
+        Iterator<Review> iterator = reviewList.iterator();
+        while (iterator.hasNext()){
+            Review review = iterator.next();
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("productId",review.getProductId());
+            jsonObject.put("username",review.getUsername());
+            jsonObject.put("content",review.getContent());
+            jsonObject.put("createDate",review.getCreatedate());
+            jsonArray.add(jsonObject);
+        }
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("data", jsonArray);
+        jsonObject.put("count", Count);
+        return jsonObject;
+    }
+
 }

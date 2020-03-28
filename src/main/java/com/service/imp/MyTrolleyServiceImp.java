@@ -1,14 +1,8 @@
 package com.service.imp;
 
-import com.Util.StateCode;
 import com.alibaba.fastjson.JSONObject;
-import com.mapper.ProductImageMapper;
-import com.mapper.ProductMapper;
 import com.mapper.TrolleyMapper;
-import com.pojo.Product;
-import com.pojo.ProductImage;
 import com.pojo.Trolley;
-import com.pojo.example.ProductImageExample;
 import com.pojo.example.TrolleyExample;
 import com.service.MyTrolleyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,5 +80,12 @@ public class MyTrolleyServiceImp implements MyTrolleyService {
         TrolleyExample trolleyExample = new TrolleyExample();
         trolleyExample.or().andUserEqualTo(username).andProductIdEqualTo(productID);
         return trolleyMapper.countByExample(trolleyExample) > 0;
+    }
+
+    @Override
+    public long getTrolleyCount(String username) {
+        TrolleyExample trolleyExample = new TrolleyExample();
+        trolleyExample.or().andUserEqualTo(username);
+        return trolleyMapper.countByExample(trolleyExample);
     }
 }

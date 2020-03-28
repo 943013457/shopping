@@ -2,6 +2,7 @@ package com.controller;
 
 import com.Util.AlipayConfig;
 import com.Util.AlipayUtil;
+import com.Util.DateUtil;
 import com.Util.StateCode;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
@@ -184,8 +185,7 @@ public class AlipayController {
                 String trade_status = request.getParameter("trade_status");
                 if ("TRADE_SUCCESS".equals(trade_status) || "TRADE_FINISHED".equals(trade_status)) {
                     String payId = request.getParameter("out_trade_no");
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                    Date payTime = sdf.parse(request.getParameter("gmt_payment"));
+                    Date payTime = DateUtil.StringToDate(request.getParameter("gmt_payment"));
 
                     List<PayTable> payTableList = payTableService.getPayIdList(payId);
                     for (PayTable payTable : payTableList) {

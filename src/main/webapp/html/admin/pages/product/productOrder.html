@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>商品订单管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../css/okadmin.css">
+</head>
+<body>
+<div class="ok-body">
+    <!--面包屑导航区域-->
+    <div class="ok-body-breadcrumb">
+        <span class="layui-breadcrumb">
+            <a><cite>首页</cite></a>
+            <a><cite>商品管理</cite></a>
+            <a><cite>商品订单管理</cite></a>
+        </span>
+        <a class="layui-btn layui-btn-sm" href="javascript:location.replace(location.href);" title="刷新">
+            <i class="layui-icon layui-icon-refresh"></i>
+        </a>
+    </div>
+    <!--模糊搜索区域-->
+    <div class="layui-row">
+        <form class="layui-form layui-col-md12 ok-search">
+            <input class="layui-input" placeholder="请输入商品订单ID" autocomplete="off" name="id">
+            <input class="layui-input" placeholder="请输入商品名" autocomplete="off" name="productName">
+            <input class="layui-input" placeholder="请输入用户名" autocomplete="off" name="userName"><br><br><br>
+            <input class="layui-input" placeholder="创建时间" autocomplete="off" id="createDate" name="createDate" style="margin-left: 0">
+            <input class="layui-input" placeholder="支付时间" autocomplete="off" id="payDate" name="payDate">
+            <input class="layui-input" placeholder="发货时间" autocomplete="off" id="deliveryDate" name="deliveryDate">
+            <input class="layui-input" placeholder="收货时间" autocomplete="off" id="confirmDate" name="confirmDate">
+            <button class="layui-btn" lay-submit="" lay-filter="search">
+                <i class="layui-icon layui-icon-search"></i>
+            </button>
+        </form>
+    </div>
+    <!--数据表格-->
+    <table class="layui-hide" id="tableId" lay-filter="tableFilter"></table>
+</div>
+<!--js逻辑-->
+<script src="../../lib/layui/layui.js"></script>
+<script>
+    layui.use(["element", "table", "form", "laydate", "okLayer", "okUtils"], function () {
+        var table = layui.table;
+        var form = layui.form;
+        var laydate = layui.laydate;
+        var util = layui.util;
+        var okLayer = layui.okLayer;
+        var okUtils = layui.okUtils;
+
+        util.fixbar({});
+
+        laydate.render({elem: "#createDate", type: "datetime"});
+        laydate.render({elem: "#payDate", type: "datetime"});
+        laydate.render({elem: "#deliveryDate", type: "datetime"});
+        laydate.render({elem: "#confirmDate", type: "datetime"});
+
+        var userTable = table.render({
+            elem: "#tableId",
+            url: "/adminGetProductOrder",
+            method: "get",
+            limit: 20,
+            page: true,
+            toolbar: true,
+            toolbar: "#toolbarTpl",
+            size: "sm",
+            cols: [[
+                {type: "checkbox"},
+                {field: "id", title: "订单ID", width: 200, sort: true},
+                {field: "productName", title: "商品名", width: 250},
+                {field: "userName", title: "用户名", width: 100},
+                {field: "price", title: "价格", width: 80, sort: true},
+                {field: "number", title: "数量", width: 80, sort: true},
+                {field: "address", title: "收货地址", width: 250},
+                {field: "receiver", title: "收货人", width: 80},
+                {field: "phone", title: "手机号", width: 100},
+                {field: "userMessage", title: "备注", width: 100},
+                {field: "createDate", title: "创建时间", width: 140, sort: true},
+                {field: "payDate", title: "支付时间", width: 140, sort: true},
+                {field: "deliveryDate", title: "发货时间", width: 140, sort: true},
+                {field: "confirmDate", title: "收货时间", width: 140, sort: true},
+                {title: "操作", width: 100, align: 'center', templet: "#operationTpl", fixed: "right"}
+            ]],
+            done: function (res, curr, count) {
+                console.log(res, curr, count)
+            }
+        });
+
+        form.on("submit(search)", function (data) {
+            userTable.reload({
+                where: data.field,
+                page: {curr: 1}
+            });
+            return false;
+        });
+
+        table.on("toolbar(tableFilter)", function (obj) {
+            switch (obj.event) {
+                case "add":
+                    add();
+                    break;
+            }
+        });
+
+        table.on("tool(tableFilter)", function (obj) {
+            var data = obj.data;
+            console.log(data);
+            switch (obj.event) {
+                case "edit":
+                    edit(data);
+                    break;
+            }
+        });
+
+
+
+        function add() {
+            okLayer.open("添加商品", "user-add.html", "90%", "90%", null, function () {
+                userTable.reload();
+            })
+        }
+
+        function edit(data) {
+            okLayer.open("编辑商品", "user-edit.html", "90%", "90%", function (layero) {
+                var iframeWin = window[layero.find("iframe")[0]["name"]];
+                iframeWin.initForm(data);
+            }, function () {
+                userTable.reload();
+            })
+        }
+
+    })
+</script>
+<!-- 头工具栏模板 -->
+<script type="text/html" id="toolbarTpl">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="add"><i class="layui-icon">&#xe61f;</i>新增订单</button>
+    </div>
+</script>
+<!-- 行工具栏模板 -->
+<script type="text/html" id="operationTpl">
+    <a href="javascript:;" title="编辑" lay-event="edit"><i class="layui-icon">&#xe642;</i></a>
+</script>
+</body>
+</html>

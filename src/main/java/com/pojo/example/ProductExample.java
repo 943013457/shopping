@@ -165,6 +165,11 @@ public class ProductExample {
             return (Criteria) this;
         }
 
+        public Criteria andIdLike(String id) {
+            addCriterion("CAST(id as CHAR) like", id, "id");
+            return (Criteria) this;
+        }
+
         public Criteria andNameIsNull() {
             addCriterion("name is null");
             return (Criteria) this;

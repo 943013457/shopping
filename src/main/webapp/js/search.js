@@ -1,4 +1,5 @@
 $(function () {
+    FastTools.initHtml();
     let productName = FastTools.getQueryValue("productName");
     let page = FastTools.getQueryValue("page");
     let num = FastTools.getQueryValue("num");
@@ -41,7 +42,7 @@ $(function () {
             FastTools.ajax(url, "GET", "", function (flag, data) {
                 if (flag) {
                     var html = "";
-                    let items = JSON.parse(data.msg);
+                    let items = data.msg;
                     for (let i = 0; i < items.length; i++) {
                         let json = JSON.parse(items[i]);
                         html +=

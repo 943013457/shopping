@@ -1,12 +1,17 @@
 package com.service.imp;
 
-import com.alibaba.fastjson.JSON;
+import com.Util.DateUtil;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.mapper.ProductMapper;
 import com.pojo.Product;
+import com.pojo.example.ProductExample;
 import com.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Iterator;
+import java.util.List;
 
 
 /**
@@ -53,6 +58,39 @@ public class ProductServiceImp implements ProductService {
         jsonObject.put("price", product.getPromoteprice());
 
         return jsonObject;
+    }
+
+    @Override
+    public JSONObject getProductList(ProductExample productExample, int page, int limit) {
+        JSONArray jsonArray = new JSONArray();
+        int Count = (int) productMapper.countByExample(productExample);
+        productExample.setOrderByClause("null limit " + (page - 1) * limit + "," + limit);
+        List<Product> list = productMapper.selectByExample(productExample);
+        Iterator<Product> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            Product product = iterator.next();
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("id", product.getId());
+            jsonObject.put("name", product.getName());
+            jsonObject.put("subTittle", product.getSubtitle());
+            jsonObject.put("originalPrice", product.getOriginalprice());
+            jsonObject.put("promotePrice", product.getPromoteprice());
+            jsonObject.put("stock", product.getStock());
+            jsonObject.put("sales", product.getSales());
+            jsonObject.put("createTime", DateUtil.getTime(product.getCreatetime()));
+            jsonArray.add(jsonObject);
+        }
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("data", jsonArray);
+        jsonObject.put("count", Count);
+        return jsonObject;
+    }
+
+    @Override
+    public int deleteProduct(List<Integer> list) {
+        ProductExample productExample = new ProductExample();
+        productExample.or().andIdIn(list);
+        return productMapper.deleteByExample(productExample);
     }
 
 }

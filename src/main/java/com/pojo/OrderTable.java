@@ -25,6 +25,10 @@ public class OrderTable {
 
     private String username;
 
+    private String productName;//商品名
+
+    private Integer number;//购买数量
+
     public String getId() {
         return id;
     }
@@ -111,5 +115,21 @@ public class OrderTable {
 
     public void setUsername(String username) {
         this.username = username == null ? null : username.trim();
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
     }
 }

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../css/okadmin.css">
+</head>
+<body>
+<div class="ok-body">
+    <!--面包屑导航区域-->
+    <div class="ok-body-breadcrumb">
+        <span class="layui-breadcrumb">
+            <a><cite>首页</cite></a>
+            <a><cite>用户管理</cite></a>
+            <a><cite>用户列表</cite></a>
+        </span>
+        <a class="layui-btn layui-btn-sm" href="javascript:location.replace(location.href);" title="刷新">
+            <i class="layui-icon layui-icon-refresh"></i>
+        </a>
+    </div>
+    <!--模糊搜索区域-->
+    <div class="layui-row">
+        <form class="layui-form layui-col-md12 ok-search">
+            <input class="layui-input" placeholder="开始日期" autocomplete="off" id="startTime" name="startTime">
+            <input class="layui-input" placeholder="截止日期" autocomplete="off" id="endTime" name="endTime">
+            <input class="layui-input" placeholder="请输入用户名" autocomplete="off" name="username">
+            <button class="layui-btn" lay-submit="" lay-filter="search">
+                <i class="layui-icon layui-icon-search"></i>
+            </button>
+        </form>
+    </div>
+    <!--数据表格-->
+    <table class="layui-hide" id="tableId" lay-filter="tableFilter"></table>
+</div>
+<!--js逻辑-->
+<script src="../../lib/layui/layui.js"></script>
+<script>
+    layui.use(["element", "table", "form", "laydate", "okLayer", "okUtils"], function () {
+        var table = layui.table;
+        var form = layui.form;
+        var laydate = layui.laydate;
+        var util = layui.util;
+        var okLayer = layui.okLayer;
+        var okUtils = layui.okUtils;
+
+        util.fixbar({});
+
+        laydate.render({elem: "#startTime", type: "datetime"});
+        laydate.render({elem: "#endTime", type: "datetime"});
+
+        var userTable = table.render({
+            elem: "#tableId",
+            url: "/adminGetUser",
+            method: "get",
+            limit: 20,
+            page: true,
+            toolbar: true,
+            toolbar: "#toolbarTpl",
+            size: "sm",
+            cols: [[
+                {type: "checkbox"},
+                {field: "id", title: "用户名", width: 200},
+                {field: "role", title: "角色", width: 100},
+                {field: "email", title: "邮箱", width: 200},
+                {field: "phone", title: "电话号码", width: 200},
+                {field: "createTime", title: "注册时间", width: 200, sort: true},
+                {field: "registerIp", title: "注册IP", width: 150},
+                {field: "status", title: "账户状态", width: 100, templet: "#statusTpl", sort: true},
+                {title: "操作", width: 100, align: 'center', templet: "#operationTpl", fixed: "right"}
+            ]],
+            done: function (res, curr, count) {
+                console.log(res, curr, count)
+            }
+        });
+
+        form.on("submit(search)", function (data) {
+            userTable.reload({
+                where: data.field,
+                page: {curr: 1}
+            });
+            return false;
+        });
+
+        table.on("toolbar(tableFilter)", function (obj) {
+            switch (obj.event) {
+                case "batchEnabled":
+                    batchEnabled();
+                    break;
+                case "batchDisabled":
+                    batchDisabled();
+                    break;
+                case "add":
+                    add();
+                    break;
+            }
+        });
+
+        table.on("tool(tableFilter)", function (obj) {
+            var data = obj.data;
+            console.log(data);
+            switch (obj.event) {
+                case "edit":
+                    edit(data);
+                    break;
+                case "Enabled":
+                    changeEnabled(data.id, true);
+                    break;
+                case "Disabled":
+                    changeEnabled(data.id, false);
+                    break;
+            }
+        });
+
+        function batchEnabled() {
+            okLayer.confirm("确定要批量启用吗？", function (index) {
+                layer.close(index);
+                var idsStr = okUtils.table.batchCheck(table);
+                if (idsStr) {
+                    let json = {idList: idsStr, state: true};
+                    okUtils.ajax("/adminUserState", "put", JSON.stringify(json)).done(function (response) {
+                        console.log(response)
+                        okUtils.table.successMsg("批量启用成功");
+                    }).fail(function (error) {
+                        console.log(error)
+                    });
+                }
+            });
+        }
+
+        function batchDisabled() {
+            okLayer.confirm("确定要批量停用吗？", function (index) {
+                layer.close(index);
+                var idsStr = okUtils.table.batchCheck(table);
+                if (idsStr) {
+                    let json = {idList: idsStr, state: false};
+                    okUtils.ajax("/adminUserState", "put", JSON.stringify(json)).done(function (response) {
+                        console.log(response)
+                        okUtils.table.successMsg("批量停用成功");
+                    }).fail(function (error) {
+                        console.log(error)
+                    });
+                }
+            });
+        }
+
+        function add() {
+            okLayer.open("添加用户", "user-add.html", "90%", "90%", null, function () {
+                userTable.reload();
+            })
+        }
+
+        function edit(data) {
+            okLayer.open("编辑用户", "user-edit.html", "90%", "90%", function (layero) {
+                var iframeWin = window[layero.find("iframe")[0]["name"]];
+                iframeWin.initForm(data);
+            }, function () {
+                userTable.reload();
+            })
+        }
+
+        function changeEnabled(id, state) {
+            let text = state ? "启用" : "禁用";
+            okLayer.confirm("确定要" + text + "该用户吗？", function () {
+                let json = {idList: id, state: state};
+                okUtils.ajax("/adminUserState", "put", JSON.stringify(json)).done(function (response) {
+                    console.log(response)
+                    okUtils.table.successMsg(text + "成功");
+                }).fail(function (error) {
+                    console.log(error)
+                });
+            })
+        }
+    })
+</script>
+<!-- 头工具栏模板 -->
+<script type="text/html" id="toolbarTpl">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="add"><i class="layui-icon">&#xe61f;</i>添加用户</button>
+        <button class="layui-btn layui-btn-sm layui-btn-normal" lay-event="batchEnabled"><i
+                class="iconfont icon-shangsheng"></i>批量启用
+        </button>
+        <button class="layui-btn layui-btn-sm layui-btn-warm" lay-event="batchDisabled"><i
+                class="iconfont icon-web-icon-"></i>批量停用
+        </button>
+    </div>
+</script>
+<!-- 启用|停用模板
+    <input type="checkbox" name="status" value="{{d.id}}" lay-skin="switch" lay-text="启用|停用" {{ d.status== 0 ? 'checked' : ''}}>
+-->
+<script type="text/html" id="statusTpl">
+    {{#  if(d.status == 1){ }}
+    <span class="layui-btn layui-btn-normal layui-btn-xs">已启用</span>
+    {{#  } else if(d.status != 1) { }}
+    <span class="layui-btn layui-btn-warm layui-btn-xs">已停用</span>
+    {{#  } }}
+</script>
+<!-- 行工具栏模板 -->
+<script type="text/html" id="operationTpl">
+    <a href="javascript:;" title="编辑" lay-event="edit"><i class="layui-icon">&#xe642;</i></a>
+    <a href="javascript:;" title="启用" lay-event="Enabled"><i class="layui-icon">&#xe605;</i></a>
+    <a href="javascript:;" title="禁用" lay-event="Disabled"><i class="layui-icon">&#x1006;</i></a>
+</script>
+</body>
+</html>

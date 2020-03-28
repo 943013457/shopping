@@ -23,8 +23,8 @@
         #{createdate}, #{username});
     </insert>
     <insert id="insertItem" parameterType="com.pojo.OrderTableAndItem">
-        insert into order_item (order_id, username, product_id,number)
+        insert into order_item (order_id, username, product_id,number,status)
         values (#{id}, #{username}, #{productId},
-        #{number})
+        #{number},1)
     </insert>
 </mapper>

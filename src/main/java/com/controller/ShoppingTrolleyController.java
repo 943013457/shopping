@@ -51,4 +51,14 @@ public class ShoppingTrolleyController {
         }
         return myTrolleyService.deleteItem(userName, id) ? JsonLink.Success(true) : JsonLink.Error(false);
     }
+
+    @RequestMapping(value = "/getTrolleyCount", produces = "application/json;charset=utf-8" ,method = RequestMethod.GET)
+    @ResponseBody
+    private String getTrolleyCount() {
+        String userName = UserUtil.getUserName();
+        if (userName == null) {
+            return JsonLink.Error(StateCode.ERR_NOT_LOGIN);
+        }
+        return JsonLink.Success(myTrolleyService.getTrolleyCount(userName));
+    }
 }

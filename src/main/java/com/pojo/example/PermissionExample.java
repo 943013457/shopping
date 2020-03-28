@@ -233,6 +233,276 @@ public class PermissionExample {
             addCriterion("permission_name not between", value1, value2, "permissionName");
             return (Criteria) this;
         }
+
+        public Criteria andFontIsNull() {
+            addCriterion("font is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFontIsNotNull() {
+            addCriterion("font is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFontEqualTo(String value) {
+            addCriterion("font =", value, "font");
+            return (Criteria) this;
+        }
+
+        public Criteria andFontNotEqualTo(String value) {
+            addCriterion("font <>", value, "font");
+            return (Criteria) this;
+        }
+
+        public Criteria andFontGreaterThan(String value) {
+            addCriterion("font >", value, "font");
+            return (Criteria) this;
+        }
+
+        public Criteria andFontGreaterThanOrEqualTo(String value) {
+            addCriterion("font >=", value, "font");
+            return (Criteria) this;
+        }
+
+        public Criteria andFontLessThan(String value) {
+            addCriterion("font <", value, "font");
+            return (Criteria) this;
+        }
+
+        public Criteria andFontLessThanOrEqualTo(String value) {
+            addCriterion("font <=", value, "font");
+            return (Criteria) this;
+        }
+
+        public Criteria andFontLike(String value) {
+            addCriterion("font like", value, "font");
+            return (Criteria) this;
+        }
+
+        public Criteria andFontNotLike(String value) {
+            addCriterion("font not like", value, "font");
+            return (Criteria) this;
+        }
+
+        public Criteria andFontIn(List<String> values) {
+            addCriterion("font in", values, "font");
+            return (Criteria) this;
+        }
+
+        public Criteria andFontNotIn(List<String> values) {
+            addCriterion("font not in", values, "font");
+            return (Criteria) this;
+        }
+
+        public Criteria andFontBetween(String value1, String value2) {
+            addCriterion("font between", value1, value2, "font");
+            return (Criteria) this;
+        }
+
+        public Criteria andFontNotBetween(String value1, String value2) {
+            addCriterion("font not between", value1, value2, "font");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconIsNull() {
+            addCriterion("icon is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconIsNotNull() {
+            addCriterion("icon is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconEqualTo(String value) {
+            addCriterion("icon =", value, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconNotEqualTo(String value) {
+            addCriterion("icon <>", value, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconGreaterThan(String value) {
+            addCriterion("icon >", value, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconGreaterThanOrEqualTo(String value) {
+            addCriterion("icon >=", value, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconLessThan(String value) {
+            addCriterion("icon <", value, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconLessThanOrEqualTo(String value) {
+            addCriterion("icon <=", value, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconLike(String value) {
+            addCriterion("icon like", value, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconNotLike(String value) {
+            addCriterion("icon not like", value, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconIn(List<String> values) {
+            addCriterion("icon in", values, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconNotIn(List<String> values) {
+            addCriterion("icon not in", values, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconBetween(String value1, String value2) {
+            addCriterion("icon between", value1, value2, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconNotBetween(String value1, String value2) {
+            addCriterion("icon not between", value1, value2, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentIsNull() {
+            addCriterion("parent is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentIsNotNull() {
+            addCriterion("parent is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentEqualTo(Integer value) {
+            addCriterion("parent =", value, "parent");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentNotEqualTo(Integer value) {
+            addCriterion("parent <>", value, "parent");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentGreaterThan(Integer value) {
+            addCriterion("parent >", value, "parent");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentGreaterThanOrEqualTo(Integer value) {
+            addCriterion("parent >=", value, "parent");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentLessThan(Integer value) {
+            addCriterion("parent <", value, "parent");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentLessThanOrEqualTo(Integer value) {
+            addCriterion("parent <=", value, "parent");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentIn(List<Integer> values) {
+            addCriterion("parent in", values, "parent");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentNotIn(List<Integer> values) {
+            addCriterion("parent not in", values, "parent");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentBetween(Integer value1, Integer value2) {
+            addCriterion("parent between", value1, value2, "parent");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentNotBetween(Integer value1, Integer value2) {
+            addCriterion("parent not between", value1, value2, "parent");
+            return (Criteria) this;
+        }
+
+        public Criteria andPathIsNull() {
+            addCriterion("path is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPathIsNotNull() {
+            addCriterion("path is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPathEqualTo(String value) {
+            addCriterion("path =", value, "path");
+            return (Criteria) this;
+        }
+
+        public Criteria andPathNotEqualTo(String value) {
+            addCriterion("path <>", value, "path");
+            return (Criteria) this;
+        }
+
+        public Criteria andPathGreaterThan(String value) {
+            addCriterion("path >", value, "path");
+            return (Criteria) this;
+        }
+
+        public Criteria andPathGreaterThanOrEqualTo(String value) {
+            addCriterion("path >=", value, "path");
+            return (Criteria) this;
+        }
+
+        public Criteria andPathLessThan(String value) {
+            addCriterion("path <", value, "path");
+            return (Criteria) this;
+        }
+
+        public Criteria andPathLessThanOrEqualTo(String value) {
+            addCriterion("path <=", value, "path");
+            return (Criteria) this;
+        }
+
+        public Criteria andPathLike(String value) {
+            addCriterion("path like", value, "path");
+            return (Criteria) this;
+        }
+
+        public Criteria andPathNotLike(String value) {
+            addCriterion("path not like", value, "path");
+            return (Criteria) this;
+        }
+
+        public Criteria andPathIn(List<String> values) {
+            addCriterion("path in", values, "path");
+            return (Criteria) this;
+        }
+
+        public Criteria andPathNotIn(List<String> values) {
+            addCriterion("path not in", values, "path");
+            return (Criteria) this;
+        }
+
+        public Criteria andPathBetween(String value1, String value2) {
+            addCriterion("path between", value1, value2, "path");
+            return (Criteria) this;
+        }
+
+        public Criteria andPathNotBetween(String value1, String value2) {
+            addCriterion("path not between", value1, value2, "path");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

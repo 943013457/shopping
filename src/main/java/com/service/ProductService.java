@@ -1,9 +1,10 @@
 package com.service;
 
 import com.alibaba.fastjson.JSONObject;
-import org.springframework.stereotype.Service;
+import com.pojo.example.ProductExample;
 
 import java.util.List;
+
 
 /**
  * @Creator Ming
@@ -16,4 +17,8 @@ public interface ProductService {
     public boolean hasProduct(int id);
 
     public JSONObject getNameAndPrice(int id);
+
+    JSONObject getProductList(ProductExample productExample, int page, int limit);
+
+    int deleteProduct(List<Integer> list);
 }

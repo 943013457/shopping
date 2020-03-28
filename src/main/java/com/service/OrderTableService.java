@@ -1,8 +1,9 @@
 package com.service;
 
-import com.pojo.OrderTable;
+import com.alibaba.fastjson.JSONObject;
 
 import java.util.Date;
+import java.util.Map;
 
 /**
  * @Creator Ming
@@ -18,4 +19,6 @@ public interface OrderTableService {
     public int setOrderPayTime(String id, Date date);
 
     public boolean isEmptyId(String id);
+
+    JSONObject getOrderList(Map paramMap);
 }

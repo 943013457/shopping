@@ -4,6 +4,7 @@ import com.pojo.OrderTable;
 import com.pojo.example.OrderTableExample;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -29,4 +30,8 @@ public interface OrderTableMapper {
     int updateByPrimaryKeySelective(OrderTable record);
 
     int updateByPrimaryKey(OrderTable record);
+
+    List<OrderTable> selectOrderList(Map paramMap);
+
+    long countOrderList(Map paramMap);
 }

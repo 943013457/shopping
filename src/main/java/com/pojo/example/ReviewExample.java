@@ -364,6 +364,10 @@ public class ReviewExample {
             addCriterion("product_id not between", value1, value2, "productId");
             return (Criteria) this;
         }
+        public Criteria andProductIdLike(String productId) {
+            addCriterion("CAST(product_id as CHAR) like", productId, "productId");
+            return (Criteria) this;
+        }
 
         public Criteria andCreatedateIsNull() {
             addCriterion("createDate is null");

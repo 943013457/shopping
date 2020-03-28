@@ -1,4 +1,5 @@
 function getList() {
+    FastTools.initHtml();
     $("#all").html("");
     $("#fk").html("");
     $("#fh").html("");

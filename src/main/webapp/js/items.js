@@ -1,4 +1,5 @@
 $(function () {
+    FastTools.initHtml();
     var pid = parseInt(/[0-9]+/.exec(/(\/items\/){1}[0-9]+/.exec(window.location.pathname)));
     getIsAddTrolley(pid);
     getProductJson(pid);
@@ -106,7 +107,7 @@ $(function () {
     function getProductJson(pid) {
         FastTools.ajax("/getProductJson/" + pid, "GET", "", function (flag, data) {
             if (flag) {
-                var json = JSON.parse(data.msg);
+                var json = data.msg;
                 $(".title").text(json.name);
                 $(".subtitle").text(json.subtitle);
                 $(".yuanjia").text(json.originalprice);
@@ -122,7 +123,7 @@ $(function () {
     function getImageJson(pid) {
         FastTools.ajax("/getImageJson/" + pid, "GET", "", function (flag, data) {
             if (flag) {
-                var json = JSON.parse(data.msg);
+                var json = data.msg;
                 $("#title_img").attr("src", json['top']);
 
                 var small = json['small'];
@@ -154,7 +155,7 @@ $(function () {
     function getPropertyJson(pid) {
         FastTools.ajax("/getPropertyJson/" + pid, "GET", "", function (flag, data) {
             if (flag) {
-                var json = JSON.parse(data.msg);
+                var json = data.msg;
                 for (var j in json) {
                     $(".detail_content>h4").after("<span class=\"detail_font\">" +
                         j +
@@ -171,7 +172,7 @@ $(function () {
             if (flag) {
                 var json = JSON.parse(data.msg);
                 for (var j in json) {
-                    var obj = JSON.parse(json[j]);
+                    var obj = json[j];
                     $(".page_review").append("<div class=\"review_item\">" +
                         "<div class=\"review_content\">" +
                         obj['content'] +

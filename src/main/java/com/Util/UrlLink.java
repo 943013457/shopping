@@ -8,6 +8,7 @@ import java.util.List;
  * @Other
  */
 public class UrlLink {
+    //TODO 将其全部替换成JSONARRAY
     private static String Separator = "";
 
     private static String put(String left, String right) {

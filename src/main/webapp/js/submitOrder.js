@@ -1,4 +1,5 @@
 $(function () {
+    FastTools.initHtml();
     var cookie_json = $.cookie('submitOrderJson') || "";
     init();
     $(".submit_btn").click(submit);

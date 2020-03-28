@@ -2,9 +2,7 @@ package com.mapper;
 
 import com.pojo.RolePermission;
 import com.pojo.example.RolePermissionExample;
-
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 
 public interface RolePermissionMapper {

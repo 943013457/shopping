@@ -1,12 +1,10 @@
 package com.service.imp;
 
-import com.Util.StateCode;
-import com.Util.ToDate;
+import com.Util.DateUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.mapper.*;
 import com.pojo.*;
 import com.pojo.example.OrderItemExample;
-import com.pojo.example.ProductImageExample;
 import com.service.OrderItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,7 +33,7 @@ public class OrderItemServiceImp implements OrderItemService {
         List<String> list = new ArrayList<>();
 
         OrderItemExample orderItemExample = new OrderItemExample();
-        orderItemExample.or().andUsernameEqualTo(username);
+        orderItemExample.or().andUsernameEqualTo(username).andStatusEqualTo(true);
         List<OrderItem> orderItemList = orderItemMapper.selectByExample(orderItemExample);
         Iterator<OrderItem> itemIterator = orderItemList.iterator();
 
@@ -47,7 +45,7 @@ public class OrderItemServiceImp implements OrderItemService {
             jsonObject.put("Number", orderItem.getNumber());
             jsonObject.put("ProductId", orderItem.getProductId());
             //创建时间，价格
-            jsonObject.put("CreateDate", ToDate.getTime(orderItem.getCreatedate()));
+            jsonObject.put("CreateDate", DateUtil.getTime(orderItem.getCreatedate()));
             jsonObject.put("Price", orderItem.getPrice());
             //商品状态
             jsonObject.put("State", orderItem.getState());
@@ -78,7 +76,9 @@ public class OrderItemServiceImp implements OrderItemService {
         }
         OrderItemExample orderItemExample = new OrderItemExample();
         orderItemExample.or().andOrderIdEqualTo(orderId).andUsernameEqualTo(name);
-        return orderItemMapper.deleteByExample(orderItemExample) > 0;
+        OrderItem state = new OrderItem();
+        state.setStatus(false);
+        return orderItemMapper.updateByExampleSelective(state,orderItemExample) > 0;
     }
 
     @Override

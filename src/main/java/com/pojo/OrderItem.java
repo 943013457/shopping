@@ -15,11 +15,13 @@ public class OrderItem {
 
     private Float price;
 
-    private String state;
+    private String state;//支付订单状态
 
     private String name;
 
     private String image;
+
+    private Boolean status;//用户订单关联表状态
 
     public String getOrderId() {
         return orderId;
@@ -91,5 +93,13 @@ public class OrderItem {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 }

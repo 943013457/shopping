@@ -1,4 +1,5 @@
 $(function () {
+    FastTools.initHtml();
     $(".list_li").hover(function () {
         $(this).addClass("selected");
     }, function () {
@@ -29,4 +30,8 @@ $(function () {
         }
     })
 
-})
+});
+
+
+
+

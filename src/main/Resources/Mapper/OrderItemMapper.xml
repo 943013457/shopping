@@ -6,6 +6,7 @@
         <result column="username" jdbcType="VARCHAR" property="username"/>
         <result column="product_id" jdbcType="INTEGER" property="productId"/>
         <result column="number" jdbcType="INTEGER" property="number"/>
+        <result column="status" jdbcType="BIT" property="status" />
     </resultMap>
     <sql id="Example_Where_Clause">
         <where>
@@ -68,7 +69,7 @@
         </where>
     </sql>
     <sql id="Base_Column_List">
-        order_id, username, product_id, number,
+        order_id, username, product_id, number,status,
         (select CreateDate from order_table where id=order_item.order_id)createdate,
         (select price from order_table where id=order_item.order_id)price,
         (select state from pay_table where order_id=order_item.order_id)state,
@@ -107,9 +108,9 @@
     </delete>
     <insert id="insert" parameterType="com.pojo.OrderItem">
         insert into order_item (order_id, username, product_id,
-        number)
+        number,status)
         values (#{orderId,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{productId,jdbcType=INTEGER},
-        #{number,jdbcType=INTEGER})
+        #{number,jdbcType=INTEGER},#{status,jdbcType=BIT})
     </insert>
     <insert id="insertSelective" parameterType="com.pojo.OrderItem">
         insert into order_item
@@ -126,6 +127,9 @@
             <if test="number != null">
                 number,
             </if>
+            <if test="status != null">
+                status,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="orderId != null">
@@ -139,6 +143,9 @@
             </if>
             <if test="number != null">
                 #{number,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=BIT},
             </if>
         </trim>
     </insert>
@@ -163,6 +170,9 @@
             <if test="record.number != null">
                 number = #{record.number,jdbcType=INTEGER},
             </if>
+            <if test="record.status != null">
+                status = #{record.status,jdbcType=BIT},
+            </if>
         </set>
         <if test="_parameter != null">
             <include refid="Update_By_Example_Where_Clause"/>
@@ -173,7 +183,8 @@
         set order_id = #{record.orderId,jdbcType=VARCHAR},
         username = #{record.username,jdbcType=VARCHAR},
         product_id = #{record.productId,jdbcType=INTEGER},
-        number = #{record.number,jdbcType=INTEGER}
+        number = #{record.number,jdbcType=INTEGER},
+        status = #{record.status,jdbcType=BIT}
         <if test="_parameter != null">
             <include refid="Update_By_Example_Where_Clause"/>
         </if>
@@ -190,6 +201,9 @@
             <if test="number != null">
                 number = #{number,jdbcType=INTEGER},
             </if>
+            <if test="status != null">
+                status = #{status,jdbcType=BIT},
+            </if>
         </set>
         where order_id = #{orderId,jdbcType=VARCHAR}
     </update>
@@ -197,7 +211,8 @@
         update order_item
         set username = #{username,jdbcType=VARCHAR},
         product_id = #{productId,jdbcType=INTEGER},
-        number = #{number,jdbcType=INTEGER}
+        number = #{number,jdbcType=INTEGER},
+        status = #{status,jdbcType=BIT}
         where order_id = #{orderId,jdbcType=VARCHAR}
     </update>
     <update id="updateBySales" parameterType="java.lang.String">

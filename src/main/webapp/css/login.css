@@ -14,21 +14,20 @@
     height: 40px;
 }
 
-.header {
-    position: relative;
-    min-height: 800px;
-    background-color: #811000;
+.header{
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 25%;
 }
 
 .login {
-    background-color: #FFFFFF;
-    position: absolute;
-    top: 10%;
-    left: 15%;
+    box-shadow: 0 0 14px #cacbcc;
+    margin: 0 auto;
     width: 300px;
     height: 270px;
     padding: 35px 15px 0px;
-    border-radius: 15px;
+    border-radius: 10px;
     z-index: 1;
 }
 
@@ -94,3 +93,32 @@
     height: 150px;
 }
 
+html {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    background: #fff;
+}
+
+canvas {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.text {
+    width: 100%;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    line-height: 100%;
+    top: 0;
+    position: absolute;
+    top: 50%;
+    font-size: 50px;
+}

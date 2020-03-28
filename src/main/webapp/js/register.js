@@ -1,4 +1,5 @@
 $(function () {
+    FastTools.initHtml();
     //就绪状态
     var username;
     var password;
@@ -10,24 +11,22 @@ $(function () {
             toastr.error("请输入正确数据");
             return;
         }
-        FastTools.ajax("/registerUser", "POST",
-            {"user": username, "password": password, "email": email, "phone": phone},
-            function (flag, data) {
-                if (flag && JSON.parse(data.msg)) {
-                    //注册成功后跳转
-                    self.location = document.referrer;
-                } else {
-                    toastr.error('注册失败，error:' + data.msg);
-                }
-            })
+        let json = {"user": username, "password": password, "email": email, "phone": phone};
+        FastTools.ajax("/registerUser", "POST", JSON.stringify(json), function (flag, data) {
+            if (flag && JSON.parse(data.msg)) {
+                //注册成功后跳转
+                self.location = document.referrer;
+            } else {
+                toastr.error('注册失败，error:' + data.msg);
+            }
+        })
     });
 
     //下一步
     $(".next_btn_1").click(function () {
-        username = false;
         if (!$(this).hasClass("disabled")) {
             $(".username_msg").text("检查用户名...");
-            var username = $("#username").val().replace(" ", "");
+            username = $("#username").val().trim();
             FastTools.ajax("/selectUser/" + username, "GET", "", function (flag, data) {
                 if (flag && JSON.parse(data.msg)) {
                     $(".pagebox").animate({left: '-500px'});

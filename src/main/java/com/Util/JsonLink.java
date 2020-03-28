@@ -1,6 +1,5 @@
 package com.Util;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 import java.util.List;
@@ -33,7 +32,7 @@ public class JsonLink {
     //请求成功
     public static <T> String Success(T Json) {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("msg", BeanToString(Json));
+        jsonObject.put("msg", Json);
         jsonObject.put("code", StateCode.REQUEST_SUCCESS);
         return jsonObject.toJSONString();
     }
@@ -41,23 +40,16 @@ public class JsonLink {
     //请求失败
     public static <T> String Error(T Json) {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("msg", BeanToString(Json));
+        jsonObject.put("msg", Json);
         jsonObject.put("code", StateCode.REQUEST_ERROR);
         return jsonObject.toJSONString();
     }
 
-    //字符串转换
-    private static <T> String BeanToString(T obj) {
-        Class<?> clazz = obj.getClass();
-        if (int.class == clazz || Integer.class == clazz ||
-                long.class == clazz || Long.class == clazz ||
-                float.class == clazz || Float.class == clazz) {
-            return "" + obj;
-        } else if (boolean.class == clazz || Boolean.class == clazz) {
-            return String.valueOf(obj);
-        } else if (String.class == clazz) {
-            return (String) obj;
-        }
-        return JSON.toJSONString(obj);
+    //layUI成功请求
+    public static String LayUISuccess(JSONObject jsonObject) {
+        jsonObject.put("msg", "请求成功");
+        jsonObject.put("code", 0);
+        return jsonObject.toJSONString();
     }
+
 }

@@ -1,4 +1,5 @@
 $(function () {
+    FastTools.initHtml();
     checkPay();
 
 

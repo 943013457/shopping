@@ -1,6 +1,7 @@
 package com.service;
 
 import com.alibaba.fastjson.JSONObject;
+import com.pojo.example.ReviewExample;
 
 import java.util.List;
 
@@ -14,5 +15,8 @@ public interface ReviewService {
 
     public List<String> getReviewJson(int id);
 
-    public boolean addReview(String userName,int productId, String reviewText);
+    public boolean addReview(String userName, int productId, String reviewText);
+
+    JSONObject getProductReviewList(ReviewExample reviewExample, int page, int limit);
+
 }

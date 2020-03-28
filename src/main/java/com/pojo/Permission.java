@@ -5,6 +5,14 @@ public class Permission {
 
     private String permissionName;
 
+    private String font;
+
+    private String icon;
+
+    private int parent;
+
+    private String path;
+
     public Integer getPermissionId() {
         return permissionId;
     }
@@ -19,5 +27,37 @@ public class Permission {
 
     public void setPermissionName(String permissionName) {
         this.permissionName = permissionName == null ? null : permissionName.trim();
+    }
+
+    public String getFont() {
+        return font;
+    }
+
+    public void setFont(String font) {
+        this.font = font == null ? null : font.trim();
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon == null ? null : icon.trim();
+    }
+
+    public int getParent() {
+        return parent;
+    }
+
+    public void setParent(int parent) {
+        this.parent = parent;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path == null ? null : path.trim();
     }
 }

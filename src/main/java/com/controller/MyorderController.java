@@ -4,13 +4,16 @@ import com.Util.JsonLink;
 import com.Util.StateCode;
 import com.Util.UserUtil;
 import com.service.OrderItemService;
+import com.service.OrderTableService;
 import com.service.PayTableService;
 import com.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -20,6 +23,7 @@ import java.util.Map;
  * @Other 我的订单
  */
 @Controller
+@Transactional
 public class MyorderController {
     @Autowired
     private OrderItemService orderItemService;
@@ -27,6 +31,8 @@ public class MyorderController {
     private PayTableService payTableService;
     @Autowired
     private ReviewService reviewService;
+    @Autowired
+    private OrderTableService orderTableService;
 
     @RequestMapping(value = {"/myorder"}, method = RequestMethod.GET)
     private String myorder(HttpServletResponse response) {
@@ -67,7 +73,9 @@ public class MyorderController {
         if (userName == null) {
             return JsonLink.Error(StateCode.ERR_NOT_LOGIN);
         }
-        return payTableService.setAffirmState(map.get("order_id")) ? JsonLink.Success(true) : JsonLink.Error(false);
+        String order_id = map.get("order_id");
+        orderTableService.setOrderPayTime(order_id, new Date());
+        return payTableService.setAffirmState(order_id) ? JsonLink.Success(true) : JsonLink.Error(false);
     }
 
     @RequestMapping(value = "/submitReview", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
@@ -82,7 +90,7 @@ public class MyorderController {
         if (productId == 0) {
             return JsonLink.Error(StateCode.ERR_NOT_ORDER_ID);
         }
-        if(!payTableService.setFinishState(orderId)){
+        if (!payTableService.setFinishState(orderId)) {
             return JsonLink.Error(StateCode.ERR_NOT_STATE);
         }
         return reviewService.addReview(userName, productId, map.get("reviewText")) ? JsonLink.Success(true) : JsonLink.Error(false);

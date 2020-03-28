@@ -31,4 +31,5 @@ public interface OrderItemMapper {
     int updateByPrimaryKey(OrderItem record);
 
     int updateBySales(String orderId);
+
 }

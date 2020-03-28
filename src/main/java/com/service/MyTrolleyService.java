@@ -15,4 +15,6 @@ public interface MyTrolleyService {
     public boolean insertItem(String username, int productID, int number);
 
     public boolean isAddTrolley(String username, int productID);
+
+    long getTrolleyCount(String username);
 }

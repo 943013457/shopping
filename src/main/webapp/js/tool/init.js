@@ -17,11 +17,13 @@ $(function () {
                     "<a class='top-text' href='" + this.registerAction + "'>免费注册</a>";
             }
             //顶部导航条
+            var trolleyCount = this.getTrolleyCount();
             var nav_html =
-                "<span id='top-welcome'>" + this.welcomeText + loginHtml + "</span>" +
+                "<span id='top-welcome'><a class='top-text' style='margin-right: 10px' href='/index'>商城首页</a>"
+                + this.welcomeText + loginHtml + "</span>" +
                 "<span id='pull-right'>" +
                 "   <a class='top-text' href='/myorder'>我的订单</a>" +
-                "   <a class='top-text' href='/shoppingTrolley'>购物车</a>" +
+                "   <a class='glyphicon glyphicon-shopping-cart top-text' href='/shoppingTrolley'>购物车" + trolleyCount + "件</a>" +
                 "</span>"
             $("#nav-top").html(nav_html);
             //搜索框
@@ -178,6 +180,16 @@ $(function () {
             });
             return ret;
         },
+        getTrolleyCount: function () {
+            let ret = 0;
+            this.isAsync = false;
+            this.ajax("/getTrolleyCount", "GET", "", function (flag, data) {
+                if (flag) {
+                    ret = data.msg;
+                }
+            })
+            return ret;
+        },
         getQueryValue: function (name) {
             var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
             var r = window.location.search.substr(1).match(reg);
@@ -215,6 +227,6 @@ $(function () {
         }
     }
     //页面初始化
-    FastTools.initHtml();
+    // FastTools.initHtml();
     window.FastTools = FastTools;
 })

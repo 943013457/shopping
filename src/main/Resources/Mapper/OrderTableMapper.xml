@@ -13,6 +13,8 @@
         <result column="deliveryDate" jdbcType="TIMESTAMP" property="deliverydate"/>
         <result column="confirmDate" jdbcType="TIMESTAMP" property="confirmdate"/>
         <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="productName" jdbcType="VARCHAR" property="productName"/>
+        <result column="number" jdbcType="INTEGER" property="number"/>
     </resultMap>
     <sql id="Example_Where_Clause">
         <where>
@@ -305,4 +307,64 @@
         username = #{username,jdbcType=VARCHAR}
         where id = #{id,jdbcType=VARCHAR}
     </update>
+    <select id="selectOrderList" resultMap="BaseResultMap">
+        select a.id,c.name as
+        productname,a.address,a.receiver,a.phone,a.userMessage,a.price,b.number,a.createDate,a.payDate,a.deliveryDate,a.confirmDate,a.username
+        from order_table a left join order_item b on a.id=b.order_id
+        left join product c on b.product_id=c.id
+        <where>
+            <if test="id != null and id!=''">
+                AND a.id like '%${id}%'
+            </if>
+            <if test="productName != null and productName!=''">
+                AND c.name like '%${productName}%'
+            </if>
+            <if test="createDate != null and createDate!=''">
+                AND DATEDIFF(a.createDate,#{createDate})=0
+            </if>
+            <if test="payDate != null and payDate!=''">
+                AND DATEDIFF(a.payDate,#{payDate})=0
+            </if>
+            <if test="deliveryDate != null and deliveryDate!=''">
+                AND DATEDIFF(a.deliveryDate,#{deliveryDate})=0
+            </if>
+            <if test="confirmDate != null and confirmDate!=''">
+                AND DATEDIFF(a.confirmDate,#{confirmDate})=0
+            </if>
+            <if test="userName != null and userName!=''">
+                AND a.username like '%${userName}%'
+            </if>
+        </where>
+        <if test="limit != null and page != null">
+            limit ${page},${limit}
+        </if>
+    </select>
+    <select id="countOrderList" resultType="java.lang.Long">
+        select count(1)
+        from order_table a left join order_item b on a.id=b.order_id
+        left join product c on b.product_id=c.id
+        <where>
+            <if test="id != null and id!=''">
+                AND a.id like '%${id}%'
+            </if>
+            <if test="productName != null and productName!=''">
+                AND c.name like '%${productName}%'
+            </if>
+            <if test="createDate != null and createDate!=''">
+                AND DATEDIFF(a.createDate,#{createDate})=0
+            </if>
+            <if test="payDate != null and payDate!=''">
+                AND DATEDIFF(a.payDate,#{payDate})=0
+            </if>
+            <if test="deliveryDate != null and deliveryDate!=''">
+                AND DATEDIFF(a.deliveryDate,#{deliveryDate})=0
+            </if>
+            <if test="confirmDate != null and confirmDate!=''">
+                AND DATEDIFF(a.confirmDate,#{confirmDate})=0
+            </if>
+            <if test="userName != null and userName!=''">
+                AND a.username like '%${userName}%'
+            </if>
+        </where>
+    </select>
 </mapper>

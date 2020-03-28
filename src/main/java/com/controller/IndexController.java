@@ -2,11 +2,14 @@ package com.controller;
 
 import com.Util.JsonLink;
 import com.service.CategoryService;
+import com.shiro.PageDistribute;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @Creator Ming
@@ -19,8 +22,9 @@ public class IndexController {
     CategoryService categoryService;
 
     @RequestMapping(value = "/index")
-    private String index() {
-        return "index";
+    private String index(HttpServletRequest request) {
+        //页面分发
+        return PageDistribute.getRoleIndex(request);
     }
 
     @RequestMapping(value = "/getIndexCategory", method = RequestMethod.GET, produces = "application/json;charset=utf-8")

@@ -1,4 +1,5 @@
 $(function () {
+    FastTools.initHtml();
     init();
     $(".check_all_icon").click(function () {
         var allcheck = $(this).children("span");

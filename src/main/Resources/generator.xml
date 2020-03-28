@@ -41,7 +41,7 @@
         </javaClientGenerator>
 
 <!--                <table tableName="login" domainObjectName="LoginUser"/>-->
-                <table tableName="category" domainObjectName="Category"/>
+<!--                <table tableName="category" domainObjectName="Category"/>-->
         <!--        <table tableName="order_item" domainObjectName="OrderItem"/>-->
         <!--        <table tableName="order_table" domainObjectName="OrderTable"/>-->
 <!--                <table tableName="product" domainObjectName="Product"/>-->
@@ -49,10 +49,13 @@
 <!--                <table tableName="property" domainObjectName="Property"/>-->
         <!--        <table tableName="review" domainObjectName="Review"/>-->
         <!--        <table tableName="role_permission" domainObjectName="RolePermission"/>-->
-        <!--        <table tableName="u_permission" domainObjectName="Permission"/>-->
-        <!--        <table tableName="u_role" domainObjectName="Role"/>-->
+<!--                <table tableName="u_permission" domainObjectName="Permission"/>-->
+<!--                <table tableName="u_role" domainObjectName="Role"/>-->
+<!--                <table tableName="u_user_role" domainObjectName="UserRole"/>-->
+<!--                <table tableName="u_role_permission" domainObjectName="RolePermission"/>-->
         <!--        <table tableName="trolley" domainObjectName="Trolley"/>-->
         <!--        <table tableName="pay_table" domainObjectName="PayTable"/>-->
+                <table tableName="pay_table_log" domainObjectName="PayTableLog"/>
 
     </context>
 </generatorConfiguration>
