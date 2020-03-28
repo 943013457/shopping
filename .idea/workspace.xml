@@ -6,31 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d30f27b1-caf4-4a7a-b6d4-a9c913916a01" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shopping.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Resources/Mapper/OrderItemMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/Mapper/OrderItemMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Resources/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/jdbc.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Util/StateCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Util/StateCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/AlipayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/AlipayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/MyorderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/MyorderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/SubmitOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/SubmitOrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mapper/OrderItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mapper/OrderItemMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/OrderItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/OrderItemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/OrderTableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/OrderTableService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/PayTableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/PayTableService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/ReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/imp/OrderItemServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/imp/OrderItemServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/imp/OrderTableServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/imp/OrderTableServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/imp/PayTableServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/imp/PayTableServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/imp/ReviewServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/imp/ReviewServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/myorder.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/myorder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/myorder.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/myorder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/payState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/payState.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/shoppingTrolley.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/shoppingTrolley.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/submitOrder.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/submitOrder.js" afterDir="false" />
-    </list>
+    <list default="true" id="d30f27b1-caf4-4a7a-b6d4-a9c913916a01" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,19 +122,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat9">
-    <configuration name="generatorTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.test.generatorTest" />
-      <module name="shopping" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="JsonTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shopping" />
       <extension name="coverage">
@@ -281,7 +244,6 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.generatorTest" />
       <item itemvalue="JUnit.UrlLinkTest.test" />
       <item itemvalue="JUnit.JsonTest.test" />
       <item itemvalue="JUnit.RedisTest.test" />
@@ -290,7 +252,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.RedisTest.test" />
-        <item itemvalue="Application.generatorTest" />
         <item itemvalue="JUnit.JsonTest.test" />
         <item itemvalue="JUnit.UrlLinkTest.test" />
       </list>
@@ -436,6 +397,9 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/shopping$pachong.ic" NAME="pachong Coverage Results" MODIFIED="1584111143841" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.test.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/shopping$Tomcat9.ic" NAME="Tomcat9 Coverage Results" MODIFIED="1565928876355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
