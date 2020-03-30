@@ -1,6 +1,8 @@
 package com.service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.pojo.PayTable;
+import com.pojo.example.PayTableExample;
 
 import java.util.List;
 
@@ -25,4 +27,6 @@ public interface PayTableService {
     public boolean setAffirmState(String orderId);
 
     public boolean setFinishState(String orderId);
+
+    JSONObject getPayOrderList(PayTableExample payTableExample, int page, int limit);
 }

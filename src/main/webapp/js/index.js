@@ -9,7 +9,7 @@ $(function () {
     //获取推荐商品
     FastTools.ajax("/getIndexCategory", "GET", "", function (flag, data) {
         if (flag) {
-            let json = JSON.parse(data.msg);
+            let json = data.msg;
             for (let name in json) {
                 let html = "";
                 html += "<div class='tuijian_top'>" +
@@ -30,6 +30,10 @@ $(function () {
         }
     })
 
+    $(".list_li a").click(function () {
+        let val = this.text;
+        window.location.href = FastTools.location("/search?productName=" + val);
+    })
 });
 
 

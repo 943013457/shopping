@@ -84,7 +84,7 @@ public class ReviewServiceImp implements ReviewService {
             jsonObject.put("productId",review.getProductId());
             jsonObject.put("username",review.getUsername());
             jsonObject.put("content",review.getContent());
-            jsonObject.put("createDate",review.getCreatedate());
+            jsonObject.put("createDate",DateUtil.getTime(review.getCreatedate()));
             jsonArray.add(jsonObject);
         }
         JSONObject jsonObject = new JSONObject();

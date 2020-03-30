@@ -1,5 +1,7 @@
 package com.service.imp;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.mapper.OrderItemMapper;
 import com.mapper.PayTableMapper;
 import com.pojo.PayTable;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -83,6 +86,24 @@ public class PayTableServiceImp implements PayTableService {
         payTable.setOrderId(orderId);
         payTable.setState("FINISH");
         return payTableMapper.updateByPrimaryKeySelective(payTable) > 0;
+    }
+
+    @Override
+    public JSONObject getPayOrderList(PayTableExample payTableExample, int page, int limit) {
+        payTableExample.setOrderByClause("null limit " + (page - 1) * limit + "," + limit);
+        List<PayTable> payTableList = payTableMapper.selectByExample(payTableExample);
+        JSONArray jsonArray = new JSONArray();
+        for(PayTable payTable : payTableList){
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("orderId",payTable.getOrderId());
+            jsonObject.put("payId",payTable.getPayId());
+            jsonObject.put("state",payTable.getState());
+            jsonArray.add(jsonObject);
+        }
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("data",jsonArray);
+        jsonObject.put("count",payTableMapper.countByExample(payTableExample));
+        return jsonObject;
     }
 
 
